@@ -1,0 +1,64 @@
+/*--------------------------------------- Indice ------------------------------------------*/
+/*
+    -- Fuente
+    -- Variables
+    -- Generales
+    -- Header / Skip navigation
+    -- Nav / Menu
+    -- Utilities
+    -- Media queries
+/*
+
+/*          Fuente              */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); 
+/*          Variables           */
+:root {
+    --green-900: #1F5834;
+    --green-700: #4D8E4C;
+    --green-500: #509C57;
+    --green-400: #84A894;
+    --light-gray: #E2EBE8;
+    --black: #000000;
+    --black-900: #171715;
+    --white: #FFFFFF;
+    --white-500: #E3ECE8;
+}
+/*          Generales           */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+img, picture, video, canvas, svg {
+    max-width: 100%;
+}
+body {
+    background-color: var(--light-gray) !important;/*No es buena practica, pero bueno antes de colocar una mala practica en el html, prefiero hacerlo acá*/
+    font-family: 'Roboto', sans-serif !important;
+}
+/*              Header                  */
+.skip-color {
+    color: var(--green-700);
+    font-weight: bold;
+}
+/*              Navbar              */
+.nav-item > .nav-link {
+    color: var(--green-700);
+}
+/*              Utilities             */
+.bg-black {   
+    background-color: var(--black);
+    
+}
+.btn-green {
+    background-color: var(--green-700) !important;
+    color: var(--white) !important;
+}
+.btn-green:hover {
+    background-color: transparent !important;
+    color: var(--green-700) !important;
+    border: 2px solid var(--green-700) !important;
+}
+.text-green {
+    color: var(--green-700);
+}
