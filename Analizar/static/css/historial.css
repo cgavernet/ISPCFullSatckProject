@@ -1,0 +1,25 @@
+.grafico {
+    border-radius: 10px;
+    margin: 1%;
+    background-color: white
+}
+.graficobarras {
+    padding: 1%;
+    width: 28%;
+    float: left;
+  }
+.graficolineas {
+    padding: 1%;
+    width: 68%;
+    float:right;
+  }
+ .titulo{
+    text-align: center;
+    color: var(--green-700);
+ }
+  #myChart {
+    margin: auto;
+  }
+  #myChart2 {
+    margin: auto;
+  }
