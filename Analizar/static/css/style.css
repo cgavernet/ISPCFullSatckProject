@@ -35,11 +35,15 @@ img, picture, video, canvas, svg {
 body {
     background-color: var(--light-gray) !important;/*No es buena practica, pero bueno antes de colocar una mala practica en el html, prefiero hacerlo acá*/
     font-family: 'Roboto', sans-serif !important;
+    min-height: 100vh;
+    position: relative;
 }
+
 main {
     width: 100%;
-    min-height: 80vh;
-    padding: 3.37rem 0;
+    /* min-height: 80vh; */
+    min-height: 75.2vh;
+    padding: 3.37rem 0 6rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,6 +103,15 @@ main {
 .text-green {
     color: var(--green-700);
 }
+
+/*              Footer             */
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+}
+
 /*              Media query                     */
 @media screen and (max-width: 1024px){
 
@@ -116,6 +129,9 @@ main {
     html {
         font-size: 90%;
     }
+    main {
+        padding-bottom: 8rem;    
+    }
     .sidebar{
         min-height: 85vh;
     }
@@ -123,6 +139,7 @@ main {
 }
 
 @media screen and (max-width: 420px){
+
     .sidebar{
         min-height: 100%;
         position: static;
