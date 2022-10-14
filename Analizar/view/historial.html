@@ -21,7 +21,7 @@
       <a class="visually-hidden-focusable skip-color" href="#footer">Skip to footer</a>
     </header>
     <nav class="navbar navbar-expand-lg border-1-green">
-        <div class="container-fluid">
+        <div class="container-fluid justify-content-between">
           <button class="bg-transparent border-0" type="submit" id="menuLateral">
             <i id="changeIcon" class="d-inline-block align-text-top mx-2 bi bi-list display-6 text-green"></i>
           </button>
@@ -29,7 +29,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav fw-bold">
+            <ul class="navbar-nav fw-bold align-items-center">
               <li class="nav-item mx-4">
                 <a class="nav-link" href="#">Bienvenido, @User</a>
               </li>
@@ -40,68 +40,76 @@
           </div>
         </div>
     </nav>
-    <div class="grafico graficobarras">
-      <div class="titulo">Consumo Mensual Kw/h</div>
-      <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-      <script>
-          var xValues = ["Marzo", "Abril", "Mayo", "junio", "Julio"];
-          var yValues = [550, 490, 440, 240, 350];
-          var barColors = ["red", "green","blue","orange","brown"];
-          
-          new Chart("myChart", {
-            type: "bar",
-            data: {
-              labels: xValues,
-              datasets: [{
-                backgroundColor: '#1F5834',
-                data: yValues
-              }]
-            },
-            options: {
-              legend: {display: false},
-              title: {
-                display: false,
-                text: "Consumo Mensual Kw/h"
-              }
-            }
-          });
-          </script>
-    </div>
-    <div class="grafico graficolineas">
-      <div class="titulo">Consumo ultimas 24hs en Kw/h</div>
-      <canvas id="myChart2" style="width:100%;max-width:800px"></canvas>
-      <script>
-          var xValues = ['10:50','11:00','11:10','11:20','11:30','11:40','11:50','12:00','12:10','12:20','12:30','12:40','12:50','13:00','13:10','13:20','13:30','13:40','13:50','14:00'];
-          var yValues = [70,80,80,90,90,90,100,110,140,140,150,60,60,60,45,45,40,40,10,5];
-          
-          new Chart("myChart2", {
-            type: "line",
-            data: {
-              labels: xValues,
-              datasets: [{
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "#1F5834",
-                borderColor: "#509C57",
-                data: yValues
-              }]
-            },
-            options: {
-              legend: {display: false},
-              title: {
-                display: false,
-                text: "Consumo ultimas 24hs en Kw/h"
+    <nav id="submenu" class="m-0 sidebar">
+      <ul class="list-unstyled bg-green m-auto align-items-center">
+        <li class="list-sidebar"><a class="list-sidebar-item" href="">INICIO</a></li>
+        <li class="list-sidebar"><a class="list-sidebar-item" href="">Historial</a></li>
+        <li class="list-sidebar"><a class="list-sidebar-item" href="">Alertas</a></li>
+        <li class="list-sidebar"><a class="list-sidebar-item" href="">Cuenta</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section class="grafico graficobarras">
+        <div class="titulo">Consumo Mensual Kw/h</div>
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        <script>
+            var xValues = ["Marzo", "Abril", "Mayo", "junio", "Julio"];
+            var yValues = [550, 490, 440, 240, 350];
+            var barColors = ["red", "green","blue","orange","brown"];
+            
+            new Chart("myChart", {
+              type: "bar",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: '#1F5834',
+                  data: yValues
+                }]
               },
-              scales: {
-                yAxes: [{ticks: {min: 0, max:160}}],
+              options: {
+                legend: {display: false},
+                title: {
+                  display: false,
+                  text: "Consumo Mensual Kw/h"
+                }
               }
-            }
-          });
-      </script>
-    </div>
-
-    
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 fixed-bottom bg-black">
+            });
+            </script>
+      </section>
+      <section class="grafico graficolineas">
+        <div class="titulo">Consumo ultimas 24hs en Kw/h</div>
+        <canvas id="myChart2" style="width:100%;max-width:800px"></canvas>
+        <script>
+            var xValues = ['10:50','11:00','11:10','11:20','11:30','11:40','11:50','12:00','12:10','12:20','12:30','12:40','12:50','13:00','13:10','13:20','13:30','13:40','13:50','14:00'];
+            var yValues = [70,80,80,90,90,90,100,110,140,140,150,60,60,60,45,45,40,40,10,5];
+            
+            new Chart("myChart2", {
+              type: "line",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "#1F5834",
+                  borderColor: "#509C57",
+                  data: yValues
+                }]
+              },
+              options: {
+                legend: {display: false},
+                title: {
+                  display: false,
+                  text: "Consumo ultimas 24hs en Kw/h"
+                },
+                scales: {
+                  yAxes: [{ticks: {min: 0, max:160}}],
+                }
+              }
+            });
+        </script>
+      </section>
+    </main>
+    <footer class="d-flex flex-column flex-nowrap justify-content-between align-items-center p-3 bg-black">
         <div class="col-md-12 d-flex align-items-center mb-2">
           <span class="m-auto mb-3 mb-md-0 text-white">© Copyright AnalizAr - Dev Full Solutions. Todos los derechos reservados</span>
         </div>
@@ -115,6 +123,5 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="../static/js/effects.js"></script>
-    
   </body>
 </html>
