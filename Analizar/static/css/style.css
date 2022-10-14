@@ -98,3 +98,40 @@ main {
 .text-green {
     color: var(--green-700);
 }
+/*              Media query                     */
+@media screen and (max-width: 1024px){
+
+    html {
+        font-size: 95%;
+    }
+    .sidebar{
+        min-height: 90vh;
+    }
+
+}
+
+@media screen and (max-width: 720px){
+
+    html {
+        font-size: 90%;
+    }
+    .sidebar{
+        min-height: 85vh;
+    }
+
+}
+
+@media screen and (max-width: 420px){
+    .sidebar{
+        min-height: 100%;
+        position: static;
+        width: 100%;
+    }
+    .list-sidebar-item:hover {
+        width: 100vw;
+    }
+    
+    footer {
+        text-align: center;
+    }
+}
