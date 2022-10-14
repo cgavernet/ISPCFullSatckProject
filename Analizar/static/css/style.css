@@ -86,11 +86,12 @@ main {
 .btn-green {
     background-color: var(--green-700) !important;
     color: var(--white) !important;
+    border: 2px solid  transparent !important;
 }
 .btn-green:hover {
     background-color: transparent !important;
     color: var(--green-700) !important;
-    border: 2px solid  transparent var(--green-700) !important;
+    border: 2px solid var(--green-700) !important;
 }
 .border-1-green {
     border-bottom: 3px solid var(--green-700);
