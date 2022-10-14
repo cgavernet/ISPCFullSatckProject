@@ -36,6 +36,14 @@ body {
     background-color: var(--light-gray) !important;/*No es buena practica, pero bueno antes de colocar una mala practica en el html, prefiero hacerlo acá*/
     font-family: 'Roboto', sans-serif !important;
 }
+main {
+    width: 100%;
+    min-height: 80vh;
+    padding: 3.37rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /*              Header                  */
 .skip-color {
     color: var(--green-700);
@@ -44,6 +52,31 @@ body {
 /*              Navbar              */
 .nav-item > .nav-link {
     color: var(--green-700);
+}
+/*              Sidebar              */
+.sidebar {
+    background-color: var(--green-700);
+    transition: all 1.5s;
+    position: absolute;
+    min-height: 80vh;
+    width: 15em;
+    z-index: 1;
+}
+.list-sidebar{
+    flex-grow: 1;
+    text-align: center;
+}
+.list-sidebar-item {
+    color: var(--white);
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 0;
+}
+.list-sidebar-item:hover{
+    background-color: var(--white);
+    color: var(--green-700);
+    width: 15em;
 }
 /*              Utilities             */
 .bg-black {   
