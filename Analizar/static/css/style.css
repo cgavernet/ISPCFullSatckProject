@@ -65,6 +65,13 @@ main {
     min-height: 80vh;
     width: 15em;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    left: -15em;
+    transition: left .5s ease;
+}
+.sidebar-activo {
+    left: 0;
 }
 .list-sidebar{
     flex-grow: 1;
@@ -118,9 +125,7 @@ footer {
     html {
         font-size: 95%;
     }
-    .sidebar{
-        min-height: 90vh;
-    }
+    
 
 }
 
@@ -141,9 +146,15 @@ footer {
 @media screen and (max-width: 420px){
 
     .sidebar{
-        min-height: 100%;
-        position: static;
+        height: 50%;
         width: 100%;
+        font-size: 1.4rem;
+        left: 0;
+        clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+        transition: clip-path .5s ease;
+    }
+    .sidebar-activo {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%)
     }
     .list-sidebar-item:hover {
         width: 100vw;
