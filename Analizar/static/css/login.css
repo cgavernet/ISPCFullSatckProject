@@ -179,7 +179,8 @@ body{
 .form .login-signup {
     margin: 30px;
     text-align: center;
-
+    display: flex;
+    flex-direction: column;
 }
 
 
