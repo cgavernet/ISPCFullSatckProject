@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="/Analizar/static/css/login.css">
+    <title>Login</title>
+</head>
+<body>
+  
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+            <form action="#">
+                <div class="input-field">
+                    <input type="email" placeholder="Ingresa tu e-mail" required>
+                    <i class="uil uil-envelope icon"></i>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="password" placeholder="Ingresa tu contraseña" required>
+                    <i class="uil uil-lock icon"></i>
+                    <i class="uil uil-eye-slash showHidePw"></i>
+                </div>
+
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="logCheck">
+                        <label for="logCheck" class="text">Recuérdame</label>
+                    </div>
+
+                    <a href="#" class="text signup-link">Olvidaste tu contraseña?</a>
+                </div>
+
+                <div class="input-field button">
+                     <a href="/Analizar/view/home.html"><input type="button"  value="Ingresar"></a>
+                </div>
+            </form>
+            
+                <div class="login-signup">
+                    <span class="text">No estás registrado?
+                        <a href="#" class="text signup-link">Regístrate ahora</a>
+                    </span>
+                </div>    
+            </div>
+
+           <!-- Formulario de "olvidó su contraseña"-->
+                 <div class="form signup">
+                    <span class="title">Reestablece tu contraseña</span>
+
+            <form action="#">
+                <div class="input-field">
+                    <input type="email" placeholder="Ingresa tu email" required>
+                    <i class="uil uil-envelope icon"></i>
+                </div>
+                
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="sigCheck">
+                        <label for="sigCheck" class="text">Mantener usuario</label>
+                    </div>
+                </div>
+
+                <div class="input-field button">
+                    <input type="button" value="Reestablecer contraseña">
+                </div>
+            </form>
+            
+                <div class="login-signup">
+                    <span class="text">Estás registrado?
+                        <a href="#" class="text login-link">Ingresar</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/Analizar/static/js/login.js"></script>
+
+</body>
+</html>
