@@ -20,6 +20,8 @@ main {
     align-items: center;
 }
 
+/* ---------- Primer Tabla ---------- */
+
 section.tabla-datos {
     width: 50%;
     height: 80%;
@@ -28,6 +30,8 @@ section.tabla-datos {
     grid-template-columns: 1fr;
     grid-template-rows: .4fr 1.6fr;
 }
+
+/* ---------- Encabezado - Primer Tabla ---------- */
 
 header.encabezado-tabla-datos {
     display: grid;
@@ -53,6 +57,11 @@ nav.menu-tabla-datos a.link-tabla-datos {
     border: 1px solid transparent;
 }
 
+nav.menu-tabla-datos a.link-tabla-datos:hover,
+nav.menu-tabla-datos a.link-tabla-datos-activo {
+    background-color: var(--green-400);
+}
+
 h2.encabezado-tabla-datos {
     background-color: var(--green-400);
     text-transform: capitalize;
@@ -62,19 +71,16 @@ h2.encabezado-tabla-datos {
     color: var(--white);
 }
 
-nav.menu-tabla-datos a.link-tabla-datos:hover,
-nav.menu-tabla-datos a.link-tabla-datos-activo {
-    background-color: var(--green-400);
-}
+/* ---------- Cuerpo - Primer Tabla ---------- */
 
-.contenedor-general-tabla-datos {
+div.contenedor-general-tabla-datos {
     display: grid;
     place-items: center;
     padding: 1rem 0;
     position: relative;
 }
 
-.contenedor-interno-tabla-datos {
+div.contenedor-interno-tabla-datos {
     border: 2px solid var(--green-500);
     border-radius: 50%;
     width: 250px;
@@ -85,18 +91,13 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     padding-top: 3rem;
 }
 
-.consumo-datos {
+h2.consumo-datos {
     color: var(--green-500);
     font-size: 2.6rem;
     font-weight: 500;
 }
 
-.precio-datos {
-    font-size: 1.6rem;
-    margin-bottom: 2.5rem;
-}
-
-.container-flex-row {
+div.container-flex-row {
     width: 55%;
     display: flex;
     flex-flow: row nowrap;
@@ -105,7 +106,12 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     gap: .5rem;
 }
 
-.btn-edit {
+h3.precio-datos {
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+}
+
+button.btn-edit {
     font-size: 1.24rem;
     border-radius: 50% !important;
     border: 2px solid transparent;
@@ -113,12 +119,18 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     background-color: var(--white);
 }
 
-.btn-edit:hover {
+button.btn-edit:hover {
     color: var(--green-700);
-    /* border: 2px solid var(--green-700); */
 }
 
-.formulario-edit-precio {
+div.contenedor-interno-tabla-datos button.btn {
+    font-size: 1rem;
+    padding: .6rem;
+}
+
+/* ---------- Formulario Edit - Primer Tabla ---------- */
+
+form.formulario-edit-precio {
     background-color: var(--white);
     width: 50vw;
     height: 40vh;
@@ -129,19 +141,19 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     align-items: center;
 }
 
-.title-modo-edit {
+p.title-modo-edit {
     text-transform: uppercase;
     font-weight: 600;
 }
 
-.inputContainer {
+div.inputContainer {
     position: relative;
     height: 45px;
     width: 200px;
     margin-bottom: 1rem;
 }
 
-.input {
+input.input {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -157,7 +169,7 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
 }
 
 
-.label {
+label.label {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -173,7 +185,7 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     color: transparent;
 }
 
-.input:focus + .label {
+input.input:focus + label.label {
     top: -7px;
     left: 3px;
     z-index: 10;
@@ -182,7 +194,7 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     color: var(--green-700);
 }
 
-.input:not(:placeholder-shown)+ .label {
+input.input:not(:placeholder-shown)+ label.label {
     top: -7px;
     left: 3px;
     z-index: 10;
@@ -190,12 +202,12 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     font-weight: 600;
 }
 
-.input:focus {
+input.input:focus {
     border: 2px solid var(--green-700);
 }
 
 
-.submitBtn {
+input.submitBtn {
     padding: .4rem .6rem;
     border: none;
     color: var(--white);
@@ -205,33 +217,21 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
 }
 
 
-.saveBtn {
+input.saveBtn {
     background-color: var(--green-700);
 }
   
-.cancelBtn {
+input.cancelBtn {
     background-color: var(--rojo);
 }
   
   
-.submitBtn:hover {
+input.submitBtn:hover {
     background-color: var(--gris-verdoso);
     transform: translateY(-2px);
 }
 
-.contenedor-interno-tabla-datos button.btn {
-    font-size: 1rem;
-    padding: .6rem;
-}
-
-footer {
-    position: absolute;
-    width: 100%;
-    flex-flow: column nowrap;
-    bottom: 0;
-}
-
-/* Tabla */
+/* ---------- Segunda Tabla ---------- */
 
 section.tabla-para-datos {
     display: none;
@@ -239,6 +239,8 @@ section.tabla-para-datos {
     background-color: var(--white);
     margin-bottom: 6rem;
 }
+
+/* ---------- Encabezado - Segunda Tabla ---------- */
 
 header.encabezado-tabla {
     text-align: center;
@@ -260,6 +262,8 @@ button.close-table {
     top: 50%;
     transform: translateY(-50%);
 }
+
+/* ---------- Encabezado - Segunda Tabla ---------- */
 
 table.datos {
     width: 100%;
@@ -285,6 +289,17 @@ table.datos td:first-child {
 table.datos tr:nth-child(odd){
     background-color: var(--light-gray);
 }
+
+/* ---------- Footer ---------- */
+
+footer {
+    position: absolute;
+    width: 100%;
+    flex-flow: column nowrap;
+    bottom: 0;
+}
+
+/* ---------- @Medias queries ---------- */
 
 @media screen and (max-width: 1024px){
 
