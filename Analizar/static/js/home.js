@@ -28,6 +28,8 @@ btnCloseEdit.addEventListener('click', ()=>{
     document.getElementById('form-edit-precio').classList.remove('d-flex');
 })
 
+//jkjh
+
 // localStorage.setItem('costo-luz','130');
 
 let precioEnMemoria = Number(sessionStorage.getItem('costo-luz'))
