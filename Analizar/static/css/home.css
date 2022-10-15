@@ -1,5 +1,7 @@
 :root {
     --green-400-transparente: #84a894b2;
+    --rojo: #ff0009;
+    --gris-verdoso: #3E584B;
 }
 
 body {
@@ -160,7 +162,7 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     top: 15px;
     left: 15px;
     padding: 0 4px;
-    background-color: white;
+    background-color: var(--white);
     color: #DADCE0;
     font-size: 16px;
     transition: 0.5s;
@@ -177,7 +179,7 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     z-index: 10;
     font-size: 14px;
     font-weight: 600;
-    color: #4D8E4C;
+    color: var(--green-700);
 }
 
 .input:not(:placeholder-shown)+ .label {
@@ -189,14 +191,14 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
 }
 
 .input:focus {
-    border: 2px solid #4D8E4C;
+    border: 2px solid var(--green-700);
 }
 
 
 .submitBtn {
     padding: .4rem .6rem;
     border: none;
-    color: white;
+    color: var(--white);
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
@@ -204,16 +206,16 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
 
 
 .saveBtn {
-    background-color: #4D8E4C;
+    background-color: var(--green-700);
 }
   
 .cancelBtn {
-    background-color: #ff0009;
+    background-color: var(--rojo);
 }
   
   
 .submitBtn:hover {
-    background-color: #3E584B ;
+    background-color: var(--gris-verdoso);
     transform: translateY(-2px);
 }
 
