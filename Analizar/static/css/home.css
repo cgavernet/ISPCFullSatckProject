@@ -69,6 +69,7 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
     display: grid;
     place-items: center;
     padding: 1rem 0;
+    position: relative;
 }
 
 .contenedor-interno-tabla-datos {
@@ -91,6 +92,129 @@ nav.menu-tabla-datos a.link-tabla-datos-activo {
 .precio-datos {
     font-size: 1.6rem;
     margin-bottom: 2.5rem;
+}
+
+.container-flex-row {
+    width: 55%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+.btn-edit {
+    font-size: 1.24rem;
+    border-radius: 50% !important;
+    border: 2px solid transparent;
+    padding: 0 .24rem .24rem .24rem;
+    background-color: var(--white);
+}
+
+.btn-edit:hover {
+    color: var(--green-700);
+    /* border: 2px solid var(--green-700); */
+}
+
+.formulario-edit-precio {
+    background-color: var(--white);
+    width: 50vw;
+    height: 40vh;
+    position: absolute;
+    display: none;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-modo-edit {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.inputContainer {
+    position: relative;
+    height: 45px;
+    width: 200px;
+    margin-bottom: 1rem;
+}
+
+.input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--light-gray);
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+}
+
+
+.label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: white;
+    color: #DADCE0;
+    font-size: 16px;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+::placeholder {
+    color: transparent;
+}
+
+.input:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4D8E4C;
+}
+
+.input:not(:placeholder-shown)+ .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.input:focus {
+    border: 2px solid #4D8E4C;
+}
+
+
+.submitBtn {
+    padding: .4rem .6rem;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.saveBtn {
+    background-color: #4D8E4C;
+}
+  
+.cancelBtn {
+    background-color: #ff0009;
+}
+  
+  
+.submitBtn:hover {
+    background-color: #3E584B ;
+    transform: translateY(-2px);
 }
 
 .contenedor-interno-tabla-datos button.btn {
@@ -188,9 +312,10 @@ table.datos tr:nth-child(odd){
         font-size: 90%;
     }
 
-    /* main {
-        height: 80vh;
-    } */
+    
+    .formulario-edit-precio {
+        width: 60vw;
+    }
     
     section.tabla-datos {
         width: 75%;
@@ -217,6 +342,10 @@ table.datos tr:nth-child(odd){
 
     section.tabla-para-datos {
         width: 100%;
+    }
+
+    .formulario-edit-precio {
+        width: 100vw;
     }
     
     footer {

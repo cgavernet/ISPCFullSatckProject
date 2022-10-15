@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../static/img/analizar.jpg" type="image/x-icon">
     <title>Analizar</title>
 </head>
-<body>
+<body onload="cargarDatos()">
   <header class="skip-to-navigation">
     <a class="visually-hidden-focusable skip-color" href="#nav">Skip to navigation</a>
     <a class="visually-hidden-focusable skip-color" href="#content">Skip to services</a>
@@ -62,9 +62,23 @@
         <div class="contenedor-general-tabla-datos">
             <div class="contenedor-interno-tabla-datos">
                 <h2 class="consumo-datos"><span id="consumo">250</span> w/h</h2>
-                <h3 class="precio-datos">$<span id="precio">1200</span></h3>
+                <div class="container-flex-row">
+                  <h3 class="precio-datos">$<span id="precio">1200</span></h3>
+                  <button class="btn-edit" title="Editar costo del w/h" id="btn-open-edit-precio"><i class="bi bi-pencil"></i></button>
+                </div>
                 <button class="btn btn-green" id="open-tabla">Más Info</button>
             </div>
+            <form class="formulario-edit-precio" id="form-edit-precio">
+              <p class="title-modo-edit">nuevo costo</p>
+              <div class="inputContainer">
+                <input type="number" class="input" placeholder="Ingresa el nuevo precio" id="input-precio">
+                <label for="" class="label"> Precio </label>
+              </div>
+              <div class="btnContainer">
+                <input type="submit" class= "submitBtn saveBtn" id="btn-save-edit-precio" value="Guardar">
+                <input type="submit" class= "submitBtn cancelBtn" id="btn-close-edit-precio" value="Cancelar">
+              </div>
+            </form>
         </div>
       </section>
 
