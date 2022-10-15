@@ -1,7 +1,7 @@
 # ISPCFullSatckProject
 Proyecto Integrador del módulo FullStack del ISPC Córdoba - Grupo 18
 
-![Image](https://user-images.githubusercontent.com/6855157/191296038-ff359b8f-5eea-4b25-8931-adcbf189be3c.png)
+![imagen](https://user-images.githubusercontent.com/56803807/194679215-db0648c9-f44e-48c3-af4c-53d5bc8cd8f0.png)
 
 ## Proyecto: AnalizAr
 
