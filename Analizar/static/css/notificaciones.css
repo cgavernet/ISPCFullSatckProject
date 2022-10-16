@@ -1,0 +1,138 @@
+:root {
+    --red: #ff0009;
+}
+
+main {
+    padding-bottom: 20vh;
+}
+
+section.contenedor-principal-alertas {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+section.contenedor-alertas {
+    width: 100%;
+    display: grid;
+    padding: 0 5rem;
+    grid-template-columns: repeat(3, max-content);
+    justify-content: center;
+    gap: 5rem;
+}
+
+div.alerta {
+   background-color: var(--white);
+   height: 250px;
+   width: 275px;
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: center;
+   align-items: center;
+   gap: .4rem;
+   padding: 1rem 2rem;
+   border-radius: 10px;
+   box-shadow: .5rem .8rem 1rem .1rem #1113;
+}
+
+button.btn-nueva-alerta {
+    border: 2px solid var(--green-700);
+    border-radius: 50%;
+    padding: .2rem 1.25rem;
+    font-size: 2rem;
+    background-color: var(--green-700);
+    color: var(--white);
+}
+
+button.btn-nueva-alerta:hover {
+    background-color: var(--white);
+    color: var(--green-700);
+}
+
+h2.subtitulo-alerta {
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+h2.titulo-alerta {
+    text-transform: capitalize;
+}
+
+p.texto-alerta {
+    color: #888;
+}
+
+div.contenedor-botones-alerta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button.btn-alerta {
+    width: 42%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: .5rem 0;
+    border-radius: 1rem;
+    color: var(--white);
+    margin: 0 .2rem;
+    font-size: .85rem;
+}
+
+button.btn-alerta-editar {
+    background-color: var(--green-700);
+    border: 2px solid var(--green-700);
+}
+
+button.btn-alerta-eliminar {
+    background-color: var(--red);
+    border: 2px solid var(--red);
+}
+
+button.btn-alerta-editar:hover {
+    background-color: var(--white);
+    color: var(--green-700);
+}
+
+button.btn-alerta-eliminar:hover {
+    background-color: var(--white);
+    color: var(--red);
+}
+
+/* ---------- @Medias queries ---------- */
+
+@media screen and (max-width: 1024px){
+
+    section.contenedor-alertas {
+        grid-template-columns: repeat(2, minmax(30%, 400px));
+        gap: 3rem;
+    }
+
+    div.contenedor-botones-alerta {
+        width: 100%;
+    }
+  
+    button.btn-alerta {
+        width: 42%;
+        margin: 0 .2rem;
+        font-size: .85rem;
+    }
+}
+
+@media screen and (max-width: 800px){
+
+    section.contenedor-principal-alertas {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 720px){
+
+    section.contenedor-alertas {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+}
