@@ -49,14 +49,14 @@
     </nav>
     <main>
       <section class="contenedor-principal-alertas">
-        <section class="contenedor-alertas">
+        <section class="contenedor-alertas" id="contenedor-alertas">
           <div class="alerta">
-            <button class="btn-nueva-alerta">+</button>
+            <button class="btn-nueva-alerta" id="btn-nueva-alerta">+</button>
             <h2 class="subtitulo-alerta">nueva alerta</h2>
           </div>
           <div class="alerta">
             <h2 class="titulo-alerta">alerta #1</h2>
-            <h2 class="subtitulo-alerta">nueva alerta</h2>
+            <!-- <h2 class="subtitulo-alerta">nueva alerta</h2> -->
             <p class="texto-alerta">Si el consmo supera los 200 w/h envio una alerta como precaucion</p>
             <div class="contenedor-botones-alerta">
               <button class="btn-alerta btn-alerta-editar">editar</button>
@@ -65,7 +65,7 @@
           </div>
           <div class="alerta">
             <h2 class="titulo-alerta">alerta #2</h2>
-            <h2 class="subtitulo-alerta">nueva alerta</h2>
+            <!-- <h2 class="subtitulo-alerta">nueva alerta</h2> -->
             <p class="texto-alerta">Si el consmo supera los 200 w/h envio una alerta como precaucion</p>
             <div class="contenedor-botones-alerta">
               <button class="btn-alerta btn-alerta-editar">editar</button>
@@ -74,7 +74,7 @@
           </div>
           <div class="alerta">
             <h2 class="titulo-alerta">alerta #3</h2>
-            <h2 class="subtitulo-alerta">nueva alerta</h2>
+            <!-- <h2 class="subtitulo-alerta">nueva alerta</h2> -->
             <p class="texto-alerta">Si el consmo supera los 200 w/h envio una alerta como precaucion</p>
             <div class="contenedor-botones-alerta">
               <button class="btn-alerta btn-alerta-editar">editar</button>
@@ -83,7 +83,7 @@
           </div>
           <div class="alerta">
             <h2 class="titulo-alerta">alerta #4</h2>
-            <h2 class="subtitulo-alerta">nueva alerta</h2>
+            <!-- <h2 class="subtitulo-alerta">nueva alerta</h2> -->
             <p class="texto-alerta">Si el consmo supera los 200 w/h envio una alerta como precaucion</p>
             <div class="contenedor-botones-alerta">
               <button class="btn-alerta btn-alerta-editar">editar</button>
@@ -91,6 +91,46 @@
             </div>
           </div>
         </section>
+        <form class="formulario-nueva-alerta" id="form-nueva-alerta">
+          <p class="title-formulario-alerta">nueva alerta</p>
+          <div class="inputContainer">
+            <input type="number" class="input" placeholder="Ingresa la cantidad de w/h" id="input-precio">
+            <label for="" class="label"> Cantidad w/h </label>
+          </div>
+          <div class="inputContainer">
+            <select name="tipo-alerta" class="tipo-alerta" id="">
+              <option selected disabled>Elije el tipo de alerta</option>
+              <option value="anual">Anual</option>
+              <option value="mensual">Mensual</option>
+              <option value="semanal">Semanal</option>
+              <option value="diario">Diario</option>
+            </select>
+          </div>
+          <div class="btnContainer">
+            <input type="submit" class= "submitBtn saveBtn" id="btn-save-nueva-alerta" value="Guardar">
+            <input type="submit" class= "submitBtn cancelBtn" id="btn-close-nueva-alerta" value="Cancelar">
+          </div>
+        </form>
+        <form class="formulario-nueva-alerta" id="form-edit-alerta">
+          <p class="title-formulario-alerta">editar alerta <span>1</span></p>
+          <div class="inputContainer">
+            <input type="number" class="input" placeholder="Ingresa la cantidad de w/h" id="input-precio">
+            <label for="" class="label"> Cantidad w/h </label>
+          </div>
+          <div class="inputContainer">
+            <select name="tipo-alerta" class="tipo-alerta" id="">
+              <option selected disabled>Elije el tipo de alerta</option>
+              <option value="anual">Anual</option>
+              <option value="mensual">Mensual</option>
+              <option value="semanal">Semanal</option>
+              <option value="diario">Diario</option>
+            </select>
+          </div>
+          <div class="btnContainer">
+            <input type="submit" class= "submitBtn saveBtn" id="btn-save-edit-alerta" value="Guardar">
+            <input type="submit" class= "submitBtn cancelBtn" id="btn-close-edit-alerta" value="Cancelar">
+          </div>
+        </form>
       </section>
     </main>
     <footer class="d-flex flex-column flex-nowrap justify-content-between align-items-center p-3 bg-black">
