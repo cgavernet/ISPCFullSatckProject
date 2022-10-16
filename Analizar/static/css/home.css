@@ -12,13 +12,54 @@ body {
 main {
     width: 100%;
     min-height: 75.2vh;
-    padding: 3.37rem 0;
+    /* padding: 3.37rem 0; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     gap: 3rem;
     align-items: center;
 }
+
+/* Codigo nuevo temporal - inicio */
+
+/* nav.nav-absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 400;
+    background-color: var(--light-gray);
+}
+
+main {
+    padding-top: 17vh;
+}
+
+.sidebar {
+    position: fixed;
+    height: 100vh;
+}
+
+@media screen and (max-width: 1024px) and (orientation:landscape) {
+    main {
+        padding-bottom: 21vh;
+    }
+}
+
+@media screen and (max-width: 420px){
+
+    main {
+        padding-top: 10vh;
+    }
+
+    footer {
+        font-size: .95rem;
+    }
+
+} */
+
+/* Codigo nuevo temporal - fin */
+
 
 /* ---------- Primer Tabla ---------- */
 
@@ -308,7 +349,7 @@ footer {
     }
 
     main {
-        padding: 1rem 0;
+        /* padding: 1rem 0; */
         height: 76.6%;
     }
     
@@ -344,11 +385,11 @@ footer {
     }
 }
 
-@media screen and (max-width: 420px){
+@media screen and (max-width: 450px){
 
     main {
-        padding: 0;
-        gap: 0;
+        /* padding: 0; */
+        gap: 5rem;
     }
     
     section.tabla-datos {
@@ -361,12 +402,13 @@ footer {
         width: 100%;
     }
 
-    .formulario-edit-precio {
+    form.formulario-edit-precio {
         width: 100vw;
     }
     
     footer {
         padding: 1.5rem;
+        /* font-size: .95rem; */
         text-align: center;
     }
 }
