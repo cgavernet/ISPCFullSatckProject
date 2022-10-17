@@ -1,0 +1,6 @@
+# registrarUsuario()
+# actualizarDatosUsuario()
+# borrarUsuario()
+# validarUsuario()
+# desabilitarUsuario()
+# listarUsuarios()
