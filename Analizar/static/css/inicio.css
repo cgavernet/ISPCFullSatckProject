@@ -1,0 +1,133 @@
+main{
+    display: block;    
+}
+.contenedor-comentarios{
+    display: flex;
+    height: 300px;
+    flex-wrap: wrap;
+    align-content: center;    
+    gap: 20px;
+    background-color: #4D8E4C;
+    padding: 20px;
+    margin-top: 50px;
+}
+.contenedor-tarjetas{    
+    min-height: 200px;    
+    border: solid 3px #4D8E4C;
+    border-radius: 10px; 
+    background-position: center center;
+    width: calc(33.33% - 20px);    
+}
+.contenedor-textos{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;        
+    border-radius: 30px;   
+}
+.contenedor-servicios{
+    display: grid;
+    grid-template-columns: 40% auto;
+    gap: 20px;    
+}
+.contenedor-imagen{
+    border: solid 2px #4D8E4C;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 10px 10px #4D8E4C; 
+}
+.contenedor-item1{
+    grid-column: 1 / span3;    
+}
+.contenedor-tabla{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;    
+}
+.contenedor-textos{
+    border-radius: 10px;
+    border: 2px solid #4D8E4C;
+    min-height: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 3px 3px #3b3b38;                  
+}
+.flex-container-1{
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+.flex-container-1 div{
+    width: 50px;
+    margin: 80px;
+    text-align: left;
+}
+.titulos-h1{
+    font-family: Roboto;
+    font-size: 31.5px;
+    color: #4D8E4C;
+    text-align: left;
+}
+.titulos-h2{
+    font-family: Roboto;
+    font-size: 27px;
+    color: #4D8E4C;
+    text-align: center;
+    padding: 50px;
+}
+.titulos-h3{
+    font-family: Roboto;
+    font-size: 18px;
+    color: #171715;
+    text-align: left;
+}
+.seccion2{
+    display: flexbox;
+    padding: 0rem 0rem 2rem 0rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;  
+}
+details{
+    background: #FFFFFF;
+    padding: .5rem;
+    border-radius: 6px;
+    margin: .5rem;
+    cursor: pointer;
+    overflow: hidden;
+}
+summary{
+    list-style: none;
+}
+summary::before{
+    content: '+';
+    padding-right: 1rem;
+}
+details[open] summary::before{
+    content: '-';
+}
+.campoformulario{
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    text-align: center;
+    width: 50rem;
+    height: 3rem;
+}
+.mensaje{
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    text-align: center;
+    width: 50rem;
+    height: 7rem;
+}
+.enviar{
+    background-color: #4D8E4C;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    border-radius: 5rem;
+    width: 15rem;
+    height: 3rem;
+}
