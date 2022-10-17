@@ -105,3 +105,10 @@ body {
 .input:focus {
   border: 2px solid #4D8E4C;
 }
+
+/*              Media query                     */
+@media screen and (max-width: 420px){
+  .form {
+    width: 100vw;
+  }
+}

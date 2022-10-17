@@ -20,41 +20,30 @@
       <a class="visually-hidden-focusable skip-color" href="#contact">Skip to contact</a>
       <a class="visually-hidden-focusable skip-color" href="#footer">Skip to footer</a>
     </header>
-    <nav class="nav-absolute navbar navbar-expand-lg border-1-green">
-        <div class="container-fluid justify-content-between">
-          <button class="bg-transparent border-0" type="submit" id="menuLateral">
-            <i id="changeIcon" class="d-inline-block align-text-top mx-2 bi bi-list display-6 text-green"></i>
-          </button>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav fw-bold align-items-center">
-              <li class="nav-item mx-4">
-                <a class="nav-link" href="#">Bienvenido, @User</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link btn btn-green px-4 rounded-pill" href="#">CERRAR SESION</a>
-              </li>
-            </ul>
-          </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../static/img/analizarSinBg.png" alt="Logo" width="64" height="64" class="d-inline-block align-text-top mx-2">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav fw-bold align-items-center">
+            <li class="nav-item">
+              <a class="nav-link btn btn-green px-4 rounded-pill" href="../view/login.html">INGRESAR</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-    <nav id="submenu" class="m-0 sidebar">
-      <ul class="list-unstyled bg-green m-auto align-items-center">
-        <li class="list-sidebar"><a class="list-sidebar-item" href="">INICIO</a></li>
-        <li class="list-sidebar"><a class="list-sidebar-item" href="">Historial</a></li>
-        <li class="list-sidebar"><a class="list-sidebar-item" href="">Alertas</a></li>
-        <li class="list-sidebar"><a class="list-sidebar-item" href="">Cuenta</a></li>
-      </ul>
-    </nav>
-    <main>
+    <main class="py-3">
       <section>
         <div class="signupFrm">
     <div class="wrapper">
     <form action="" class="form">
 
-      <p> Registrarse <p/>
+      <p> Registrarse </p>
 
       <div class="inputContainer">
         <input type="text" class="input" placeholder="a">
@@ -86,7 +75,9 @@
         <label for="" class="label">Confirmar contraseña </label>
       </div>
 
-      <input type="submit" class="submitBtn" value="Registrarse">
+      <!-- <input type="submit" class="submitBtn" value="Registrarse"> -->
+      <!-- Agrego provisoriamente hasta que el registro funcione con el backend -->
+      <a class="text-decoration-none" href="../view/home.html"><input type="button" class="submitBtn" value="Registrarse"></a>
     </form>
     </div>
   </div>
