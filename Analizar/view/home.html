@@ -12,14 +12,15 @@
     <link rel="shortcut icon" href="../static/img/analizar.jpg" type="image/x-icon">
     <title>Analizar</title>
 </head>
-<body>
+<body onload="cargarDatos()">
   <header class="skip-to-navigation">
     <a class="visually-hidden-focusable skip-color" href="#nav">Skip to navigation</a>
     <a class="visually-hidden-focusable skip-color" href="#content">Skip to services</a>
     <a class="visually-hidden-focusable skip-color" href="#contact">Skip to contact</a>
     <a class="visually-hidden-focusable skip-color" href="#footer">Skip to footer</a>
   </header>
-  <nav class="navbar navbar-expand-lg border-1-green">
+  <!-- agrego nueva clase al nav -->
+  <nav class="nav-absolute navbar navbar-expand-lg border-1-green">
       <div class="container-fluid justify-content-between">
         <button class="bg-transparent border-0" type="submit" id="menuLateral">
           <i id="changeIcon" class="d-inline-block align-text-top mx-2 bi bi-list display-6 text-green"></i>
@@ -33,7 +34,7 @@
               <a class="nav-link" href="#">Bienvenido, @User</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-green px-4 rounded-pill" href="#">CERRAR SESION</a>
+              <a class="nav-link btn btn-green px-4 rounded-pill" href="../view/Inicio.html">CERRAR SESION</a>
             </li>
           </ul>
         </div>
@@ -41,10 +42,10 @@
   </nav>
   <nav id="submenu" class="m-0 sidebar">
     <ul class="list-unstyled bg-green m-auto align-items-center">
-      <li class="list-sidebar"><a class="list-sidebar-item" href="">INICIO</a></li>
-      <li class="list-sidebar"><a class="list-sidebar-item" href="">Historial</a></li>
-      <li class="list-sidebar"><a class="list-sidebar-item" href="">Alertas</a></li>
-      <li class="list-sidebar"><a class="list-sidebar-item" href="">Cuenta</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/home.html">INICIO</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/historial.html">Historial</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/notificaciones.html">Alertas</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/micuenta.html">Cuenta</a></li>
     </ul>
   </nav>
 
@@ -62,9 +63,23 @@
         <div class="contenedor-general-tabla-datos">
             <div class="contenedor-interno-tabla-datos">
                 <h2 class="consumo-datos"><span id="consumo">250</span> w/h</h2>
-                <h3 class="precio-datos">$<span id="precio">1200</span></h3>
+                <div class="container-flex-row">
+                  <h3 class="precio-datos">$<span id="precio">1200</span></h3>
+                  <button class="btn-edit" title="Editar costo del w/h" id="btn-open-edit-precio"><i class="bi bi-pencil"></i></button>
+                </div>
                 <button class="btn btn-green" id="open-tabla">Más Info</button>
             </div>
+            <form class="formulario-edit-precio" id="form-edit-precio">
+              <p class="title-modo-edit">nuevo costo</p>
+              <div class="inputContainer">
+                <input type="number" class="input" placeholder="Ingresa el nuevo precio" id="input-precio">
+                <label for="" class="label"> Precio </label>
+              </div>
+              <div class="btnContainer">
+                <input type="submit" class= "submitBtn saveBtn" id="btn-save-edit-precio" value="Guardar">
+                <input type="submit" class= "submitBtn cancelBtn" id="btn-close-edit-precio" value="Cancelar">
+              </div>
+            </form>
         </div>
       </section>
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Login</title>
+</head>
+<body>
+  
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+            <form action="#">
+                <div class="input-field">
+                    <input type="email" placeholder="Ingresa tu e-mail" required>
+                    <i class="uil uil-envelope icon"></i>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="password" placeholder="Ingresa tu contraseña" required>
+                    <i class="uil uil-lock icon"></i>
+                    <i class="uil uil-eye-slash showHidePw"></i>
+                </div>
+
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="logCheck">
+                        <label for="logCheck" class="text">Recuérdame</label>
+                    </div>
+
+                    <a href="#" class="text signup-link">Olvidaste tu contraseña?</a>
+                </div>
+
+                <div class="input-field button">
+                     <a href="../view/home.html"><input type="button"  value="Ingresar"></a>
+                </div>
+            </form>
+            
+                <div class="login-signup">
+                    <span class="text">No estás registrado?
+                        <a href="../view/nuevousuario.html" class="text signup-link">Regístrate ahora</a>
+                    </span> 
+                    <a href="../view/Inicio.html" class="text signup-link">Volver al Inicio</a> 
+                </div> 
+
+            </div>
+
+           <!-- Formulario de "olvidó su contraseña"-->
+                 <div class="form signup">
+                    <span class="title">Reestablece tu contraseña</span>
+
+            <form action="#">
+                <div class="input-field">
+                    <input type="email" placeholder="Ingresa tu email" required>
+                    <i class="uil uil-envelope icon"></i>
+                </div>
+                
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="sigCheck">
+                        <label for="sigCheck" class="text">Recuerdo mi usuario</label>
+                    </div>
+                </div>
+
+                <div class="input-field button">
+                    <input type="button" value="Reestablecer contraseña">
+                </div>
+            </form>
+            
+                <div class="login-signup">
+                    <span class="text">Estás registrado?
+                        <a href="#" class="text login-link">Ingresar</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="d-flex flex-column flex-nowrap justify-content-between align-items-center p-3 bg-black">
+        <div class="col-md-12 d-flex align-items-center mb-2">
+          <span class="m-auto mb-3 mb-md-0 text-white">© Copyright AnalizAr - Dev Full Solutions. Todos los derechos reservados</span>
+        </div>
+    
+        <ul class="nav col-md-12 justify-content-center list-unstyled d-flex">
+          <li class="mx-4"><a href="#"><i class="bi bi-instagram text-white"></i></a></li>
+          <li class="mx-4"><a href="#"><i class="bi bi-facebook text-white"></i></a></li>
+          <li class="mx-4"><a href="#"><i class="bi bi-twitter text-white"></i></a></li>
+        </ul>
+      </footer>
+    <script src="../static/js/login.js"></script>
+</body>
+
+</html>

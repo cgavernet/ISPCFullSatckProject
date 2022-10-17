@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/historial.css">
     <!-- CSS only -->
+    <link rel="stylesheet" href="../static/css/micuenta.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="../static/img/analizar.jpg" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Analizar</title>
 </head>
 <body>
@@ -49,65 +48,54 @@
       </ul>
     </nav>
     <main>
-      <section class="grafico graficobarras">
-        <div class="titulo">Consumo Mensual Kw/h</div>
-        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-        <script>
-            var xValues = ["Marzo", "Abril", "Mayo", "junio", "Julio"];
-            var yValues = [550, 490, 440, 240, 350];
-            var barColors = ["red", "green","blue","orange","brown"];
-            
-            new Chart("myChart", {
-              type: "bar",
-              data: {
-                labels: xValues,
-                datasets: [{
-                  backgroundColor: '#1F5834',
-                  data: yValues
-                }]
-              },
-              options: {
-                legend: {display: false},
-                title: {
-                  display: false,
-                  text: "Consumo Mensual Kw/h"
-                }
-              }
-            });
-            </script>
-      </section>
-      <section class="grafico graficolineas">
-        <div class="titulo">Consumo ultimas 24hs en Kw/h</div>
-        <canvas id="myChart2" style="width:100%;max-width:800px"></canvas>
-        <script>
-            var xValues = ['10:50','11:00','11:10','11:20','11:30','11:40','11:50','12:00','12:10','12:20','12:30','12:40','12:50','13:00','13:10','13:20','13:30','13:40','13:50','14:00'];
-            var yValues = [70,80,80,90,90,90,100,110,140,140,150,60,60,60,45,45,40,40,10,5];
-            
-            new Chart("myChart2", {
-              type: "line",
-              data: {
-                labels: xValues,
-                datasets: [{
-                  fill: false,
-                  lineTension: 0,
-                  backgroundColor: "#1F5834",
-                  borderColor: "#509C57",
-                  data: yValues
-                }]
-              },
-              options: {
-                legend: {display: false},
-                title: {
-                  display: false,
-                  text: "Consumo ultimas 24hs en Kw/h"
-                },
-                scales: {
-                  yAxes: [{ticks: {min: 0, max:160}}],
-                }
-              }
-            });
-        </script>
-      </section>
+        <div class="Mi.cuenta">
+            <div class="wrapper">
+            <form action="" class="form">
+        
+              <p> Mi cuenta  <p />
+        
+              <div class="inputContainer">
+                <input type="text" class="input" placeholder="a" value="Milagros">
+                <label for = "" class = "label" > Nombre </label>
+              </div>
+        
+              <div class="inputContainer">
+              <input type="text" class="input" placeholder="a" value="Wolowiez">
+              <label for="" class="label" >Apellido </label>
+            </div>
+        
+            <div class="inputContainer">
+            <input type="text" class="input" placeholder="a" value="3512130840">
+            <label for="" class="label">Teléfono Móvil</label>
+          </div>
+        
+          <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" value="Nicolas Accame 7179">
+          <label for="" class="label">Dirección</label>
+        </div>
+        
+        
+              <div class="inputContainer">
+                <input type="text" class="input" placeholder="a" value="miliwol15@gmail.com">
+                <label for="" class="label">Email</label>
+              </div>
+        
+              <div class="inputContainer">
+                <input type="password" class="input" placeholder="a" value= "milagros18">
+                <label for="" class = "label" > Contraseña actual
+              </div>
+        
+              <div class="inputContainer">
+                <input type="password" class="input" placeholder="a" value="Milagros1812">
+                <label for="" class="label">Contraseña nueva </label>
+              </div>
+        
+              <input type="submit" class= "submitBtn" value="Guardar" >
+              <input type="submit" class= "submitBtn2" value="Cancelar">
+            </form>
+            </div>
+          </div>
+    
     </main>
     <footer class="d-flex flex-column flex-nowrap justify-content-between align-items-center p-3 bg-black">
         <div class="col-md-12 d-flex align-items-center mb-2">
