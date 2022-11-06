@@ -1,27 +1,10 @@
 .grafico {
-    border-radius: 10px;
-    margin: 1%;
-    background-color: white;
-    align-self: baseline;
-    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+        box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
 }
-.graficobarras {
-    padding: 1%;
-    width: 28%;
-    float: left;
-  }
-.graficolineas {
-    padding: 1%;
-    width: 68%;
-    float:right;
-  }
- .titulo{
-    text-align: center;
-    color: var(--green-700);
- }
-  #myChart {
-    margin: auto;
-  }
-  #myChart2 {
-    margin: auto;
-  }
+
+.card-title {
+  font-family: 'Roboto', sans-serif !important;
+  text-align: center;
+  font-size: .9rem;
+}
+
