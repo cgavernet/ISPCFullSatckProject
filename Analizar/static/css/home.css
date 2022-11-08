@@ -44,7 +44,7 @@ nav.menu-tabla-datos {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     place-items: center;
-    background-color: var(--green-400-transparente);
+    background-color: var(--gris-verdoso);
 }
 
 nav.menu-tabla-datos a.link-tabla-datos {
@@ -58,11 +58,11 @@ nav.menu-tabla-datos a.link-tabla-datos {
 
 nav.menu-tabla-datos a.link-tabla-datos:hover,
 nav.menu-tabla-datos a.link-tabla-datos-activo {
-    background-color: var(--green-400);
+    background-color: var(--green-500);
 }
 
 h2.encabezado-tabla-datos {
-    background-color: var(--green-400);
+    background-color: var(--green-500);
     text-transform: capitalize;
     font-size: 1.25rem;
     font-weight: 500;
@@ -241,7 +241,7 @@ section.tabla-para-datos {
 header.encabezado-tabla {
     text-align: center;
     position: relative;
-    background-color: var(--green-400-transparente);
+    background-color: var(--green-500);
 }
 
 h2.title-tabla {
@@ -257,9 +257,18 @@ button.close-table {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    color: var(--white);
+    /* border: 1px solid #111; */
+    padding: .5rem .95rem;
+    border-radius: 0;
 }
 
-/* ---------- Encabezado - Segunda Tabla ---------- */
+button.close-table:hover {
+    background-color: var(--gris-verdoso);
+    color: var(--white);
+}
+
+/* ---------- cuerpo - Segunda Tabla ---------- */
 
 table.datos {
     width: 100%;
@@ -269,7 +278,7 @@ table.datos {
 table.datos th {
     color: var(--white);
     padding: .5rem 0;
-    background-color: var(--green-400-transparente);
+    background-color: var(--gris-verdoso);
 }
 
 table.datos td {
