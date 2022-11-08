@@ -54,17 +54,26 @@
         <div class="row py-2">
             <div class="col-md-4 py-1">
                 <div class="card grafico">
+                    <div class="card-header">
+                      Consumo mensual en Kw/h
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">Consumo Mensual Kw/h</h5>
-                        <canvas id="chBar"></canvas>
+                      <canvas id="chBar"></canvas>
                     </div>
                 </div>
             </div>
             <div class="col-md-8 py-1">
                 <div class="card grafico">
+                  <div class="card-header" id="chLineTitle">
+                    Consumo ultimas 24hs en Kw/h
+                  </div>
                     <div class="card-body">
-                      <h5 class="card-title">Consumo ultimas 24hs en Kw/h</h5>
-                        <canvas id="chLine"></canvas>
+                      <canvas id="chLine"></canvas>
+                      <div class="btn-group" role="group" aria-label="Botones de Horarios">
+                        <button type="button" class="btn btn-success" onclick="chLineChangeTitle(24);">24 Hs</button>
+                        <button type="button" class="btn btn-success" onclick="chLineChangeTitle(12);">12 Hs</button>
+                        <button type="button" class="btn btn-success" onclick="chLineChangeTitle(1);">1 Hs</button>
+                      </div>
                     </div>
                 </div>
             </div>
