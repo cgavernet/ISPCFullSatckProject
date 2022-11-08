@@ -12,54 +12,12 @@ body {
 main {
     width: 100%;
     min-height: 75.2vh;
-    /* padding: 3.37rem 0; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     gap: 3rem;
     align-items: center;
 }
-
-/* Codigo nuevo temporal - inicio */
-
-/* nav.nav-absolute {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 400;
-    background-color: var(--light-gray);
-}
-
-main {
-    padding-top: 17vh;
-}
-
-.sidebar {
-    position: fixed;
-    height: 100vh;
-}
-
-@media screen and (max-width: 1024px) and (orientation:landscape) {
-    main {
-        padding-bottom: 21vh;
-    }
-}
-
-@media screen and (max-width: 420px){
-
-    main {
-        padding-top: 10vh;
-    }
-
-    footer {
-        font-size: .95rem;
-    }
-
-} */
-
-/* Codigo nuevo temporal - fin */
-
 
 /* ---------- Primer Tabla ---------- */
 
@@ -86,7 +44,7 @@ nav.menu-tabla-datos {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     place-items: center;
-    background-color: var(--green-400-transparente);
+    background-color: var(--gris-verdoso);
 }
 
 nav.menu-tabla-datos a.link-tabla-datos {
@@ -100,11 +58,11 @@ nav.menu-tabla-datos a.link-tabla-datos {
 
 nav.menu-tabla-datos a.link-tabla-datos:hover,
 nav.menu-tabla-datos a.link-tabla-datos-activo {
-    background-color: var(--green-400);
+    background-color: var(--green-500);
 }
 
 h2.encabezado-tabla-datos {
-    background-color: var(--green-400);
+    background-color: var(--green-500);
     text-transform: capitalize;
     font-size: 1.25rem;
     font-weight: 500;
@@ -209,7 +167,6 @@ input.input {
     z-index: 1;
 }
 
-
 label.label {
     position: absolute;
     top: 15px;
@@ -247,7 +204,6 @@ input.input:focus {
     border: 2px solid var(--green-700);
 }
 
-
 input.submitBtn {
     padding: .4rem .6rem;
     border: none;
@@ -256,7 +212,6 @@ input.submitBtn {
     cursor: pointer;
     font-size: 16px;
 }
-
 
 input.saveBtn {
     background-color: var(--green-700);
@@ -286,7 +241,7 @@ section.tabla-para-datos {
 header.encabezado-tabla {
     text-align: center;
     position: relative;
-    background-color: var(--green-400-transparente);
+    background-color: var(--green-500);
 }
 
 h2.title-tabla {
@@ -302,9 +257,18 @@ button.close-table {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    color: var(--white);
+    /* border: 1px solid #111; */
+    padding: .5rem .95rem;
+    border-radius: 0;
 }
 
-/* ---------- Encabezado - Segunda Tabla ---------- */
+button.close-table:hover {
+    background-color: var(--gris-verdoso);
+    color: var(--white);
+}
+
+/* ---------- cuerpo - Segunda Tabla ---------- */
 
 table.datos {
     width: 100%;
@@ -314,7 +278,7 @@ table.datos {
 table.datos th {
     color: var(--white);
     padding: .5rem 0;
-    background-color: var(--green-400-transparente);
+    background-color: var(--gris-verdoso);
 }
 
 table.datos td {
@@ -349,7 +313,6 @@ footer {
     }
 
     main {
-        /* padding: 1rem 0; */
         height: 76.6%;
     }
     
@@ -369,7 +332,6 @@ footer {
     html {
         font-size: 90%;
     }
-
     
     .formulario-edit-precio {
         width: 60vw;
@@ -388,7 +350,6 @@ footer {
 @media screen and (max-width: 450px){
 
     main {
-        /* padding: 0; */
         gap: 5rem;
     }
     
@@ -408,7 +369,6 @@ footer {
     
     footer {
         padding: 1.5rem;
-        /* font-size: .95rem; */
         text-align: center;
     }
 }
