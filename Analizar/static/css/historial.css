@@ -1,10 +1,20 @@
 .grafico {
         box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
 }
-
-.card-title {
+.card{
   font-family: 'Roboto', sans-serif !important;
   text-align: center;
   font-size: .9rem;
+  font-weight: bold;
+  color: var(--green-900);
 }
+
+.card-header {
+  background-color: #c3e6cb;
+}
+
+/*btn.btn-success {
+  background-color: var(--green-900);
+  border-color: var(--green-900);
+}*/
 
