@@ -12,54 +12,12 @@ body {
 main {
     width: 100%;
     min-height: 75.2vh;
-    /* padding: 3.37rem 0; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     gap: 3rem;
     align-items: center;
 }
-
-/* Codigo nuevo temporal - inicio */
-
-/* nav.nav-absolute {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 400;
-    background-color: var(--light-gray);
-}
-
-main {
-    padding-top: 17vh;
-}
-
-.sidebar {
-    position: fixed;
-    height: 100vh;
-}
-
-@media screen and (max-width: 1024px) and (orientation:landscape) {
-    main {
-        padding-bottom: 21vh;
-    }
-}
-
-@media screen and (max-width: 420px){
-
-    main {
-        padding-top: 10vh;
-    }
-
-    footer {
-        font-size: .95rem;
-    }
-
-} */
-
-/* Codigo nuevo temporal - fin */
-
 
 /* ---------- Primer Tabla ---------- */
 
@@ -209,7 +167,6 @@ input.input {
     z-index: 1;
 }
 
-
 label.label {
     position: absolute;
     top: 15px;
@@ -247,7 +204,6 @@ input.input:focus {
     border: 2px solid var(--green-700);
 }
 
-
 input.submitBtn {
     padding: .4rem .6rem;
     border: none;
@@ -256,7 +212,6 @@ input.submitBtn {
     cursor: pointer;
     font-size: 16px;
 }
-
 
 input.saveBtn {
     background-color: var(--green-700);
@@ -349,7 +304,6 @@ footer {
     }
 
     main {
-        /* padding: 1rem 0; */
         height: 76.6%;
     }
     
@@ -369,7 +323,6 @@ footer {
     html {
         font-size: 90%;
     }
-
     
     .formulario-edit-precio {
         width: 60vw;
@@ -388,7 +341,6 @@ footer {
 @media screen and (max-width: 450px){
 
     main {
-        /* padding: 0; */
         gap: 5rem;
     }
     
@@ -408,7 +360,6 @@ footer {
     
     footer {
         padding: 1.5rem;
-        /* font-size: .95rem; */
         text-align: center;
     }
 }
