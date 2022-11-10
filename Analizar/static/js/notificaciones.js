@@ -100,6 +100,7 @@ function showNewAlert(id){
 
     let divAlerta = document.createElement('DIV');
     divAlerta.classList.add('alerta')
+    divAlerta.setAttribute('id',`div-${alertaSelect.codigo}`)
     contenedorAlertas.appendChild(divAlerta)
 
     let tituloAlerta = document.createElement('H2');
@@ -149,7 +150,7 @@ function showNewAlert(id){
     })
 
     btnEliminarAlerta.addEventListener('click',()=>{
-        alert('Elemento eliminado (?')
+        divAlerta.parentElement.removeChild(divAlerta)
     })
 }
 
@@ -159,6 +160,7 @@ function showAlertas(){
 
         let divAlerta = document.createElement('DIV');
         divAlerta.classList.add('alerta')
+        divAlerta.setAttribute('id',`div-${alertaSelect.codigo}`)
         contenedorAlertas.appendChild(divAlerta)
 
         let tituloAlerta = document.createElement('H2');
@@ -207,7 +209,8 @@ function showAlertas(){
         })
 
         btnEliminarAlerta.addEventListener('click',()=>{
-            alert('Elemento eliminado (?')
+            divAlerta.parentElement.removeChild(divAlerta)
+            
         })
     }
 
