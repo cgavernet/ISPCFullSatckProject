@@ -47,17 +47,18 @@ nav.menu-tabla-datos {
     background-color: var(--gris-verdoso);
 }
 
-nav.menu-tabla-datos a.link-tabla-datos {
+nav.menu-tabla-datos button.link-tabla-datos {
     text-decoration: none;
     color: var(--white);
     text-transform: uppercase;
     width: 100%;
     padding: .5rem 0;
     border: 1px solid transparent;
+    background-color: var(--gris-verdoso);
 }
 
-nav.menu-tabla-datos a.link-tabla-datos:hover,
-nav.menu-tabla-datos a.link-tabla-datos-activo {
+nav.menu-tabla-datos button.link-tabla-datos:hover,
+nav.menu-tabla-datos button.link-tabla-datos-activo {
     background-color: var(--green-500);
 }
 
@@ -258,7 +259,6 @@ button.close-table {
     top: 50%;
     transform: translateY(-50%);
     color: var(--white);
-    /* border: 1px solid #111; */
     padding: .5rem .95rem;
     border-radius: 0;
 }

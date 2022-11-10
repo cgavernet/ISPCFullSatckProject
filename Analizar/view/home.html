@@ -53,10 +53,10 @@
       <section class="tabla-datos">
         <header class="encabezado-tabla-datos">
             <nav class="menu-tabla-datos">
-                <a href="#" class="link-tabla-datos">anual</a>
-                <a href="#" class="link-tabla-datos link-tabla-datos-activo">mensual</a>
-                <a href="#" class="link-tabla-datos">semanal</a>
-                <a href="#" class="link-tabla-datos">diario</a>
+                <button class="link-tabla-datos" id="btn-anual">anual</button>
+                <button class="link-tabla-datos link-tabla-datos-activo" id="btn-mensual">mensual</button>
+                <button class="link-tabla-datos" id="btn-semanal">semanal</button>
+                <button class="link-tabla-datos" id="btn-diario">diario</button>
             </nav>
             <h2 class="encabezado-tabla-datos">consumo general</h2>
         </header>
@@ -76,8 +76,8 @@
                 <label for="" class="label"> Precio </label>
               </div>
               <div class="btnContainer">
-                <input type="submit" class= "submitBtn saveBtn" id="btn-save-edit-precio" value="Guardar">
-                <input type="submit" class= "submitBtn cancelBtn" id="btn-close-edit-precio" value="Cancelar">
+                <input type="button" class= "submitBtn saveBtn" id="btn-save-edit-precio" value="Guardar">
+                <input type="button" class= "submitBtn cancelBtn" id="btn-close-edit-precio" value="Cancelar">
               </div>
             </form>
         </div>
@@ -89,7 +89,7 @@
           <h2 class="title-tabla">tabla <span id="tipo-tabla">mensual</span></h2>
           <button class="btn close-table" id="close-tabla">X</button>
         </header>
-        <table class="datos">
+        <table class="datos" id="tabla-datos">
           <tr>
             <th>Día</th>
             <th>Consumo</th>
@@ -186,5 +186,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="../static/js/effects.js"></script>
     <script src="../static/js/home.js"></script>
+    <script src="../static/js/data_temporal.js"></script>
   </body>
 </html>
