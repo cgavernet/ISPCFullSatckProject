@@ -151,6 +151,7 @@ function showNewAlert(id){
 
     btnEliminarAlerta.addEventListener('click',()=>{
         divAlerta.parentElement.removeChild(divAlerta)
+        delete alertas[id]
     })
 }
 
@@ -210,7 +211,7 @@ function showAlertas(){
 
         btnEliminarAlerta.addEventListener('click',()=>{
             divAlerta.parentElement.removeChild(divAlerta)
-            
+            delete alertas[alerta]
         })
     }
 
