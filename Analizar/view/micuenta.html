@@ -48,55 +48,54 @@
       </ul>
     </nav>
     <main>
-        <div class="Mi.cuenta">
-            <div class="wrapper">
-            <form action="" class="form">
-        
-              <p> Mi cuenta  <p />
-        
-              <div class="inputContainer">
-                <input type="text" class="input" placeholder="a" value="Milagros">
-                <label for = "" class = "label" > Nombre </label>
-              </div>
-        
-              <div class="inputContainer">
-              <input type="text" class="input" placeholder="a" value="Wolowiez">
-              <label for="" class="label" >Apellido </label>
-            </div>
-        
-            <div class="inputContainer">
-            <input type="text" class="input" placeholder="a" value="3512130840">
-            <label for="" class="label">Teléfono Móvil</label>
-          </div>
-        
+      <div class="Micuenta">
+        <div class="wrapper">
+        <form action="" class="form" onsubmit="validarCampos();">
+    
+          <p class="title"> Mi cuenta </p>
+    
           <div class="inputContainer">
-          <input type="text" class="input" placeholder="a" value="Nicolas Accame 7179">
-          <label for="" class="label">Dirección</label>
-        </div>
-        
-        
-              <div class="inputContainer">
-                <input type="text" class="input" placeholder="a" value="miliwol15@gmail.com">
-                <label for="" class="label">Email</label>
-              </div>
-        
-              <div class="inputContainer">
-                <input type="password" class="input" placeholder="a" value= "milagros18">
-                <label for="" class = "label" > Contraseña actual
-              </div>
-        
-              <div class="inputContainer">
-                <input type="password" class="input" placeholder="a" value="Milagros1812">
-                <label for="" class="label">Contraseña nueva </label>
-              </div>
-        
-              <input type="submit" class= "submitBtn" value="Guardar" >
-              <input type="submit" class= "submitBtn2" value="Cancelar">
-            </form>
-            </div>
+            <input type="text" class="input" placeholder="a" value="Milagros" id="nombre ">
+            <label for = "" class = "label" > Nombre </label>
           </div>
     
-    </main>
+          <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" value="Wolowiez" id=""apellido>
+          <label for="" class="label" >Apellido </label>
+        </div>
+    
+        <div class="inputContainer">
+        <input type="text" class="input" placeholder="a" value="3512130840" id="telefono movil">
+        <label for="" class="label">Teléfono Móvil</label>
+      </div>
+    
+      <div class="inputContainer">
+      <input type="text" class="input" placeholder="a" value="Nicolas Accame 7179" id="direccion">
+      <label for="" class="label">Dirección</label>
+    </div>
+    
+    
+          <div class="inputContainer">
+            <input type="text" class="input" placeholder="a" value="miliwol15@gmail.com" id="email">
+            <label for="" class="label">Email</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" placeholder="a" value= "milagros18" id="contraseña actual">
+            <label for="" class = "label" > Contraseña actual
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" placeholder="a" value="Milagros1812" id="contraseña nueva">
+            <label for="" class="label">Contraseña nueva </label>
+          </div>
+    
+          <input type="submit" class= "submitBtn" value="Guardar" onclick="validarCampos();" >
+          <input type="submit" class= "submitBtn2" value="Cancelar">
+        </form>
+        </div>
+      </div> 
+     </main>
     <footer class="d-flex flex-column flex-nowrap justify-content-between align-items-center p-3 bg-black">
         <div class="col-md-12 d-flex align-items-center mb-2">
           <span class="m-auto mb-3 mb-md-0 text-white">© Copyright AnalizAr - Dev Full Solutions. Todos los derechos reservados</span>
@@ -111,5 +110,6 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="../static/js/effects.js"></script>
+    <script src="../static/js/micuenta.js"></script>
   </body>
 </html>
