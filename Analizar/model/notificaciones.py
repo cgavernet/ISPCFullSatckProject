@@ -9,7 +9,7 @@ class Alerta:
                 port='3306',
                 user='root',
                 password='pass',
-                db='nameDb')
+                db='analizar')
             
         except mysql.connector.Error as descriptionError:
             print('Error al conectarse a la base de datos!',descriptionError)
@@ -33,7 +33,7 @@ class Alerta:
         if(self.conexion.is_connected()):
             try:
                 self.cursor = self.conexion.cursor()
-                sql_sentencia = "UPDATE alertas SET medidor = %s, SET valor = %s WHERE idalerta = %s"
+                sql_sentencia = "UPDATE alertas SET medidor = %s, valor = %s WHERE idalerta = %s"
                 data = (medidor,valor,identificador)
                 self.cursor.execute(sql_sentencia,data)
                 self.conexion.commit()
@@ -47,9 +47,8 @@ class Alerta:
         if(self.conexion.is_connected()):
             try:
                 self.cursor = self.conexion.cursor()
-                sql_sentencia = "DELETE FROM alertas WHERE idalerta = %s"
-                data = (identificador)
-                self.cursor.execute(sql_sentencia,data)
+                sql_sentencia = f"DELETE FROM alertas WHERE idalerta = {identificador}"
+                self.cursor.execute(sql_sentencia)
                 self.conexion.commit()
                 self.cursor.close()
                 self.conexion.close()
@@ -61,13 +60,13 @@ class Alerta:
         if(self.conexion.is_connected()):
             try:
                 self.cursor = self.conexion.cursor()
-                sql_sentencia = "SELECT * FROM alertas WHERE idalerta = %s"
-                data = (identificador)
-                self.cursor.execute(sql_sentencia,data)
-                resultado = self.cursor.fetchone()
+                sql_sentencia = f"SELECT * FROM alertas WHERE idalerta = {identificador}"
+                self.cursor.execute(sql_sentencia)
+                resultado = self.cursor.fetchall()
                 self.cursor.close()
                 self.conexion.close()
                 print('Alerta encontrada!')
+                print(resultado)
                 return resultado
             except:
                 print('No se pudo encontrar la alerta!')
@@ -82,6 +81,7 @@ class Alerta:
                 self.cursor.close()
                 self.conexion.close()
                 print('Alertas listadas!')
+                print(resultado)
                 return resultado
             except:
                 print('No se pudo listar las alertas!')
