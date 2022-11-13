@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 main{
     display: block;    
 }
@@ -226,10 +230,12 @@ details[open] summary::before{
 
 .formulario__input {
     width: 90%;
+    opacity: 0.5;    
     background: #FFFFFF;
     border: 3px solid transparent;
     border-radius: 3px;
     font-size: 17px;
+    text-align: center;
     outline: none;
     line-height: 45px;
     padding: 0 10px;
@@ -246,7 +252,8 @@ details[open] summary::before{
 }
 
 .formulario__input:focus {
-    box-shadow: 0 0 5px #1d971b;
+    box-shadow: 5px 5px 5px #1d971b;
+    opacity: 1;
 }
 .formulario__input-error {
     font-size: 12px;
@@ -278,9 +285,7 @@ details[open] summary::before{
 }
 
 .formulario__mensaje {
-    display: none;
-    /*height: 45px;
-    line-height: 45px;*/
+    display: none;    
     padding: 15px;
     border-radius: 5px;
     background: #dd2a2a;
@@ -298,11 +303,11 @@ details[open] summary::before{
 }
 
 .formulario__btn {
-    padding: 15px 35px;
+    padding: 15px 75px;
     background: #4D8E4C;
     color: #FFFFFF;
     border: none;
-    border-radius: 15px;
+    border-radius: 25px;
     cursor: pointer;
     transition: 1s all ease;
 }

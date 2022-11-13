@@ -67,7 +67,7 @@ const validarFormulario = (e) => {
 }
 
 const validarCampo = (expresion, input, campo) => {
-    if (expresion.test(input.value)){
+    if (expresion.test(input.value)){        
         document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
         document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-correcto");
         document.querySelector(`#grupo__${campo} i`).classList.remove("fa-times-circle");
@@ -110,7 +110,7 @@ $formulario.addEventListener("submit", (e) => {
         });        
         setTimeout(() => {
             location.reload();
-        }, 3000);
+        }, 5000);
     } else {
         document.getElementById("formulario__mensaje").classList.add("formulario__mensaje-activo");
     }
