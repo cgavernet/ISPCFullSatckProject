@@ -29,8 +29,8 @@ body{
 .container .forms{
     display: flex;
     align-items: center;
-    height: 440px;
-    width: 200%;
+    height: 470px;
+    width: 210%;
     transition: height 0.2s ease;
 }
 
@@ -96,6 +96,46 @@ body{
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
+}
+
+.input-field .show-hide {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #919191;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.error{
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    color: red;
+}
+
+.error .error-icon{
+    margin-right: 6px;
+    font-size: 15px;
+}
+
+.field .error{
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    color: red;
+    font-size: 13px;
+    display: none;
+}
+
+.invalid .error {
+    display: flex;
+}
+
+.invalid .input {
+    border-color: crimson;
 }
 
 .input-field input:is(:focus, :valid){
