@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dev Full Solutions">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/inicio.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="../static/img/analizar.jpg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/3c0d7e4073.js" crossorigin="anonymous"></script>
     <title>Analizar</title>
 </head>
 <body>
@@ -51,67 +53,70 @@
     <main>
       <!-- Sección superior de la página -->
       <!-- Primer bloque -->
-      <div class="flex-container-1">
-        <div style="flex-grow: 7;" >
-          <h1 class="titulos-h1"><strong>Controlar el consumo
-          eléctrico nunca fue tan fácil</strong></h1> 
-          <h3><strong class="titulos-h3">AnalizAr te permitirá conocer tu nivel de consumo de
-          luz, permitiéndote estimar el costo mensual,
-          comparar con otros meses y ¡mucho más!</strong></h3>
+      <div class="contenedor-superior">
+        <div class="contenedor-superior-item1">
+          <h1 class="titulos-h1" id="titulo-principal" onmousemove="cambiarTitulo()" onmouseout="restaurarTitulo()"><strong>Controlar el consumo
+          eléctrico nunca fue tan fácil</strong></h1>
         </div>
-        <div style="flex-grow: 7;">
-          <img src="../static/img/fondo1.png" alt="imagen de la aplicacion en movil" title="Personas usando Analizar" />
+        <div class="contenedor-superior-item2">
+          <h3><strong class="titulos-h3">AnalizAr te permitirá conocer tu nivel de consumo de
+            luz, permitiéndote estimar el costo mensual,
+            comparar con otros meses y ¡mucho más!</strong></h3>
+        </div>
+        <div class="contenedor-superior-item3">
+          <img src="../static/img/fondo1b.png" alt="imagen de la aplicacion en movil" title="Personas usando Analizar" id="imagen-principal" onmouseover="cambiarImagen()" onmouseout="restaurarImagen()"/>
         </div>
       </div>
-
+      
       <!-- Segundo bloque -->
       <h2 class="titulos-h2"><strogn>SERVICIOS</strogn></h2>
+      
       <div class="contenedor-servicios">
         <div class="contenedor-imagen">
-          <img src="../static/img/fondo2.png" alt="imagen de usuario analizando informes de la app" title="Informes AnalizAr" />
+          <img src="../static/img/fondo2b.png" alt="imagen de usuario analizando informes de la app" title="Informes AnalizAr" id="imagen-servicios" onmouseover="cambiarImagenServicios()" onmouseout="restaurarImagenServicios()"/>
         </div>
-        <div class="contenedor-tabla">
+        <div class="contenedor-tabla">          
           <div class="contenedor-item1">
             <h3 class="titulos-h3">Nuestra aplicación te permitirá tener al alcance de tu mano 
             toda la información necesaria sobre el consumo eléctrico, ¡desde cualquier dispositivo!</h3>
           </div>
-          <div class="contenedor-textos">            
-            <p style="text-align: center">Nivel de Consumo Diario</p>
+          <div class="contenedor-item2">            
+            <p style="text-align: center;">Nivel de Consumo Diario</p>
           </div>
-          <div class="contenedor-textos">            
+          <div class="contenedor-item3">            
             <p style="text-align: center">Nivel de Consumo Mensual</p>
           </div>
-          <div class="contenedor-textos">            
+          <div class="contenedor-item4">            
             <p style="text-align: center">Costo Estimado</p>
           </div>
-          <div class="contenedor-textos">            
+          <div class="contenedor-item5">            
             <p style="text-align: center">Historial de Consumo</p>
           </div>
-          <div class="contenedor-textos">            
+          <div class="contenedor-item6">            
             <p style="text-align: center">Configuración de Alertas</p>
           </div>
         </div>
       </div>
-     
+           
       <!-- Sección media de la página -->
       <!-- Tercer bloque -->
       <div class="contenedor-comentarios">
         <div class="contenedor-tarjetas">
-          <div class="contenedor-textos" style="background-color: #84A894">
-            <h3 style="text-align: center">@juli23</h3>
+          <div class="contenedor-textos" style="background-color: #9ce0ba">
+            <h3 style="text-align: center"><strong>@juli23</strong></h3>
             <p style="text-align: center">"Gracias a esta app pude ahorrarme unos cuantos centavos al mes"</p>
           </div>
         </div>
 
         <div class="contenedor-tarjetas">
-          <div class="contenedor-textos" style="font-size: 22px; background-color: #FFFFFF">
+          <div class="contenedor-textos" style="font-size: 20px; background-color: #91bea4">
             <h3 style="text-align: center"><strong>@carlosAG</strong></h3>
             <p style="text-align: center">"Desde que empecé a utilizar AnalizAr logré tomar conciencia de la luz que consumo"</p>
           </div>
         </div>
 
         <div class="contenedor-tarjetas">
-          <div class="contenedor-textos" style="background-color: #84A894">
+          <div class="contenedor-textos" style="background-color: #9ce0ba">
             <h3 style="text-align: center">@gaby9</h3>
             <p style="text-align: center">"Gracias a las alertas que me llegan desde AnalizAr puedo controlar mi consumo de luz"</p>
           </div>
@@ -167,30 +172,65 @@
         </details>
       </section>
 
-      <!-- Quinto bloque -->     
+      <!-- Quinto bloque - Formulario de Contacto -->
+      <!-- Inicio de la modificación del 12 de noviembre de 2022 -->     
       <section class="seccion2">
-        <h2 class="titulos-h2"><strogn>Contacto</strogn></h2>        
-        <form method="post" action="informacion.php">
-          <!-- Utilizo el método post para enviar la mayor cantidad de información del formuario -->
-          <!-- Con "action" establezco dónde se envía la información -->
-          <div>    
-            <label for="nombre"></label><br>
-            <input class="campoformulario" type="text" name="nombre" id="nombre" size="30" placeholder="Nombre">
+        <div class="cabecera">
+          <h2 class="titulos-h2"><strong>CONTACTO</strong></h2>
+        </div>
+        <form action="#" class="formulario" id="formulario">                  
+          <!-- Grupo: Nombre -->
+          <div class="formulario__grupo" id="grupo__nombre">
+            <label class="formulario__label">Nombre y Apellido</label>
+            <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Carlos Daniel Pozzo">
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Disculpe, debe ingresar nombre y apellido válidos.</p>
           </div>
-          <div>
-            <label for="email"></label><br>
-            <input class="campoformulario" type="email" name="email" id="email" placeholder="Correo">
+
+          <!-- Grupo: Correo Electrónico -->
+          <div class="formulario__grupo" id="grupo__correo">
+            <label class="formulario__label">Correo Electrónico</label>
+            <div class="formulario__grupo-input">
+              <input type="email" class="formulario__input" name="correo" id="correo" placeholder="carlosdaniel@gmail.com">
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Recuerde, el correo puede contener letras, números, punto, debe tener el símbolo @ y el proveedor del servicio.</p>
           </div>
-          <div>
-            <label for="mensaje"></label><br>
-            <input class="mensaje" type="text" name="mensaje" id="mensaje" placeholder="Mensaje...">
+
+          <!-- Grupo: Mensaje -->
+          <div class="formulario__grupo" id="grupo__mensaje">
+            <label class="formulario__label">Mensaje</label>
+            <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" name="mensaje" id="mensaje" placeholder="Exprese aquí el motivo de su contacto, si requiere de algún servicio específico o cualquier información que considere relevante. Gracias.">
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>              
+            </div>
+            <p class="formulario__input-error">Por favor, déjenos un mensaje con el motivo de su solicitud de contacto.</p>
           </div>
-          <div>
-            <label></label><br>
-            <input class="enviar" type="submit">
+
+          <!-- Grupo: Términos y Condiciones -->
+          <div class="formulario__grupo formulario__grupo-terminos" id="grupo__terminos">
+            <label class="formulario__label">
+              <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+              <b class="formulario__span">Acepto los terminos y condiciones</b>
+            </label>
           </div>
-        </form>          
-      </section>                 
+
+          <!-- Mensaje de campos requeridos -->
+          <div class="formulario__mensaje" id="formulario__mensaje">
+          <p><i class="fas fa-exclamation-circle"><b>Error:</b> Por favor, complete correctamente los campos del formulario.</i></p>
+          </div>
+
+          <!-- Grupo: Enviar -->
+          <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado satisfactoriamente. En breve nos comunicaremos con Ud.</p>
+            <button type="submit" class="formulario__btn">Enviar</button>            
+          </div>
+        </form>
+      </section>     
+      <!-- Final de la modificación del 12 de noviembre de 2022 -->                    
+      
     </main>
     <footer class="d-flex flex-column flex-nowrap justify-content-between align-items-center p-3 bg-black">
       <div class="col-md-12 d-flex align-items-center mb-2">
@@ -204,5 +244,6 @@
     </footer>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="../static/js/inicio.js"></script>    
 </body>
 </html>

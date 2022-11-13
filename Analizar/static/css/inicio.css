@@ -3,18 +3,18 @@ main{
 }
 .contenedor-comentarios{
     display: flex;
-    height: 300px;
+    height: 500px;
     flex-wrap: wrap;
     align-content: center;    
     gap: 20px;
-    background-color: #4D8E4C;
+    background-color: #5f9e5e;
     padding: 20px;
     margin-top: 50px;
 }
 .contenedor-tarjetas{    
     min-height: 200px;    
-    border: solid 3px #4D8E4C;
-    border-radius: 10px; 
+    border: solid 3px #171715;
+    border-radius: 30px; 
     background-position: center center;
     width: calc(33.33% - 20px);    
 }
@@ -22,48 +22,110 @@ main{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;        
-    border-radius: 30px;   
+    justify-content: center;            
+    border-radius: 30px;  
+    transition: all 0.7s ease; 
+}
+.contenedor-textos:hover{
+    cursor: pointer;
+    color: #1d971b;
+    background: #3b3b38;    
+}
+.contenedor-tarjetas:hover{
+    border: solid 3px #1d971b;
+}
+.contenedor-superior{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "header header header header header header header sidebar sidebar sidebar sidebar sidebar"
+        "main main main main main main main sidebar sidebar sidebar sidebar sidebar";
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: space-around;
+    align-content: space-around;    
+    margin-left: 30px;
+}
+.contenedor-superior-item1{
+    grid-area: header;
+}
+.contenedor-superior-item2{
+    grid-area: main;
+}
+.contenedor-superior-item3{
+    grid-area: sidebar;
 }
 .contenedor-servicios{
     display: grid;
     grid-template-columns: 40% auto;
-    gap: 20px;    
+    gap: 30px;    
 }
 .contenedor-imagen{
     border: solid 2px #4D8E4C;
     border-radius: 20px;
     margin: 20px;
     box-shadow: 10px 10px #4D8E4C; 
+    align-self: center;
 }
-.contenedor-item1{
-    grid-column: 1 / span3;    
-}
+
 .contenedor-tabla{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;    
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+        "header header header"
+        "main1 main2 main3"
+        "footer1 footer2 footer3";
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: space-around;
+    align-content: space-around;
+    gap: 30px;
+    margin-right: 30px;
 }
-.contenedor-textos{
+.contenedor-item1{
+    grid-area: header;    
+}
+.contenedor-item2{
+    grid-area: main1;
     border-radius: 10px;
     border: 2px solid #4D8E4C;
-    min-height: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 3px 3px #3b3b38;  
+}
+.contenedor-item3{
+    grid-area: main2;
+    border-radius: 10px;
+    border: 2px solid #4D8E4C;
     padding-left: 20px;
     padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
-.flex-container-1{
-    display: flex;
-    flex-direction: row;
-    height: 400px;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
+.contenedor-item4{
+    grid-area: main3;
+    border-radius: 10px;
+    border: 2px solid #4D8E4C;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 3px 3px #3b3b38;                  
 }
-.flex-container-1 div{
-    width: 50px;
-    margin: 80px;
-    text-align: left;
+.contenedor-item5{
+    grid-area: footer1;
+    border-radius: 10px;
+    border: 2px solid #4D8E4C;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 3px 3px #3b3b38;                  
+}
+.contenedor-item6{
+    grid-area: footer2;
+    border-radius: 10px;
+    border: 2px solid #4D8E4C;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 3px 3px #3b3b38;                  
 }
 .titulos-h1{
     font-family: Roboto;
@@ -95,7 +157,7 @@ details{
     background: #FFFFFF;
     padding: .5rem;
     border-radius: 6px;
-    margin: .5rem;
+    margin: 30px;
     cursor: pointer;
     overflow: hidden;
 }
@@ -131,3 +193,153 @@ details[open] summary::before{
     width: 15rem;
     height: 3rem;
 }
+
+@media screen and (max-width:768px) {
+    .contenedor-superior-item1 {
+        grid-column: 1/-1;
+    }
+    .contenedor-superior-item2 {
+        grid-column: 1/-1;
+    }
+    .contenedor-superior-item3 {
+        grid-column: 1/-1;
+    }
+}
+
+/* ------------------- Formulario de contacto ------------------- */
+/* Inicio de la modificación del 12 de noviembre de 2022 */
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.formulario__label {
+    display: block;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.formulario__grupo-input {
+    position: relative;
+}
+
+.formulario__input {
+    width: 90%;
+    background: #FFFFFF;
+    border: 3px solid transparent;
+    border-radius: 3px;
+    font-size: 17px;
+    outline: none;
+    line-height: 45px;
+    padding: 0 10px;
+    transition: 1s all ease;
+}
+
+.formulario__validacion-estado {
+    position: absolute;
+    right: 45px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.formulario__input:focus {
+    box-shadow: 0 0 5px #1d971b;
+}
+.formulario__input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.formulario__input-error-activo {
+    display: block;
+}
+
+.formulario__span {
+    font-size: 1.1em;
+    font-weight: 100;
+}
+
+.formulario__checkbox {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 10px;
+}
+.formulario__grupo-terminos {
+    text-align: center;
+}
+
+.formulario__grupo-terminos, .formulario__mensaje, .formulario__grupo-btn-enviar {
+    grid-column: 1fr;
+}
+
+.formulario__mensaje {
+    display: none;
+    /*height: 45px;
+    line-height: 45px;*/
+    padding: 15px;
+    border-radius: 5px;
+    background: #dd2a2a;
+    text-align: center;    
+}
+
+.formulario__mensaje-activo {
+    display: block;
+}
+
+.formulario__grupo-btn-enviar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario__btn {
+    padding: 15px 35px;
+    background: #4D8E4C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 1s all ease;
+}
+
+.formulario__btn:hover {
+    font-size: 18px;
+    box-shadow: #3b3b38 10px 5px 10px;
+}
+
+.formulario__mensaje-exito {
+    font-size: 2em;
+    color: #4D8E4C;
+    padding: 10px;
+    text-align: center;
+    display: none;
+}
+
+.formulario__mensaje-exito-activo {
+    display: block;
+}
+
+/* --------------- Validación Formulario de contacto --------------- */
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color:#1d971b;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+    color:#dd2a2a
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color:#dd2a2a;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #dd2a2a;
+}
+/* Fin de la modificación del 12 de noviembre de 2022 */
