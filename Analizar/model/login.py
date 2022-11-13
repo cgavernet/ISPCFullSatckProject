@@ -31,14 +31,15 @@ class Conectar():
                 querySQL = "select nombre, password from usuarios where nombre=%s and password=%s"
                 data = (nombre, password)
                 cursor.execute(querySQL, data)
-                rows=cursor.fetchone()
+                rows=cursor.fetchall()
                 for row in rows:
-                    print('Datos',row)
+                    print(row)
+                if(row[0] == nombre and row[1] == password):
+                    print('El usuario existe')
+                    return rows 
                 self.conexion.commit()
                 self.cursor.close()
                 self.conexion.close()
-                if(row[0] == nombre and row[1] == password):
-                    print('El usuario existe')
             except:
                 print('Fallo la conexion')
 
@@ -53,14 +54,16 @@ class Conectar():
                 querySQL = "select nombre, password, admin from usuarios where nombre=%s and password=%s"
                 data = (nombre, password)
                 cursor.execute(querySQL, data)
-                rows=cursor.fetchone()
+                rows=cursor.fetchall()
                 for row in rows:
-                    print('Datos',row)
+                    print(row[2])
+                    
+                if(row[2] == 0):
+                    print('No es un usuario administrador')
+                    return row[2]
                 self.conexion.commit()
                 self.cursor.close()
                 self.conexion.close()
-                if(row[2] == 0):
-                    print('No es un usuario administrador')
             except:
                 print('Fallo la conexion')
 
@@ -77,17 +80,19 @@ class Conectar():
                 querySQL = "select nombre, password, admin from usuarios where nombre=%s and password=%s"
                 data = (nombre, password)
                 cursor.execute(querySQL, data)
-                rows=cursor.fetchone()
+                rows=cursor.fetchall()
                 for row in rows:
-                    print('Datos',row)
+                    print(row[2])
+                if(row[2] == 1):
+                    print('Es un usuario administrador')
+                    return row[2]
                 self.conexion.commit()
                 self.cursor.close()
                 self.conexion.close()
-                if(row[2] == 1):
-                    print('Es un usuario administrador')
+                
             except:
                 print('Fallo la conexion')
 
 #Valido datos
 user = Conectar()    
-user.getUserAdmin(nombre='Admin', password=1234)
+user.validarDataUser(nombre='Admin', password=1234)
