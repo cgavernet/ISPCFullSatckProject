@@ -38,8 +38,8 @@ const container = document.querySelector(".container"),
     const form = document.querySelector("form"),
           emailField = form.querySelector(".email-field"),
           emailInput = emailField.querySelector(".email"),
-          passField = form.querySelector(".password-field"),
-          passInput = passField.querySelector(".password");
+          passwordField = form.querySelector(".password-field"),
+          passwordInput = passwordField.querySelector(".password");
     
     // Validacion de email
     function checkEmail() {
@@ -53,10 +53,10 @@ const container = document.querySelector(".container"),
      // Validacion de Pass
      function confirmPass() {
       const pattern =  /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
-      if (!passInput.value.match(passPattern)) {
-        return passField.classList.add("invalid"); //Agrego clase invalida si el valor no coincide
+      if (!passwordInput.value.match(passPattern)) {
+        return passwordField.classList.add("invalid"); //Agrego clase invalida si el valor no coincide
       }
-      passField.classList.remove("invalid");
+      passwordField.classList.remove("invalid");
     }
 
     form.addEventListener("submit", (e) => {
@@ -65,11 +65,11 @@ const container = document.querySelector(".container"),
     
 
     emailInput.addEventListener("keyup", checkEmail);
-    passInput.addEventListener("keyup", confirmPass);
+    passwordInput.addEventListener("keyup", confirmPass);
     
     if(
       !emailField.classList.contains("invalid")&&
-      !passField.classList.contains("invalid")
+      !passwordField.classList.contains("invalid")
       ) {
       location.href = form.getAttribute("inicio")
       
