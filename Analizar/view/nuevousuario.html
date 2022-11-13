@@ -41,43 +41,47 @@
       <section>
         <div class="signupFrm">
     <div class="wrapper">
-    <form action="" class="form">
+    <form action="" class="form" onsubmit="return validar()">
 
-      <p> Registrarse </p>
+      <p class="title"> Registrarse </p>
 
       <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Nombre y Apellido</label>
+        <input type="text" class="input" placeholder="a" id="name">
+        <label for="name" class="label">Nombre<abbr title="dato requerido" aria-label="required">*</abbr></label>
       </div>
 
       <div class="inputContainer">
-      <input type="text" class="input" placeholder="a">
-      <label for="" class="label">Email</label>
+        <input type="text" class="input" placeholder="a" id="apellido">
+        <label for="apellido" class="label">Apellido<abbr title="dato requerido" aria-label="required">*</abbr></label>
+      </div>
+
+      <div class="inputContainer">
+      <input type="email" class="input" placeholder="a" id="email" title="Ejemplo: correo@email.com">
+      <label for="email" class="label">Email<abbr title="dato requerido" aria-label="required">*</abbr></label>
     </div>
 
     <div class="inputContainer">
-    <input type="text" class="input" placeholder="a">
-    <label for="" class="label">Teléfono Móvil</label>
+    <input type="tel" class="input" placeholder="a" title="Ejemplo: 3514643128" id="telefono" minlength="10">
+    <label for="telefono" class="label">Celular<abbr title="dato requerido" aria-label="required">*</abbr></label>
   </div>
-
-      <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Dirección</label>
-      </div>
     
       <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Contraseña </label>
+        <input type="password" class="input" placeholder="a" id="pass" title="dato requerido">
+        <label for="pass" class="label">Contraseña <abbr title="dato requerido" aria-label="required">*</abbr></label>
       </div>
 
       <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Confirmar contraseña </label>
+        <input type="password" class="input" placeholder="a" title="dato requerido" id="passConfirm">
+        <label for="passConfirm" class="label">Confirmar contraseña <abbr title="dato requerido" aria-label="required">*</abbr></label>
       </div>
-
-      <!-- <input type="submit" class="submitBtn" value="Registrarse"> -->
-      <!-- Agrego provisoriamente hasta que el registro funcione con el backend -->
-      <a class="text-decoration-none" href="../view/home.html"><input type="button" class="submitBtn" value="Registrarse"></a>
+      <p class="warning-registro">Complete correctamente los campos marcados <abbr title = "required">*</abbr>.</p>
+      <input type="submit" class="submitBtn" value="Registrarse">
+      <div class="login-signup">
+        <span class="text">Ya estás registrado?
+            <a href="../view/login.html" class="text signup-link">Ingresá ahora</a>
+        </span> 
+        <a href="../view/Inicio.html" class="text signup-link">Volver al Inicio</a> 
+      </div>
     </form>
     </div>
   </div>

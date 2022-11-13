@@ -9,6 +9,11 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+main {
+  height: 130vh;
+  align-items: flex-start;
+}
+
 .signupFrm {
   display: flex;
   justify-content: center;
@@ -25,14 +30,27 @@ body {
 }
 
 .title {
-  font-size: 50px;
-  margin-bottom: 50px;
+  font-size: 1.75rem;
+  font-weight: 600;
+  position: relative;
+}
+
+form p.title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  height: 3px;
+  width: 30px;
+  background-color: #4D8E4C;
+  border-radius: 25px;
 }
 
 .inputContainer {
   position: relative;
   height: 45px;
   width: 90%;
+  margin: 0 auto;
   margin-bottom: 17px;
 }
 
@@ -69,8 +87,9 @@ body {
 }
 
 .submitBtn {
+  width: 90%;
   display: block;
-  margin-left: auto;
+  margin: 0 auto;
   padding: 15px 30px;
   border: none;
   background-color: #4D8E4C;
@@ -106,9 +125,34 @@ body {
   border: 2px solid #4D8E4C;
 }
 
+.warning-registro {
+  width: 90%;
+  margin: 0 auto;
+  color: #3E584B;
+}
+
+.form .login-signup {
+  margin: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form a.text {
+  color: #4D8E4C;
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}
+
 /*              Media query                     */
-@media screen and (max-width: 420px){
+@media screen and (max-width: 520px){
+  main > section,
+  .signupFrm,
+  .wrapper,
   .form {
-    width: 100vw;
+    width: 100%;
   }
 }
