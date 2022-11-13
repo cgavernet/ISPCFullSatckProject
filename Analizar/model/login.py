@@ -32,14 +32,14 @@ class Conectar():
                 data = (nombre, password)
                 cursor.execute(querySQL, data)
                 rows=cursor.fetchall()
-                for row in rows:
-                    print(row)
-                if(row[0] == nombre and row[1] == password):
-                    print('El usuario existe')
-                    return rows 
                 self.conexion.commit()
-                self.cursor.close()
-                self.conexion.close()
+                
+                if rows:
+                    print('Usuario correcto')
+                    return rows
+                else:
+                    print('Usuario incorrecto')
+                    return rows
             except:
                 print('Fallo la conexion')
 
