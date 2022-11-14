@@ -18,8 +18,9 @@ class Graficos:
         if(self.conexion.is_connected()):
             try:
                 self.cursor = self.conexion.cursor()
-                sql_sentencia = f"SELECT consumo, fechamedicion FROM consumos WHERE medidor = {idmedidor} AND fechamedicion >= CAST({fechainicio} AS DATE) AND fechamedicion <= CAST({fechafin} AS DATE)"
-                self.cursor.execute(sql_sentencia)
+                sql_sentencia = "SELECT consumo, fechamedicion FROM consumos WHERE medidor = %s AND fechamedicion >= CAST( %s AS DATE) AND fechamedicion <= CAST(%s AS DATE)"
+                data = (idmedidor, fechainicio, fechafin)
+                self.cursor.execute(sql_sentencia, data)
                 resultados = self.cursor.fetchall()
                 self.cursor.close()
                 self.conexion.close()
@@ -27,3 +28,7 @@ class Graficos:
             except:
                 print('No hay datos que mostrar')
                 return False
+
+#Valido datos
+gr = Graficos()    
+print(gr.datosMedidor(2, '2022-02-01', '2022-10-15'))
