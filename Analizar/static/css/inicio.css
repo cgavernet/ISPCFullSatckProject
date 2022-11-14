@@ -40,11 +40,10 @@ main{
 }
 .contenedor-superior{
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1fr, 1fr);
+    grid-template-rows: repeat(1fr);
     grid-template-areas:
-        "header header header header header header header sidebar sidebar sidebar sidebar sidebar"
-        "main main main main main main main sidebar sidebar sidebar sidebar sidebar";
+        "main sidebar";
     justify-items: stretch;
     align-items: stretch;
     justify-content: space-around;
@@ -52,14 +51,12 @@ main{
     margin-left: 30px;
 }
 .contenedor-superior-item1{
-    grid-area: header;
-}
-.contenedor-superior-item2{
     grid-area: main;
 }
-.contenedor-superior-item3{
+.contenedor-superior-item2{
     grid-area: sidebar;
 }
+
 .contenedor-servicios{
     display: grid;
     grid-template-columns: 40% auto;
@@ -150,8 +147,17 @@ main{
     color: #171715;
     text-align: left;
 }
-.seccion2{
-    display: flexbox;
+
+.seccion__faq{
+    display: flex;
+    padding: 0rem 0rem 2rem 0rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.seccion__contacto{
+    display: flex;
     padding: 0rem 0rem 2rem 0rem;
     flex-direction: column;
     align-items: center;
@@ -198,16 +204,25 @@ details[open] summary::before{
     height: 3rem;
 }
 
+@media screen and (max-width:1200px) {
+    .contenedor-superior {
+        grid-column: span1;
+    }
+/*    .contenedor-superior-item1 {
+        grid-column: 1;
+    }
+    .contenedor-superior-item2 {
+        grid-column: -1;
+    }   
+}*/ 
+
 @media screen and (max-width:768px) {
     .contenedor-superior-item1 {
         grid-column: 1/-1;
     }
     .contenedor-superior-item2 {
         grid-column: 1/-1;
-    }
-    .contenedor-superior-item3 {
-        grid-column: 1/-1;
-    }
+    }    
 }
 
 /* ------------------- Formulario de contacto ------------------- */
