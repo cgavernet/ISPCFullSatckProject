@@ -15,6 +15,10 @@ body{
     background-color: #4D8E4C;
 }
 
+p {
+    margin: 0;
+}
+
 .container{
     position: relative;
     max-width: 430px;
@@ -137,6 +141,10 @@ body{
 .invalid .input {
     border-color: crimson;
 }
+
+.cPassword .error {
+    align-items: flex-start;
+  }
 
 .input-field input:is(:focus, :valid){
     border-bottom-color: #4D8E4C;

@@ -20,25 +20,32 @@
             <div class="form login">
                 <span class="title">Login</span>
 
-            <form action="../view/home.html">
+            <form action="https://analizar.tk/view/home.html">
                 <div class="field email-field">
                     <div class="input-field">
-                    <input type="email" placeholder="Ingresa tu e-mail" required>
-                    <i class="uil uil-envelope icon"></i>  
+                      <input type="email" placeholder="Ingresa tu email" class="email" />
                     </div>
-                </div>
+                    <span class="error email-error">
+                      <i class="bx bx-error-circle error-icon"></i>
+                      <p class="error-text">Por favor ingrese un e-mail válido</p>
+                    </span>
+                  </div>
 
-                <div class="field password">
-                <div class="input-field">
-                    <input type="password" class="password" placeholder="Ingresa tu contraseña" required>
-                    <i class="uil uil-lock icon"></i>
-                    <i class="uil uil-eye-slash showHidePw"></i>
-                </div>
-                <span class="error password-error">
-                    <i class='bx bx-error-circle error-icon'></i>
-                    <p class="error-text">Usuario o Contraseña incorrectos</p>
-                </span>
-                </div>
+                  <div class="field confirm-password">
+                    <div class="input-field">
+                      <input
+                        type="password"
+                        placeholder="Ingresa tu contraseña"
+                        class="cPassword"
+/>
+                      <i class="bx bx-hide show-hide"></i>
+                    </div>
+                    <span class="error cPassword-error">
+                      <i class="bx bx-error-circle error-icon"></i>
+                      <p class="error-text">Contraseña incorrecta. Reintente</p>
+                    </span>
+                  </div>
+                
                 <div class="checkbox-text">
                     <div class="checkbox-content">
                         <input type="checkbox" id="logCheck">
@@ -68,7 +75,7 @@
 
             <form action="#">
                 <div class="input-field">
-                    <input type="email" placeholder="Ingresa tu email" required>
+                    <input type="email" placeholder="Ingresa tu email">
                     <i class="uil uil-envelope icon"></i>
                 </div>
                 

@@ -5,6 +5,7 @@ html {
 main{
     display: block;    
 }
+
 .contenedor-comentarios{
     display: flex;
     height: 500px;
@@ -15,6 +16,7 @@ main{
     padding: 20px;
     margin-top: 50px;
 }
+
 .contenedor-tarjetas{    
     min-height: 200px;    
     border: solid 3px #171715;
@@ -22,6 +24,7 @@ main{
     background-position: center center;
     width: calc(33.33% - 20px);    
 }
+
 .contenedor-textos{
     height: 100%;
     display: flex;
@@ -30,41 +33,44 @@ main{
     border-radius: 30px;  
     transition: all 0.7s ease; 
 }
+
 .contenedor-textos:hover{
     cursor: pointer;
     color: #1d971b;
     background: #3b3b38;    
 }
+
 .contenedor-tarjetas:hover{
     border: solid 3px #1d971b;
 }
+
 .contenedor-superior{
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1fr, 1fr);
+    grid-template-rows: repeat(1fr);
     grid-template-areas:
-        "header header header header header header header sidebar sidebar sidebar sidebar sidebar"
-        "main main main main main main main sidebar sidebar sidebar sidebar sidebar";
+        "main sidebar";
     justify-items: stretch;
     align-items: stretch;
     justify-content: space-around;
     align-content: space-around;    
     margin-left: 30px;
 }
+
 .contenedor-superior-item1{
-    grid-area: header;
-}
-.contenedor-superior-item2{
     grid-area: main;
 }
-.contenedor-superior-item3{
+
+.contenedor-superior-item2{
     grid-area: sidebar;
 }
+
 .contenedor-servicios{
     display: grid;
     grid-template-columns: 40% auto;
     gap: 30px;    
 }
+
 .contenedor-imagen{
     border: solid 2px #4D8E4C;
     border-radius: 20px;
@@ -88,9 +94,11 @@ main{
     gap: 30px;
     margin-right: 30px;
 }
+
 .contenedor-item1{
     grid-area: header;    
 }
+
 .contenedor-item2{
     grid-area: main1;
     border-radius: 10px;
@@ -99,6 +107,7 @@ main{
     padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;  
 }
+
 .contenedor-item3{
     grid-area: main2;
     border-radius: 10px;
@@ -107,6 +116,7 @@ main{
     padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
+
 .contenedor-item4{
     grid-area: main3;
     border-radius: 10px;
@@ -115,6 +125,7 @@ main{
     padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
+
 .contenedor-item5{
     grid-area: footer1;
     border-radius: 10px;
@@ -123,6 +134,7 @@ main{
     padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
+
 .contenedor-item6{
     grid-area: footer2;
     border-radius: 10px;
@@ -131,12 +143,14 @@ main{
     padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
+
 .titulos-h1{
     font-family: Roboto;
     font-size: 31.5px;
     color: #4D8E4C;
     text-align: left;
 }
+
 .titulos-h2{
     font-family: Roboto;
     font-size: 27px;
@@ -144,19 +158,30 @@ main{
     text-align: center;
     padding: 50px;
 }
+
 .titulos-h3{
     font-family: Roboto;
     font-size: 18px;
     color: #171715;
     text-align: left;
 }
-.seccion2{
-    display: flexbox;
+
+.seccion__faq{
+    display: flex;
+    padding: 0rem 0rem 2rem 0rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.seccion__contacto{
+    display: flex;
     padding: 0rem 0rem 2rem 0rem;
     flex-direction: column;
     align-items: center;
     text-align: center;  
 }
+
 details{
     background: #FFFFFF;
     padding: .5rem;
@@ -165,16 +190,20 @@ details{
     cursor: pointer;
     overflow: hidden;
 }
+
 summary{
     list-style: none;
 }
+
 summary::before{
     content: '+';
     padding-right: 1rem;
 }
+
 details[open] summary::before{
     content: '-';
 }
+
 .campoformulario{
     background-color: #FFFFFF;
     border-color: #FFFFFF;
@@ -182,6 +211,7 @@ details[open] summary::before{
     width: 50rem;
     height: 3rem;
 }
+
 .mensaje{
     background-color: #FFFFFF;
     border-color: #FFFFFF;
@@ -189,6 +219,7 @@ details[open] summary::before{
     width: 50rem;
     height: 7rem;
 }
+
 .enviar{
     background-color: #4D8E4C;
     border-color: #FFFFFF;
@@ -198,16 +229,25 @@ details[open] summary::before{
     height: 3rem;
 }
 
+@media screen and (max-width:1200px) {
+    .contenedor-superior {
+        grid-column: span1;
+    }
+/*    .contenedor-superior-item1 {
+        grid-column: 1;
+    }
+    .contenedor-superior-item2 {
+        grid-column: -1;
+    }*/   
+} 
+
 @media screen and (max-width:768px) {
     .contenedor-superior-item1 {
         grid-column: 1/-1;
     }
     .contenedor-superior-item2 {
         grid-column: 1/-1;
-    }
-    .contenedor-superior-item3 {
-        grid-column: 1/-1;
-    }
+    }    
 }
 
 /* ------------------- Formulario de contacto ------------------- */
@@ -255,6 +295,7 @@ details[open] summary::before{
     box-shadow: 5px 5px 5px #1d971b;
     opacity: 1;
 }
+
 .formulario__input-error {
     font-size: 12px;
     margin-bottom: 0;
@@ -276,6 +317,7 @@ details[open] summary::before{
     width: 15px;
     margin: 0 10px;
 }
+
 .formulario__grupo-terminos {
     text-align: center;
 }
