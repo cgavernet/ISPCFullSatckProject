@@ -6,44 +6,30 @@ main{
     display: block;    
 }
 
-.contenedor-comentarios{
-    display: flex;
-    height: 500px;
-    flex-wrap: wrap;
-    align-content: center;    
-    gap: 20px;
-    background-color: #5f9e5e;
-    padding: 20px;
-    margin-top: 50px;
+/* --- Bloque General - Títulos y Textos de AnalizAr --- */
+.titulos-h1{
+    font-family: Roboto;
+    font-size: 31.5px;
+    color: #4D8E4C;
+    text-align: left;
 }
 
-.contenedor-tarjetas{    
-    min-height: 200px;    
-    border: solid 3px #171715;
-    border-radius: 30px; 
-    background-position: center center;
-    width: calc(33.33% - 20px);    
+.titulos-h2{
+    font-family: Roboto;
+    font-size: 27px;
+    color: #4D8E4C;
+    text-align: center;
+    padding: 50px;
 }
 
-.contenedor-textos{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;            
-    border-radius: 30px;  
-    transition: all 0.7s ease; 
+.titulos-h3{
+    font-family: Roboto;
+    font-size: 18px;
+    color: #171715;
+    text-align: left;
 }
 
-.contenedor-textos:hover{
-    cursor: pointer;
-    color: #1d971b;
-    background: #3b3b38;    
-}
-
-.contenedor-tarjetas:hover{
-    border: solid 3px #1d971b;
-}
-
+/* --- 1er Bloque - Presentación de AnalizAr --- */
 .contenedor-superior{
     display: grid;
     grid-template-columns: repeat(1fr, 1fr);
@@ -65,6 +51,7 @@ main{
     grid-area: sidebar;
 }
 
+/* --- 2do Bloque - Servicios de AnalizAr --- */
 .contenedor-servicios{
     display: grid;
     grid-template-columns: 40% auto;
@@ -144,42 +131,52 @@ main{
     box-shadow: 3px 3px #3b3b38;                  
 }
 
-.titulos-h1{
-    font-family: Roboto;
-    font-size: 31.5px;
-    color: #4D8E4C;
-    text-align: left;
+/* --- 3er Bloque - Comentarios de AnalizAr --- */
+.contenedor-comentarios{
+    display: flex;
+    height: 500px;
+    flex-wrap: wrap;
+    align-content: center;    
+    gap: 20px;
+    background-color: #5f9e5e;
+    padding: 20px;
+    margin-top: 50px;
 }
 
-.titulos-h2{
-    font-family: Roboto;
-    font-size: 27px;
-    color: #4D8E4C;
-    text-align: center;
-    padding: 50px;
+.contenedor-tarjetas{    
+    min-height: 200px;    
+    border: solid 3px #171715;
+    border-radius: 30px; 
+    background-position: center center;
+    width: calc(33.33% - 20px);    
 }
 
-.titulos-h3{
-    font-family: Roboto;
-    font-size: 18px;
-    color: #171715;
-    text-align: left;
+.contenedor-textos{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;            
+    border-radius: 30px;  
+    transition: all 0.7s ease; 
 }
 
+.contenedor-textos:hover{
+    cursor: pointer;
+    color: #1d971b;
+    background: #3b3b38;    
+}
+
+.contenedor-tarjetas:hover{
+    border: solid 3px #1d971b;
+}
+
+/* --- 4to Bloque - Preguntas Frecuentes de AnalizAr --- */
 .seccion__faq{
     display: flex;
     padding: 0rem 0rem 2rem 0rem;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-.seccion__contacto{
-    display: flex;
-    padding: 0rem 0rem 2rem 0rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;  
 }
 
 details{
@@ -204,54 +201,15 @@ details[open] summary::before{
     content: '-';
 }
 
-.campoformulario{
-    background-color: #FFFFFF;
-    border-color: #FFFFFF;
-    text-align: center;
-    width: 50rem;
-    height: 3rem;
+/* --- 5to Bloque - Formulario de Contacto de AnalizAr --- */
+.seccion__contacto{
+    display: flex;
+    padding: 0rem 0rem 2rem 0rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;  
 }
 
-.mensaje{
-    background-color: #FFFFFF;
-    border-color: #FFFFFF;
-    text-align: center;
-    width: 50rem;
-    height: 7rem;
-}
-
-.enviar{
-    background-color: #4D8E4C;
-    border-color: #FFFFFF;
-    color: #FFFFFF;
-    border-radius: 5rem;
-    width: 15rem;
-    height: 3rem;
-}
-
-@media screen and (max-width:1200px) {
-    .contenedor-superior {
-        grid-column: span1;
-    }
-/*    .contenedor-superior-item1 {
-        grid-column: 1;
-    }
-    .contenedor-superior-item2 {
-        grid-column: -1;
-    }*/   
-} 
-
-@media screen and (max-width:768px) {
-    .contenedor-superior-item1 {
-        grid-column: 1/-1;
-    }
-    .contenedor-superior-item2 {
-        grid-column: 1/-1;
-    }    
-}
-
-/* ------------------- Formulario de contacto ------------------- */
-/* Inicio de la modificación del 12 de noviembre de 2022 */
 .formulario {
     display: grid;
     grid-template-columns: 1fr;
@@ -370,7 +328,6 @@ details[open] summary::before{
 .formulario__mensaje-exito-activo {
     display: block;
 }
-
 /* --------------- Validación Formulario de contacto --------------- */
 .formulario__grupo-correcto .formulario__validacion-estado {
     color:#1d971b;
@@ -389,4 +346,25 @@ details[open] summary::before{
 .formulario__grupo-incorrecto .formulario__input {
     border: 3px solid #dd2a2a;
 }
-/* Fin de la modificación del 12 de noviembre de 2022 */
+
+/* --- Bloque Final - Media Queries de AnalizAr --- */
+@media screen and (max-width:1200px) {
+    .contenedor-superior {
+        grid-column: span1;
+    }
+/*    .contenedor-superior-item1 {
+        grid-column: 1;
+    }
+    .contenedor-superior-item2 {
+        grid-column: -1;
+    }*/   
+} 
+
+@media screen and (max-width:768px) {
+    .contenedor-superior-item1 {
+        grid-column: 1/-1;
+    }
+    .contenedor-superior-item2 {
+        grid-column: 1/-1;
+    }    
+}
