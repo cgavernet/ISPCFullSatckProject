@@ -4,6 +4,7 @@ html {
 
 main{
     display: block;    
+    padding-top: 2rem;
 }
 
 /* --- Bloque General - Títulos y Textos de AnalizAr --- */
@@ -31,31 +32,37 @@ main{
 
 /* --- 1er Bloque - Presentación de AnalizAr --- */
 .contenedor-superior{
-    display: grid;
-    grid-template-columns: repeat(1fr, 1fr);
-    grid-template-rows: repeat(1fr);
-    grid-template-areas:
-        "main sidebar";
-    justify-items: stretch;
-    align-items: stretch;
-    justify-content: space-around;
-    align-content: space-around;    
-    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 4rem;
 }
 
 .contenedor-superior-item1{
-    grid-area: main;
+    flex: 1 1 400px;
 }
 
 .contenedor-superior-item2{
-    grid-area: sidebar;
+    display: flex;
+    justify-content: center;
+    flex: 1 1 400px;
+}
+
+.contenedor-superior-item2 img {
+    max-width: 400px;
+    height: 400px;
+    object-fit: cover;
 }
 
 /* --- 2do Bloque - Servicios de AnalizAr --- */
 .contenedor-servicios{
     display: grid;
-    grid-template-columns: 40% auto;
-    gap: 30px;    
+    grid-template-columns: 3fr 4fr;
+    gap: 30px;  
+    padding-right: 2rem;  
+    padding-left: 2rem;  
+    padding-bottom: 5rem;  
 }
 
 .contenedor-imagen{
@@ -64,6 +71,13 @@ main{
     margin: 20px;
     box-shadow: 10px 10px #4D8E4C; 
     align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-imagen img {
+    width: 80%;
 }
 
 .contenedor-tabla{
@@ -74,12 +88,20 @@ main{
         "header header header"
         "main1 main2 main3"
         "footer1 footer2 footer3";
-    justify-items: stretch;
-    align-items: stretch;
     justify-content: space-around;
     align-content: space-around;
     gap: 30px;
-    margin-right: 30px;
+}
+
+.contenedor-tabla .contenedor-item {
+    display: grid;
+    place-items: center;
+}
+
+.contenedor-tabla .contenedor-item p {
+    margin: 0;
+    padding: 0;
+    padding: 10px;
 }
 
 .contenedor-item1{
@@ -90,8 +112,6 @@ main{
     grid-area: main1;
     border-radius: 10px;
     border: 2px solid #4D8E4C;
-    padding-left: 20px;
-    padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;  
 }
 
@@ -99,8 +119,6 @@ main{
     grid-area: main2;
     border-radius: 10px;
     border: 2px solid #4D8E4C;
-    padding-left: 20px;
-    padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
 
@@ -108,8 +126,6 @@ main{
     grid-area: main3;
     border-radius: 10px;
     border: 2px solid #4D8E4C;
-    padding-left: 20px;
-    padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
 
@@ -117,8 +133,6 @@ main{
     grid-area: footer1;
     border-radius: 10px;
     border: 2px solid #4D8E4C;
-    padding-left: 20px;
-    padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
 
@@ -126,15 +140,13 @@ main{
     grid-area: footer2;
     border-radius: 10px;
     border: 2px solid #4D8E4C;
-    padding-left: 20px;
-    padding-right: 20px;
     box-shadow: 3px 3px #3b3b38;                  
 }
 
 /* --- 3er Bloque - Comentarios de AnalizAr --- */
 .contenedor-comentarios{
     display: flex;
-    height: 500px;
+    height: 300px;
     flex-wrap: wrap;
     align-content: center;    
     gap: 20px;
@@ -144,7 +156,7 @@ main{
 }
 
 .contenedor-tarjetas{    
-    min-height: 200px;    
+    height: 200px;    
     border: solid 3px #171715;
     border-radius: 30px; 
     background-position: center center;
@@ -158,12 +170,16 @@ main{
     justify-content: center;            
     border-radius: 30px;  
     transition: all 0.7s ease; 
+    padding: 8px;
+    font-size: 14px;
+    background-color: #9ce0ba;   
 }
 
 .contenedor-textos:hover{
+    font-size: 16px;
     cursor: pointer;
-    color: #1d971b;
-    background: #3b3b38;    
+    color: #1d971b;  
+    background-color: #90e7b4; 
 }
 
 .contenedor-tarjetas:hover{
@@ -352,19 +368,68 @@ details[open] summary::before{
     .contenedor-superior {
         grid-column: span1;
     }
-/*    .contenedor-superior-item1 {
-        grid-column: 1;
-    }
-    .contenedor-superior-item2 {
-        grid-column: -1;
-    }*/   
+} 
+
+@media screen and (max-width:1024px) {
+    .contenedor-servicios{
+        grid-template-columns: 1fr 1fr;
+    } 
 } 
 
 @media screen and (max-width:768px) {
-    .contenedor-superior-item1 {
-        grid-column: 1/-1;
-    }
+    .contenedor-superior {
+        flex-direction: column;
+    }   
+    .contenedor-superior-item1,
     .contenedor-superior-item2 {
-        grid-column: 1/-1;
-    }    
+        flex-basis: content;
+    } 
+    .contenedor-servicios{
+        grid-template-columns: 90%;
+        justify-content: center;
+    } 
+
+    .contenedor-servicios .contenedor-imagen {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .contenedor-servicios .contenedor-tabla .titulos-h3 {
+        text-align: center;
+    }
+
+    .contenedor-comentarios{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contenedor-tarjetas {
+        width: 80%;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:520px) {
+    .contenedor-superior {
+        flex-direction: column;
+    }   
+    .contenedor-superior-item2 img {
+        width: 250px;
+        height: 250px;
+    } 
+
+    .contenedor-tabla{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+            "header"
+            "main1"
+            "main2"
+            "main3"
+            "footer1" 
+            "footer2"
+            "footer3";
+        align-content: center;
+        gap: 16px;
+    }
 }
