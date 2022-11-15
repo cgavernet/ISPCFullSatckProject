@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../static/img/analizar.jpg" type="image/x-icon">
+    <title>Analizar</title>
+</head>
+<body>
+  <header class="skip-to-navigation">
+    <a class="visually-hidden-focusable skip-color" href="#nav">Skip to navigation</a>
+    <a class="visually-hidden-focusable skip-color" href="#content">Skip to services</a>
+    <a class="visually-hidden-focusable skip-color" href="#contact">Skip to contact</a>
+    <a class="visually-hidden-focusable skip-color" href="#footer">Skip to footer</a>
+  </header>
+  <!-- agrego nueva clase al nav -->
+  <nav class="nav-absolute navbar navbar-expand-lg border-1-green">
+      <div class="container-fluid justify-content-between">
+        <button class="bg-transparent border-0" type="submit" id="menuLateral">
+          <i id="changeIcon" class="d-inline-block align-text-top mx-2 bi bi-list display-6 text-green"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav fw-bold align-items-center">
+            <li class="nav-item mx-4">
+              <a class="nav-link" href="#">Bienvenido, @User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-green px-4 rounded-pill" href="../view/In  icio.html">CERRAR SESION</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+  <nav id="submenu" class="m-0 sidebar">
+    <ul class="list-unstyled bg-green m-auto align-items-center">
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/home.html">INICIO</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/historial.html">Historial</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/notificaciones.html">Alertas</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="../view/micuenta.html">Cuenta</a></li>
+    </ul>
+  </nav>
+
+    <main>
+      <section class="tabla-datos">
+        <header class="encabezado-tabla-datos">
+            <nav class="menu-tabla-datos">
+                <button class="link-tabla-datos" id="btn-anual">anual</button>
+                <button class="link-tabla-datos link-tabla-datos-activo" id="btn-mensual">mensual</button>
+                <button class="link-tabla-datos" id="btn-semanal">semanal</button>
+                <button class="link-tabla-datos" id="btn-diario">diario</button>
+            </nav>
+            <h2 class="encabezado-tabla-datos">consumo general</h2>
+        </header>
+        <div class="contenedor-general-tabla-datos">
+            <div class="contenedor-interno-tabla-datos">
+                <h2 class="consumo-datos"><span id="consumo">250</span> w/h</h2>
+                <div class="container-flex-row">
+                  <h3 class="precio-datos">$<span id="precio">1200</span></h3>
+                  <button class="btn-edit" title="Editar costo del w/h" id="btn-open-edit-precio"><i class="bi bi-pencil"></i></button>
+                </div>
+                <button class="btn btn-green" id="open-tabla">Más Info</button>
+            </div>
+            <form class="formulario-edit-precio" id="form-edit-precio">
+              <p class="title-modo-edit">nuevo costo</p>
+              <div class="inputContainer">
+                <input type="number" class="input" placeholder="Ingresa el nuevo precio" id="input-precio">
+                <label for="" class="label"> Precio </label>
+              </div>
+              <div class="btnContainer">
+                <input type="button" class= "submitBtn saveBtn" id="btn-save-edit-precio" value="Guardar">
+                <input type="button" class= "submitBtn cancelBtn" id="btn-close-edit-precio" value="Cancelar">
+              </div>
+            </form>
+        </div>
+      </section>
+
+      <section class="tabla-para-datos" id="tabla">
+        <header class="encabezado-tabla">
+          <h2 class="title-tabla">tabla <span id="tipo-tabla">mensual</span></h2>
+          <button class="btn close-table" id="close-tabla">X</button>
+        </header>
+        <table class="datos" id="tabla-datos">
+          <tr>
+            <th>Día</th>
+            <th>Consumo</th>
+            <th>Costo</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>20w/h</td>
+            <td>$120</td>
+          </tr>
+        </table>
+      </section>
+
+    </main>
+
+    <footer class="d-flex flex-column flex-nowrap justify-content-between align-items-center p-3 bg-black">
+      <div class="col-md-12 d-flex align-items-center mb-2">
+        <span class="m-auto mb-3 mb-md-0 text-white">© Copyright AnalizAr - Dev Full Solutions. Todos los derechos reservados</span>
+      </div>
+    
+      <ul class="nav col-md-12 justify-content-center list-unstyled d-flex">
+        <li class="mx-4"><a href="#"><i class="bi bi-instagram text-white"></i></a></li>
+        <li class="mx-4"><a href="#"><i class="bi bi-facebook text-white"></i></a></li>
+        <li class="mx-4"><a href="#"><i class="bi bi-twitter text-white"></i></a></li>
+      </ul>
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="../static/js/effects.js"></script>
+    <script src="../static/js/home.js"></script>
+    <script src="../static/js/data_temporal.js"></script>
+  </body>
+</html>
