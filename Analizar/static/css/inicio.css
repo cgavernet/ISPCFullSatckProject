@@ -232,11 +232,18 @@ details[open] summary::before{
 .formulario {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
+    width: 50%;
+}
+
+.formulario__grupo {
+    display: flex;
+    flex-direction: column;
+
 }
 
 .formulario__label {
-    display: block;
+    display: flex;
+    flex-direction: row;
     padding: 10px 0;
     cursor: pointer;
 }
@@ -246,7 +253,7 @@ details[open] summary::before{
 }
 
 .formulario__input {
-    width: 90%;
+    width: 100%;
     opacity: 0.5;    
     background: #FFFFFF;
     border: 3px solid transparent;
@@ -409,6 +416,10 @@ details[open] summary::before{
     .contenedor-tarjetas {
         width: 80%;
         align-items: center;
+    }
+    
+    .formulario {
+        width: 75%;
     }
 }
 
