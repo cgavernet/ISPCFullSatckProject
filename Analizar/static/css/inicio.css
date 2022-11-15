@@ -192,20 +192,23 @@ main{
     padding: 0rem 0rem 2rem 0rem;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
 }
 
 details{
+    width: 80%;
     background: #FFFFFF;
     padding: .5rem;
     border-radius: 6px;
-    margin: 30px;
+    /* margin: 30px; */
     cursor: pointer;
     overflow: hidden;
+    font-weight: 400;
 }
 
 summary{
     list-style: none;
+    font-weight: 600;
 }
 
 summary::before{
