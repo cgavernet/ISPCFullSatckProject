@@ -10,22 +10,22 @@ function restaurarTitulo() {
 
 function cambiarImagen() {
     const imagen1 = document.getElementById('imagen-principal')
-    imagen1.src = "/Analizar/static/img/analizarSinBg.png"
+    imagen1.src = "../static/img/analizarSinBg.png"
 }
 
 function restaurarImagen() {
     const imagen2 = document.getElementById('imagen-principal')
-    imagen2.src = "/Analizar/static/img/fondo1b.png"
+    imagen2.src = "../static/img/fondo1b.png"
 }
 
 function cambiarImagenServicios() {
     const imagenServicios1 = document.getElementById('imagen-servicios')
-    imagenServicios1.src = "/Analizar/static/img/DevFullSolutionsb.png"
+    imagenServicios1.src = "../static/img/DevFullSolutionsb.png"
 }
 
 function restaurarImagenServicios() {
     const imagenServicios2 = document.getElementById('imagen-servicios')
-    imagenServicios2.src = "/Analizar/static/img/fondo2b.png"
+    imagenServicios2.src = "../static/img/fondo2b.png"
 }
 
 // Inicio de la modificación del 12 de noviembre de 2022
