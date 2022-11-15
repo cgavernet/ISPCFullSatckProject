@@ -21,11 +21,11 @@
 
             <form action="#">
                 <div class="input-field">
-                    <input type="email" placeholder="Ingresa tu e-mail" required>
+                    <input type="text" id="user" placeholder="Ingresa su usuario" required>
                     <i class="uil uil-envelope icon"></i>
                 </div>
                 <div class="input-field">
-                    <input type="password" class="password" placeholder="Ingresa tu contraseña" required>
+                    <input type="password" class="password" id="pass" placeholder="Ingresa tu contraseña" required>
                     <i class="uil uil-lock icon"></i>
                     <i class="uil uil-eye-slash showHidePw"></i>
                 </div>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="input-field button">
-                     <a href="../view/dashboard.html"><input type="button"  value="Ingresar"></a>
+                     <a href="../view/dashboard.html"><input type="button" id="btn-send"  value="Ingresar"></a>
                 </div>
             </form>
             
@@ -48,7 +48,7 @@
 
             </div>
 
-           <!-- Formulario de "olvidó su contraseña"-->
+           <!-- Formulario de "olvidó su contraseña"
                  <div class="form signup">
                     <span class="title">Reestablece tu contraseña</span>
 
@@ -76,11 +76,41 @@
                     </span>
                 </div>
             </div>
-
+            -->
         </div>
     </div>
 
     <script src="../static/js/login.js"></script>
+    <script>
+        console.log('Hello world');
+        const btnSend = document.getElementById('btn-send');
+
+        const validación = (e) => {
+        e.preventDefault();
+        const username = document.getElementById('user');
+        const pass = document.getElementById('pass');
+        //console.log(username.value,pass.value);
+        //Valido que no este vacio el campo usuario
+        if (username.value == "") {
+            alert("Por favor, escribe tu nombre de usuario.");
+            console.log(username.value);
+            username.focus();
+            return false;
+        }
+        //Valido que no este vacio el campo y que tenga minimo 6 digitos
+        if (pass.value == "" || pass.value.length < 6) {
+            alert("Por favor, escribe una contraseña que tenga más de 6 digitos");
+            console.log(pass);
+            pass.focus();
+            return false;
+        }
+        
+        return true;
+        }
+
+        btnSend.addEventListener('click', validación);
+
+    </script>
 </body>
 
 </html>
