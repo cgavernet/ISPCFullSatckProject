@@ -169,6 +169,10 @@ h2 {
     font-size: 20px;
 }
 
+.icons i {
+    cursor: pointer;
+}
+
 main {
     flex-direction: column;
 }
