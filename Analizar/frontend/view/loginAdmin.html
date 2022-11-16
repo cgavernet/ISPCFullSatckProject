@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="shortcut icon" href="../static/img/analizar.jpg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Admin Dashboard</title>
 </head>
 <body>
@@ -21,13 +22,13 @@
 
             <form action="../view/dashboard.html">
                 <div class="input-field">
-                    <input type="text" id="user" placeholder="Ingresa su usuario" required>
-                    <i class="uil uil-envelope icon"></i>
+                    <input type="text" id="username" placeholder="Ingresa su usuario" autocomplete="off" >
+                    <i class="bi bi-person icon"></i>
                 </div>
                 <div class="input-field">
-                    <input type="password" class="password" id="pass" placeholder="Ingresa tu contraseña" required>
+                    <input type="password" class="password" id="pass" placeholder="Ingresa tu contraseña" autocomplete="off">
                     <i class="uil uil-lock icon"></i>
-                    <i class="uil uil-eye-slash showHidePw"></i>
+                    <i id="showPass" class="bi bi-eye showHidePw"></i>
                 </div>
 
                 <div class="checkbox-text">
@@ -38,7 +39,7 @@
                 </div>
 
                 <div class="input-field button">
-                     <a href="../view/dashboard.html"><input type="button" id="btn-send"  value="Ingresar"></a>
+                     <input type="submit" value="Ingresar">
                 </div>
             </form>
             
@@ -47,70 +48,10 @@
                 </div> 
 
             </div>
-
-           <!-- Formulario de "olvidó su contraseña"
-                 <div class="form signup">
-                    <span class="title">Reestablece tu contraseña</span>
-
-            <form action="#">
-                <div class="input-field">
-                    <input type="email" placeholder="Ingresa tu email" required>
-                    <i class="uil uil-envelope icon"></i>
-                </div>
-                
-                <div class="checkbox-text">
-                    <div class="checkbox-content">
-                        <input type="checkbox" id="sigCheck">
-                        <label for="sigCheck" class="text">Recuerdo mi usuario</label>
-                    </div>
-                </div>
-
-                <div class="input-field button">
-                    <input type="button" value="Reestablecer contraseña">
-                </div>
-            </form>
-            
-                <div class="login-signup">
-                    <span class="text">Estás registrado?
-                        <a href="#" class="text login-link">Ingresar</a>
-                    </span>
-                </div>
-            </div>
-            -->
         </div>
     </div>
 
-    <script src="../static/js/login.js"></script>
-    <script>
-        console.log('Hello world');
-        const btnSend = document.getElementById('btn-send');
-
-        const validación = (e) => {
-        e.preventDefault();
-        const username = document.getElementById('user');
-        const pass = document.getElementById('pass');
-        //console.log(username.value,pass.value);
-        //Valido que no este vacio el campo usuario
-        if (username.value == "") {
-            alert("Por favor, escribe tu nombre de usuario.");
-            console.log(username.value);
-            username.focus();
-            return false;
-        }
-        //Valido que no este vacio el campo y que tenga minimo 6 digitos
-        if (pass.value == "" || pass.value.length < 6) {
-            alert("Por favor, escribe una contraseña que tenga más de 6 digitos");
-            console.log(pass);
-            pass.focus();
-            return false;
-        }
-        
-        return true;
-        }
-
-        btnSend.addEventListener('click', validación);
-
-    </script>
+    <script src="../static/js/loginAdmin.js"></script>
 </body>
 
 </html>
