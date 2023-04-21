@@ -1,5 +1,5 @@
 # ISPCFullStackProject
-Proyecto Integrador del módulo FullStack del ISPC Córdoba - Grupo 18
+Proyecto Integrador del módulo FullStack del ISPC Córdoba
 
 ![imagen](https://user-images.githubusercontent.com/56803807/194679215-db0648c9-f44e-48c3-af4c-53d5bc8cd8f0.png)
 
