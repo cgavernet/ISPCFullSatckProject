@@ -1,7 +1,7 @@
 # Desplegar Angular en su ordenador
-1. Clonar el repo
+1. Clonar el repo o hacer un pull
 ``` 
-git clone https://github.com/Frangia22/Analizar-Angular.git
+git clone https://github.com/cgavernet/ISPCFullSatckProject.git
 ```
 2. Ingresar a la carpeta del proyecto, seria en la que esta el *src*, *angular.json*, *package.json* se ubican ahí para ejecutarlo. En mi caso, hice *cd frontend/analizar/*
 ```
