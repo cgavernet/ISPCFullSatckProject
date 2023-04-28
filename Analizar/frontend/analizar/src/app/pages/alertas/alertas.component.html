@@ -9,7 +9,7 @@
         <h4>{{alert.typeAlert}}</h4>
         <p class="texto-alerta" id="texto-alerta-alerta1">Si el consmo supera los <b>{{ alert.setAlert }}</b> w/h envio una alerta como precaucion</p>
         <div class="contenedor-botones-alerta">
-            <button class="btn-alerta btn-alerta-editar">editar</button>
+            <!-- <button class="btn-alerta btn-alerta-editar" (click)="openEditModal(i)">editar</button> -->
             <button class="btn-alerta btn-alerta-eliminar" (click)="removeAlert(i)">eliminar</button>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <button type="button" class= "submitBtn cancelBtn" (click)="closeModal()" id="btn-close-nueva-alerta">Cancelar</button>
       </div>
     </form>
-    <form class="formulario-nueva-alerta" id="form-edit-alerta">
+    <form class="formulario-nueva-alerta" id="editAlert">
       <p class="title-formulario-alerta">Editar alerta</p>
       <div class="inputContainer">
         <input type="hidden" name="idAlerta" id="input-idAlerta-edit">
@@ -51,8 +51,8 @@
         </select>
       </div>
       <div class="btnContainer">
-        <button type="button" class= "submitBtn saveBtn" id="btn-save-edit-alerta">Guardar</button>
-        <button type="button" class= "submitBtn cancelBtn" id="btn-close-edit-alerta">Cancelar</button>
+        <button type="button" class= "submitBtn saveBtn" (click)="updateAlert()" id="btn-save-edit-alerta">Guardar</button>
+        <button type="button" class= "submitBtn cancelBtn" (click)="closeModal()" id="btn-close-edit-alerta">Cancelar</button>
       </div>
     </form>
   </section>

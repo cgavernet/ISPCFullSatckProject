@@ -30,6 +30,7 @@ export class AlertasComponent {
   }
 
  }
+ updateAlert(){}
  removeAlert(id:number){
   this.alerts = this.alerts.filter((v, i) => i !== id);
  }
@@ -45,6 +46,18 @@ export class AlertasComponent {
       contenedorAlertas.style.display ='none';
     }
   }
+  //Abrir modal editar
+  openEditModal(id:number): void{
+    const editModal = document.getElementById('editAlert');
+    let contenedorAlertas = document.getElementById('contenedor-alertas');
+    if(editModal != null) {
+      editModal.style.display ='flex';      
+    }
+    if(contenedorAlertas != null) {
+      contenedorAlertas.style.display ='none';
+    }
+  }
+  //Cerrar modal
   closeModal(){
     const modal = document.getElementById('addAlert');
     let contenedorAlertas = document.getElementById('contenedor-alertas');
