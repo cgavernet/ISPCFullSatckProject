@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { Pagina404Component } from './pagina404/pagina404.component';
 import { AlertasComponent } from './alertas/alertas.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,9 @@ import { AlertasComponent } from './alertas/alertas.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     //Aca deben exportar los componentes de pages creados, para ser utilizados por otros modulos
