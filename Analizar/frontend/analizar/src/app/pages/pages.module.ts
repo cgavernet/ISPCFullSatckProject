@@ -4,12 +4,14 @@ import { AppRoutingModule } from '../app-routing.module';
 import { Pagina404Component } from './pagina404/pagina404.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     //Aca deben declarar los componentes de pages que crearon
     Pagina404Component,
-    AlertasComponent
+    AlertasComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     //Aca deben exportar los componentes de pages creados, para ser utilizados por otros modulos
     Pagina404Component,
-    AlertasComponent
+    AlertasComponent, 
+    LoginComponent
   ]
 })
 export class PagesModule { }
