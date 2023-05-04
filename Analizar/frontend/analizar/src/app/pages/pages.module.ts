@@ -5,13 +5,15 @@ import { Pagina404Component } from './pagina404/pagina404.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente.component';
 
 @NgModule({
   declarations: [
     //Aca deben declarar los componentes de pages que crearon
     Pagina404Component,
     AlertasComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardClienteComponent
   ],
   imports: [
     CommonModule,
@@ -22,8 +24,9 @@ import { LoginComponent } from './login/login.component';
   exports: [
     //Aca deben exportar los componentes de pages creados, para ser utilizados por otros modulos
     Pagina404Component,
-    AlertasComponent, 
-    LoginComponent
+    AlertasComponent,
+    LoginComponent,
+    DashboardClienteComponent
   ]
 })
 export class PagesModule { }
