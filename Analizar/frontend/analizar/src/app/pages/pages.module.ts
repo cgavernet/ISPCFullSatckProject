@@ -21,7 +21,6 @@ import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente
   exports: [
     //Aca deben exportar los componentes de pages creados, para ser utilizados por otros modulos
     Pagina404Component,
-    AlertasComponent,
     DashboardClienteComponent
   ]
 })
