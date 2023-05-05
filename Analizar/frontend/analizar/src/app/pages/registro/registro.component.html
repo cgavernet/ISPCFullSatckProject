@@ -1,0 +1,92 @@
+<main>
+    <section>
+        <div class="signupFrm">
+            <div class="wrapper">
+                <form class="form" (ngSubmit)="onSubmit()" [formGroup]="registroForm" autocomplete="nope">
+    
+                    <p class="title"> Registrarse </p>
+    
+                    <div class="inputContainer">
+                        <input type="text" class="input" placeholder="a" id="name" formControlName="nombre" required>
+                        <label for="name" class="label">Nombre<abbr title="dato requerido" aria-label="required">*</abbr></label>
+                    </div>
+                    <div *ngIf="registroForm.get('nombre')?.touched && registroForm.get('nombre')?.errors?.['required']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un nombre
+                    </div>
+                    
+                    <div class="inputContainer">
+                        <input type="text" class="input" placeholder="a" id="apellido" formControlName="apellido" required>
+                        <label for="apellido" class="label">Apellido<abbr title="dato requerido" aria-label="required">*</abbr></label>
+                    </div>
+                    <div *ngIf="registroForm.get('apellido')?.touched && registroForm.get('apellido')?.errors?.['required']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un apellido
+                    </div>
+    
+                    <div class="inputContainer">
+                        <input type="email" class="input" placeholder="a" id="email" title="Ejemplo: correo@email.com" formControlName="email" required>
+                        <label for="email" class="label">Email<abbr title="dato requerido" aria-label="required">*</abbr></label>
+                    </div>
+                    <div *ngIf="registroForm.get('email')?.touched && registroForm.get('email')?.errors?.['required']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un email
+                    </div>
+                    <div *ngIf="registroForm.get('email')?.touched && registroForm.get('email')?.errors?.['pattern']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un e-mail válido
+                    </div> 
+    
+                    <div class="inputContainer">
+                        <input type="tel" class="input" placeholder="a" title="Ejemplo: 3514643128" id="telefono" minlength="10" formControlName="telefono" required>
+                        <label for="telefono" class="label">Celular<abbr title="dato requerido" aria-label="required">*</abbr></label>
+                    </div>
+                    <div *ngIf="registroForm.get('telefono')?.touched && registroForm.get('telefono')?.errors?.['required']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un telefono
+                    </div>
+                    <div *ngIf="registroForm.get('telefono')?.touched && registroForm.get('telefono')?.errors?.['pattern']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un telefono válido. Ej: 3514566713
+                    </div> 
+    
+                    <div class="inputContainer">
+                        <input type="password" class="input" placeholder="a" id="pass" title="dato requerido" formControlName="password" required>
+                        <label for="pass" class="label">Contraseña <abbr title="dato requerido" aria-label="required">*</abbr></label>
+                    </div>
+                    <div *ngIf="registroForm.get('password')?.touched && registroForm.get('password')?.errors?.['required']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña
+                    </div>
+                    <div *ngIf="registroForm.get('password')?.touched && registroForm.get('password')?.errors?.['minlength']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña de al menos 8 carácteres
+                    </div>
+                    <div *ngIf="registroForm.get('password')?.touched && registroForm.get('password')?.errors?.['maxlength']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña de menos de 30 carácteres
+                    </div>
+    
+                    <div class="inputContainer">
+                        <input type="password" class="input" placeholder="a" title="dato requerido" id="passConfirm" formControlName="confirmPassword" required>
+                        <label for="passConfirm" class="label">Confirmar contraseña <abbr title="dato requerido" aria-label="required">*</abbr></label>
+                    </div>
+                    <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('confirmPassword')?.errors?.['required']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingresa nuevamente la contraseña
+                    </div>
+                    <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('password')?.touched && !passwordMatch()" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Ambas contraseñas deben ser iguales!
+                    </div>
+                    <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('confirmPassword')?.errors?.['minlength']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña de al menos 8 carácteres
+                    </div>
+                    <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('confirmPassword')?.errors?.['maxlength']" class="error">
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña de menos de 30 carácteres
+                    </div>
+    
+                    <p class="warning-registro">Complete correctamente los campos marcados <abbr title = "required">*</abbr>.</p>
+    
+                    <input type="submit" class="submitBtn" value="Registrarse" [disabled]="registroForm.invalid">
+    
+                    <div class="login-signup">
+                        <span class="text">Ya estás registrado?
+                            <a (click)="linkLogin()" class="text signup-link">Ingresá ahora</a>
+                        </span> 
+                        <a (click)="linkHome()" class="text signup-link">Volver al Inicio</a> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
