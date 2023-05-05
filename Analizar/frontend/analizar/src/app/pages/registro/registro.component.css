@@ -140,6 +140,12 @@ form p.title::before {
 .form a:hover {
     text-decoration: underline;
 }
+
+.error {
+    color: red;
+    position: relative;
+    top: -10px;
+}
   
 /*              Media query                     */
 @media screen and (max-width: 520px){
