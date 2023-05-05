@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Alert } from './Alert';
 
 
@@ -9,6 +10,8 @@ import { Alert } from './Alert';
   styleUrls: ['./alertas.component.css']
 })
 export class AlertasComponent {
+
+constructor(private router: Router) {}
  alerts: Alert[] = [];
  setAlert!: number;
  typeAlert!: string;
