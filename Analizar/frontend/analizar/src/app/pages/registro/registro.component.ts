@@ -11,6 +11,12 @@ import Swal from 'sweetalert2';
 export class RegistroComponent implements OnInit {
 
   registroForm!: FormGroup;
+  linkLogin() {
+    return this.router.navigate(['/login'])
+  }
+  linkHome() {
+    return this.router.navigate(['/inicio'])
+  }
 
   constructor(private fb:FormBuilder, private router: Router){}
  
@@ -23,7 +29,7 @@ export class RegistroComponent implements OnInit {
       nombre: ['', [ Validators.required]],
       apellido: ['', [ Validators.required]],
       email: ['', [ Validators.required, Validators.email, Validators.pattern('^[^ ]+@[^ ]+\.[a-z]{2,3}$')]],
-      telefono: ['', [ Validators.required, Validators.pattern('[0-9]{0,3} [0-9]{3,4} [0-9]{6,7}')]],
+      telefono: ['', [ Validators.required, Validators.pattern('[0-9]{10}')]],
       password: ['', [ Validators.required, Validators.minLength(7), Validators.maxLength(30)]],
       confirmPassword: ['', [ Validators.required, Validators.minLength(7), Validators.maxLength(30)]],
     })
@@ -31,21 +37,21 @@ export class RegistroComponent implements OnInit {
 
   onSubmit(): void{
     if(!this.registroForm.invalid){
+      if(this.passwordMatch()){
         Swal.fire({
           icon: 'success',
           title: 'Éxito!',
           text: 'Registro completo!'
         })
         .then(() => this.router.navigate(['/login']))
+      }
     }
   }
 
   passwordMatch(): boolean{
     if(this.registroForm.value.password === this.registroForm.value.confirmPassword){
-      alert('Coincidencia')
       return true
     }else{
-      alert('no hay coincidencia')
       return false
     }
   }

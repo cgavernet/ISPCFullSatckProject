@@ -41,7 +41,7 @@
                         <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un telefono
                     </div>
                     <div *ngIf="registroForm.get('telefono')?.touched && registroForm.get('telefono')?.errors?.['pattern']" class="error">
-                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un telefono válido
+                        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un telefono válido. Ej: 3514566713
                     </div> 
     
                     <div class="inputContainer">
@@ -65,7 +65,7 @@
                     <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('confirmPassword')?.errors?.['required']" class="error">
                         <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingresa nuevamente la contraseña
                     </div>
-                    <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('password')?.errors?.['required'] && !passwordMatch()" class="error">
+                    <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('password')?.touched && !passwordMatch()" class="error">
                         <i class="bi bi-exclamation-circle mx-2"></i>Ambas contraseñas deben ser iguales!
                     </div>
                     <div *ngIf="registroForm.get('confirmPassword')?.touched && registroForm.get('confirmPassword')?.errors?.['minlength']" class="error">
@@ -81,9 +81,9 @@
     
                     <div class="login-signup">
                         <span class="text">Ya estás registrado?
-                            <a href="../view/login.html" class="text signup-link">Ingresá ahora</a>
+                            <a (click)="linkLogin()" class="text signup-link">Ingresá ahora</a>
                         </span> 
-                        <a href="../view/Inicio.html" class="text signup-link">Volver al Inicio</a> 
+                        <a (click)="linkHome()" class="text signup-link">Volver al Inicio</a> 
                     </div>
                 </form>
             </div>

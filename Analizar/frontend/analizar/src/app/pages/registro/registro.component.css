@@ -146,6 +146,10 @@ form p.title::before {
     position: relative;
     top: -10px;
 }
+
+.signup-link {
+    cursor: pointer;
+}
   
 /*              Media query                     */
 @media screen and (max-width: 520px){
