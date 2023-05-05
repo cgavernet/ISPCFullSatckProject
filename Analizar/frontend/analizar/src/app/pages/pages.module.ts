@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
+import { NgChartsModule } from 'ng2-charts';
 import { Pagina404Component } from './pagina404/pagina404.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente.component';
+import { HistorialComponent } from './historial/historial.component';
 
 @NgModule({
   declarations: [
@@ -13,20 +15,23 @@ import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente
     Pagina404Component,
     AlertasComponent,
     LoginComponent,
-    DashboardClienteComponent
+    DashboardClienteComponent,
+    HistorialComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   exports: [
     //Aca deben exportar los componentes de pages creados, para ser utilizados por otros modulos
     Pagina404Component,
     AlertasComponent,
     LoginComponent,
-    DashboardClienteComponent
+    DashboardClienteComponent,
+    HistorialComponent
   ]
 })
 export class PagesModule { }
