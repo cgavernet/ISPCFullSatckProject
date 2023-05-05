@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: DashboardClienteComponent},
   { path: 'login', component: LoginComponent},
   { path: 'historial', component: HistorialComponent},
+  { path: 'dasboard-client', component: DashboardClienteComponent},
   { path: '**', component: Pagina404Component}
 ];
 
