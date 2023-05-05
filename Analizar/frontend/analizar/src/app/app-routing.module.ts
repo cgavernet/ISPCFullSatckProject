@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlertasComponent } from './pages/alertas/alertas.component';
 import { LoginComponent } from './pages/login/login.component';
 import { Pagina404Component } from './pages/pagina404/pagina404.component';
-import { AuthGuard } from './service/authGuard.service';
+import { DashboardClienteComponent } from './pages/dashboard-cliente/dashboard-cliente.component';
+import { HistorialComponent } from './pages/historial/historial.component';
 
 const routes: Routes = [
   //Definir las rutas de la app
-  { path: 'alertas', component: AlertasComponent, canActivate: [AuthGuard]},
+  { path: 'alertas', component: AlertasComponent},
+  { path: 'home', component: DashboardClienteComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'historial', component: HistorialComponent},
+  { path: 'dasboard-client', component: DashboardClienteComponent},
   { path: '**', component: Pagina404Component}
 ];
 

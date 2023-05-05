@@ -1,0 +1,27 @@
+main {
+    width: 100%;
+    /* min-height: 80vh;*/
+    /* min-height: 75.2vh; */
+    /*padding: 3.37rem 0 6rem 0;*/
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chart {
+    height: 200px;
+}
+.grafico {
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+.card{
+font-family: 'Roboto', sans-serif !important;
+text-align: center;
+font-size: .9rem;
+font-weight: bold;
+color: var(--green-900);
+}
+
+.card-header {
+background-color: #c3e6cb;
+}
