@@ -12,7 +12,7 @@ export class NavComponent {
   
   constructor(private router: Router, private authService: AuthService ) { }
   isLoggedIn(): boolean {
-    console.log(this.authService.isLoggedIn);    
+    // console.log(this.authService.isLoggedIn);    
     return this.authService.isLoggedIn();
   }
   

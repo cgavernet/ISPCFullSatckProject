@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente.component';
 import { HistorialComponent } from './historial/historial.component';
+import { RegistroComponent } from './registro/registro.component';
+import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HistorialComponent } from './historial/historial.component';
     AlertasComponent,
     LoginComponent,
     DashboardClienteComponent,
-    HistorialComponent
+    HistorialComponent,
+    RegistroComponent,
+    MiCuentaComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +35,8 @@ import { HistorialComponent } from './historial/historial.component';
     AlertasComponent,
     LoginComponent,
     DashboardClienteComponent,
-    HistorialComponent
+    HistorialComponent,
+    MiCuentaComponent
   ]
 })
 export class PagesModule { }
