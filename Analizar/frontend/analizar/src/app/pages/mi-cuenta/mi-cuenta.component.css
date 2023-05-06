@@ -9,8 +9,8 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-main {
-  min-height: 140vh;
+section {
+  margin: 2em 0;
 }
 
 .Micuenta {
@@ -86,7 +86,6 @@ border-radius: 25px;
 
 .submitBtn {
   display: block;
-  margin-left: auto;
   padding: 15px 30px;
   border: none;
   background-color: #4D8E4C;
@@ -100,7 +99,6 @@ border-radius: 25px;
 
 .submitBtn2 {
   display: block;
-  margin-left: auto;
   padding: 15px 30px;
   border: none;
   background-color: #ff0009;
