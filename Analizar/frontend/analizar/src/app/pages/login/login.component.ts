@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void{    
     if (this.authService.login(this.loginDash.value.email, this.loginDash.value.password)) {
       console.log(this.loginDash.value.email, this.loginDash.value.password);
-      this.router.navigate(['/alertas']);
+      this.router.navigate(['/dashboard-client']);
     } else {
       console.log(this.loginDash.value.email, this.loginDash.value.password);
       this.router.navigate(['/login']);
