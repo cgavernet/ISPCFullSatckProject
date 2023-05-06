@@ -7,6 +7,7 @@ import { DashboardClienteComponent } from './pages/dashboard-cliente/dashboard-c
 import { HistorialComponent } from './pages/historial/historial.component';
 import { AuthGuard } from './service/authGuard.service';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { MiCuentaComponent } from './pages/mi-cuenta/mi-cuenta.component';
 
 const routes: Routes = [
   //Definir las rutas de la app
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'historial', component: HistorialComponent, canActivate:[AuthGuard]},
   { path: 'dashboard-client', component: DashboardClienteComponent, canActivate:[AuthGuard]},
+  { path: 'mi-cuenta', component: MiCuentaComponent, canActivate:[AuthGuard]},
   { path: '**', component: Pagina404Component}
 ];
 
