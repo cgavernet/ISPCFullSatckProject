@@ -1,0 +1,180 @@
+<!-- Primer bloque -->
+<div class="contenedor-superior">
+    <div class="contenedor-superior-item1">
+    <h1 class="titulos-h1" id="titulo-principal" (mousemove)="cambiarTitulo()" (mouseout)="restaurarTitulo()"><strong>Controlar el consumo
+    eléctrico nunca fue tan fácil</strong></h1>        
+    <h3><strong class="titulos-h3">AnalizAr te permitirá conocer tu nivel de consumo de
+        luz, permitiéndote estimar el costo mensual,
+        comparar con otros meses y ¡mucho más!</strong></h3>
+    </div>
+    <div class="contenedor-superior-item2">
+    <img src="../assets/img/fondo1b.png" alt="imagen de la aplicacion en movil" title="Personas usando Analizar" id="imagen-principal" (mouseover)="cambiarImagen()" (mouseout)="restaurarImagen()"/>
+    </div>
+</div>
+<section class="sectionMain">
+    <!-- Sección superior de la página -->
+      <!-- Segundo bloque -->
+      <h2 class="titulos-h2" id="servicios"><strong>SERVICIOS</strong></h2>
+      
+      <div class="contenedor-servicios">
+        <div class="contenedor-imagen">
+          <img src="../assets/img/fondo2b.png" alt="imagen de usuario analizando informes de la app" title="Informes AnalizAr" id="imagen-servicios" (mouseover)="cambiarImagenServicios()" (mouseout)="restaurarImagenServicios()"/>
+        </div>
+        <div class="contenedor-tabla">          
+          <div class="contenedor-item1">
+            <h3 class="titulos-h3">Nuestra aplicación te permitirá tener al alcance de tu mano 
+            toda la información necesaria sobre el consumo eléctrico, ¡desde cualquier dispositivo!</h3>
+          </div>
+          <div class="contenedor-item contenedor-item2">            
+            <p style="text-align: center;">Nivel de Consumo Diario</p>
+          </div>
+          <div class="contenedor-item contenedor-item3">            
+            <p style="text-align: center">Nivel de Consumo Mensual</p>
+          </div>
+          <div class="contenedor-item contenedor-item4">            
+            <p style="text-align: center">Costo Estimado</p>
+          </div>
+          <div class="contenedor-item contenedor-item5">            
+            <p style="text-align: center">Historial de Consumo</p>
+          </div>
+          <div class="contenedor-item contenedor-item6">            
+            <p style="text-align: center">Configuración de Alertas</p>
+          </div>
+        </div>
+      </div>
+           
+      <!-- Sección media de la página -->
+      <!-- Tercer bloque -->
+      <div class="contenedor-comentarios">
+        <div class="contenedor-tarjetas">
+          <div class="contenedor-textos">
+            <h3 style="text-align: center"><strong>@juli23</strong></h3>
+            <p style="text-align: center">"Gracias a esta app pude ahorrarme unos cuantos centavos al mes"</p>
+          </div>
+        </div>
+
+        <div class="contenedor-tarjetas">
+          <div class="contenedor-textos">
+            <h3 style="text-align: center"><strong>@carlosAG</strong></h3>
+            <p style="text-align: center">"Desde que empecé a utilizar AnalizAr logré tomar conciencia de la luz que consumo"</p>
+          </div>
+        </div>
+
+        <div class="contenedor-tarjetas">
+          <div class="contenedor-textos">
+            <h3 style="text-align: center">@gaby9</h3>
+            <p style="text-align: center">"Gracias a las alertas que me llegan desde AnalizAr puedo controlar mi consumo de luz"</p>
+          </div>
+        </div>
+      </div>     
+</section>
+<section class="seccion__faq">
+    <h2 class="titulos-h2" id="faq"><strong>FAQ</strong></h2>
+    <details>
+      <summary>1. ¿La aplicación es gratuita?</summary>
+      <div>
+        <p>
+          La aplicación es totalmente gratuita, no tiene ningún tipo de costo.
+        </p>
+      </div>
+    </details>
+    <details>
+      <summary>2. ¿Es necesario tener algún conocimiento previo para utilizarla?</summary>
+      <div>
+        <p>
+          Si bien la aplicación es muy intuitiva, podrá hacer un adecuado uso de la misma 
+          si sigue los pasos del tutorial adjunto.
+        </p>
+      </div>
+    </details>
+    <details>
+      <summary>3. ¿AnalizAr vende medidores eléctricos inteligentes?</summary>
+      <div>
+        <p>
+          Si, aunque no es obligatorio hacerlo. No obstante nuestros equipos cuentan
+          con garantía escrita por 12 meses ante cualquier desperfecto que pudiera ocurrir.
+          Consulte con nuestros agentes comerciales por mayor información.
+        </p>
+      </div>
+    </details>
+    <details>
+      <summary>4. Aquí iría otra consulta recurrente.</summary>
+      <div>
+        <p>
+          Aquí se detalla la respuesta a la consulta 4.
+        </p>
+      </div>
+    </details>
+    <details>
+      <summary>5. Y aquí también iría una consulta recurrente.</summary>
+      <div>
+        <p>
+          Aquí se detalla la respuesta a la consulta 5.
+        </p>
+      </div>
+    </details>
+  </section>
+  <section class="seccion__contacto">
+    <div class="cabecera">
+      <h2 class="titulos-h2" id="contacto"><strong>CONTACTO</strong></h2>
+    </div>
+    <form [formGroup]="formContact" (ngSubmit)="onSubmit()" class="formulario">                  
+      <!-- Grupo: Nombre -->
+      <div class="formulario__grupo" id="grupo__nombre">
+        <label class="formulario__label">Nombre y Apellido</label>
+        <div class="formulario__grupo-input">
+          <input type="text" class="formulario__input" name="nombre" id="nombre" formControlName="nombreApellido" placeholder="Nombre y Apellido">
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <div *ngIf="formContact.get('nombreApellido')?.touched && formContact.get('nombreApellido')?.errors?.['required']" class="error email-error">
+            <p class="formulario__input-error">Disculpe, debe ingresar nombre y apellido.</p>
+        </div>
+      </div>
+
+      <!-- Grupo: Correo Electrónico -->
+      <div class="formulario__grupo" id="grupo__correo">
+        <label class="formulario__label">Correo Electrónico</label>
+        <div class="formulario__grupo-input">
+          <input type="email" class="formulario__input" name="correo" id="correo" formControlName="email" placeholder="nombre@gmail.com">
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <div *ngIf="formContact.get('email')?.touched && formContact.get('email')?.errors?.['required']" class="error email-error">
+            <p class="formulario__input-error">Ingrese una dirección de mail</p>
+        </div> 
+        <div *ngIf="formContact.get('email')?.touched && formContact.get('email')?.errors?.['pattern']" class="error email-error">
+            <p class="formulario__input-error">Recuerde, el correo puede contener letras, números, punto, debe tener el símbolo @ y el proveedor del servicio.</p>
+        </div>        
+      </div>
+
+      <!-- Grupo: Mensaje -->
+      <div class="formulario__grupo" id="grupo__mensaje">
+        <label class="formulario__label">Mensaje</label>
+        <div class="formulario__grupo-input">
+          <input type="text" class="formulario__input" name="mensaje" id="mensaje" formControlName="mensaje" placeholder="Exprese aquí el motivo de su contacto, si requiere de algún servicio específico o cualquier información que considere relevante. Gracias.">
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>              
+        </div>
+        <div *ngIf="formContact.get('mensaje')?.touched && formContact.get('mensaje')?.errors?.['required']" class="error email-error">
+            <p class="formulario__input-error">Por favor, déjenos un mensaje con el motivo de su solicitud de contacto.</p>
+        </div>  
+      </div>
+
+      <!-- Grupo: Términos y Condiciones -->
+      <div class="formulario__grupo formulario__grupo-terminos" id="grupo__terminos">
+        <label class="formulario__label">
+          <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+          <b class="formulario__span">Acepto los terminos y condiciones</b>
+        </label>
+      </div>
+
+      <!-- Mensaje de campos requeridos -->
+      <div class="formulario__mensaje" id="formulario__mensaje">
+      <p><i class="fas fa-exclamation-circle"><b>Error:</b> Por favor, complete correctamente los campos del formulario.</i></p>
+      </div>
+
+      <!-- Grupo: Enviar -->
+      <div class="formulario__grupo formulario__grupo-btn-enviar">
+        <!-- <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado satisfactoriamente. En breve nos comunicaremos con Ud.</p> -->
+        <button type="submit" class="formulario__btn">Enviar</button>            
+      </div>
+    </form>
+  </section>

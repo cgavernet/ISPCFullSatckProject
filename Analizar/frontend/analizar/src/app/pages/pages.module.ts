@@ -11,6 +11,8 @@ import { HistorialComponent } from './historial/historial.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { ProductosComponent } from './productos/productos.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CarritoComponent } from './carrito/carrito.component';
     HistorialComponent,
     RegistroComponent,
     MiCuentaComponent,
-    CarritoComponent
+    CarritoComponent,
+    ProductosComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +42,9 @@ import { CarritoComponent } from './carrito/carrito.component';
     LoginComponent,
     DashboardClienteComponent,
     HistorialComponent,
-    MiCuentaComponent
+    MiCuentaComponent,
+    ProductosComponent,
+    HomeComponent
   ]
 })
 export class PagesModule { }
