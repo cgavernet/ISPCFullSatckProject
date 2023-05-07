@@ -1,0 +1,113 @@
+/* Establecer el ancho máximo de la sección de productos */
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Establecer las reglas para la fila */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Establecer las reglas para las columnas */
+  .col {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 0 10px; /* Establecer un padding para separar las columnas */
+  }
+  
+  /* Establecer las reglas para la imagen */
+  .producto {
+    background-color: #fff;
+    border: 1px solid #509C57;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .producto-imagen {
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  
+  /* Establecer las reglas para el botón */
+  .producto-selector {
+    display: inline-block;    
+  }
+  
+  .producto-botón {
+    display: inline-block;
+    width: 70%;
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #1F5834;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Personalizar los colores y textos */
+
+  h2 {
+    color: #1F5834;
+    font-size: 17px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  h3 {
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  p {
+    color: #666;
+    font-size: 11px;
+    text-align: center;
+  }
+  
+  span {
+    color: #333;
+    text-align: center;
+  }
+  
+  select {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  option {
+    color: #333;
+  }
+
+  .ordenar {
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-color: #1F5834;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #4D8E4C;
+  }
+  
+  /* Personalizar los colores del botón al pasar el mouse */
+  .producto-botón:hover {
+    background-color: #4D8E4C;
+  }
