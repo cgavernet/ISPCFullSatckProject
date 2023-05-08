@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent},
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
-  { path: 'carrito', component: CarritoComponent},
+  { path: 'carrito', component: CarritoComponent, canActivate:[AuthGuard]},
   { path: 'historial', component: HistorialComponent, canActivate:[AuthGuard]},
   { path: 'dashboard-client', component: DashboardClienteComponent, canActivate:[AuthGuard]},
   { path: 'mi-cuenta', component: MiCuentaComponent, canActivate:[AuthGuard]},

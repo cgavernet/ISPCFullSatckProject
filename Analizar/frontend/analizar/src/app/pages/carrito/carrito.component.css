@@ -57,7 +57,9 @@ section.contenedor__carrito {
 .contenedor__carrito--item {
     width: 80%;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     padding: .5rem;
@@ -68,6 +70,7 @@ section.contenedor__carrito {
     width: 120px;
     height: 80px;
     background-color: var(--gris-verdoso);
+    object-fit: contain;
 }
 
 .contenedor__carrito--item-tipo {
@@ -98,6 +101,7 @@ section.contenedor__carrito {
 
 .contenedor__carrito--item-precio {
     font-weight: bold;
+    justify-self: center;
 }
 
 .contenedor__carrito--item-cantidad p {
@@ -105,6 +109,7 @@ section.contenedor__carrito {
 }
 
 .contenedor__carrito--btnSeguirComprando {
+    margin-top: 1rem;
     outline: none;
     border: none;
     background-color: transparent;
