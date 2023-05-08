@@ -10,6 +10,7 @@ import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente
 import { HistorialComponent } from './historial/historial.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
     DashboardClienteComponent,
     HistorialComponent,
     RegistroComponent,
-    MiCuentaComponent
+    MiCuentaComponent,
+    DashboardAdminComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
     LoginComponent,
     DashboardClienteComponent,
     HistorialComponent,
-    MiCuentaComponent
+    MiCuentaComponent,
+    DashboardAdminComponent
   ]
 })
 export class PagesModule { }

@@ -8,6 +8,7 @@ import { HistorialComponent } from './pages/historial/historial.component';
 import { AuthGuard } from './service/authGuard.service';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { MiCuentaComponent } from './pages/mi-cuenta/mi-cuenta.component';
+import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 
 const routes: Routes = [
   //Definir las rutas de la app
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'historial', component: HistorialComponent, canActivate:[AuthGuard]},
   { path: 'dashboard-client', component: DashboardClienteComponent, canActivate:[AuthGuard]},
   { path: 'mi-cuenta', component: MiCuentaComponent, canActivate:[AuthGuard]},
-  { path: '**', component: Pagina404Component}
+  { path: '**', component: Pagina404Component},
+  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
