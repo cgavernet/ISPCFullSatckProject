@@ -26,7 +26,7 @@ import { HomeComponent } from './home/home.component';
     RegistroComponent,
     MiCuentaComponent,
     ProductosComponent,
-    PlanesComponent
+    PlanesComponent,
     CarritoComponent,
     HomeComponent
   ],
