@@ -12,6 +12,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ProductosComponent } from './productos/productos.component';
+import { PlanesComponent } from './planes/planes.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -24,8 +25,9 @@ import { HomeComponent } from './home/home.component';
     HistorialComponent,
     RegistroComponent,
     MiCuentaComponent,
-    CarritoComponent,
     ProductosComponent,
+    PlanesComponent
+    CarritoComponent,
     HomeComponent
   ],
   imports: [
