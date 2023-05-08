@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlertasComponent } from './pages/alertas/alertas.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { PlanesComponent } from './pages/planes/planes.component';
 import { LoginComponent } from './pages/login/login.component';
 import { Pagina404Component } from './pages/pagina404/pagina404.component';
 import { DashboardClienteComponent } from './pages/dashboard-cliente/dashboard-cliente.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   {path: '', redirectTo:'/home', pathMatch:'full'},
   { path: 'productos', component: ProductosComponent},
+  { path: 'planes', component: PlanesComponent},
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'carrito', component: CarritoComponent, canActivate:[AuthGuard]},
