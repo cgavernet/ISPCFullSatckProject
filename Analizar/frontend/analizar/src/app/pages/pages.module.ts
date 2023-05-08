@@ -10,8 +10,10 @@ import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente
 import { HistorialComponent } from './historial/historial.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
+import { CarritoComponent } from './carrito/carrito.component';
 import { ProductosComponent } from './productos/productos.component';
 import { PlanesComponent } from './planes/planes.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { PlanesComponent } from './planes/planes.component';
     MiCuentaComponent,
     ProductosComponent,
     PlanesComponent
+    CarritoComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,8 @@ import { PlanesComponent } from './planes/planes.component';
     DashboardClienteComponent,
     HistorialComponent,
     MiCuentaComponent,
-    ProductosComponent
+    ProductosComponent,
+    HomeComponent
   ]
 })
 export class PagesModule { }

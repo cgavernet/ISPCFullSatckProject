@@ -10,15 +10,19 @@ import { HistorialComponent } from './pages/historial/historial.component';
 import { AuthGuard } from './service/authGuard.service';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { MiCuentaComponent } from './pages/mi-cuenta/mi-cuenta.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   //Definir las rutas de la app
   { path: 'alertas', component: AlertasComponent, canActivate:[AuthGuard]},
-  { path: 'home', component: DashboardClienteComponent},
+  { path: 'home', component: HomeComponent},
+  {path: '', redirectTo:'/home', pathMatch:'full'},
   { path: 'productos', component: ProductosComponent},
   { path: 'planes', component: PlanesComponent},
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
+  { path: 'carrito', component: CarritoComponent, canActivate:[AuthGuard]},
   { path: 'historial', component: HistorialComponent, canActivate:[AuthGuard]},
   { path: 'dashboard-client', component: DashboardClienteComponent, canActivate:[AuthGuard]},
   { path: 'mi-cuenta', component: MiCuentaComponent, canActivate:[AuthGuard]},
