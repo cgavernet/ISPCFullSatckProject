@@ -156,3 +156,26 @@ section.contenedor__carrito {
     background-color: transparent;
     color: var(--green-700);
 }
+
+@media screen and (max-width: 882px) {
+    section.contenedor__carrito {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 642px) {
+
+    .contenedor__carrito--encabezadoContenedor {
+        width: 90%;
+    }
+
+    .contenedor__carrito--item {
+        width: 90%;
+        grid-template-columns: 4fr 1fr 2fr 1fr;
+        gap: .2rem;
+    }
+
+    .contenedor__carrito--item-imagen {
+        display: none;
+    }
+}
