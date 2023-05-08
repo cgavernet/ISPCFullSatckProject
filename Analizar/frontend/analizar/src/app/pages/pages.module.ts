@@ -11,6 +11,7 @@ import { HistorialComponent } from './historial/historial.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { ProductosComponent } from './productos/productos.component';
+import { PlanesComponent } from './planes/planes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductosComponent } from './productos/productos.component';
     HistorialComponent,
     RegistroComponent,
     MiCuentaComponent,
-    ProductosComponent
+    ProductosComponent,
+    PlanesComponent
   ],
   imports: [
     CommonModule,
