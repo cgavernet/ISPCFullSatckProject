@@ -3,15 +3,15 @@
         <div class="form login">
             <span class="title">Login</span>
 
-        <form [formGroup]="login" (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginDash" (ngSubmit)="onSubmit()">
             <div class="field email-field">
                 <div class="input-field">
                   <input type="email" placeholder="Ingresa tu email" class="email" formControlName="email" required>
                 </div>
-                <div *ngIf="login.get('email')?.touched && login.get('email')?.errors?.['required']" class="error email-error">
+                <div *ngIf="loginDash.get('email')?.touched && loginDash.get('email')?.errors?.['required']" class="error email-error">
                     <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un e-mail
                 </div>
-                <div *ngIf="login.get('email')?.touched && login.get('email')?.errors?.['pattern']" class="error email-error">
+                <div *ngIf="loginDash.get('email')?.touched && loginDash.get('email')?.errors?.['pattern']" class="error email-error">
                     <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un e-mail válido
                 </div>            
               </div>
@@ -25,10 +25,10 @@
                     formControlName="password"/>
                   <i class="bx bx-hide show-hide"></i>
                 </div>
-                <div *ngIf="login.get('password')?.touched && login.get('password')?.errors?.['required']" class="error cPassword-error">
+                <div *ngIf="loginDash.get('password')?.touched && loginDash.get('password')?.errors?.['required']" class="error cPassword-error">
                     <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña
                 </div>
-                <div *ngIf="login.get('password')?.touched && login.get('password')?.errors?.['minlength']" class="error cPassword-error">
+                <div *ngIf="loginDash.get('password')?.touched && loginDash.get('password')?.errors?.['minlength']" class="error cPassword-error">
                     <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un contraseña de más de 8 caracteres
                 </div>
               </div>
@@ -49,7 +49,7 @@
         
             <div class="login-signup">
                 <span class="text">No estás registrado?
-                    <a href="#" class="text signup-link">Regístrate ahora</a>
+                    <a href="/registro" class="text signup-link">Regístrate ahora</a>
                 </span> 
                 <a href="/" class="text signup-link">Volver al Inicio</a> 
             </div> 

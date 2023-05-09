@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder, FormControl, Validators, AbstractControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,28 +9,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  login!: FormGroup;
+  loginDash!: FormGroup;
   resetFormPass!: FormGroup;
-  estaLogueado!: boolean;
-  constructor( private fb: FormBuilder, private router: Router) { }
+  //isLoggedIn!: boolean;
+  constructor( private fb: FormBuilder, private router: Router, private authService: AuthService) { }
+
+  email: string = '';
+  password: string = '';
   
   ngOnInit(): void {
-    this.login = this.initForm();
-    this.resetFormPass = this.resetForm()
-    
+    this.loginDash = this.initForm();
+    this.resetFormPass = this.resetForm();  
   }
   //Capturo los valores cuando le doy a ingresar
-  onSubmit(): void{
-    const email = this.login.value.email;
-    const pass = this.login.value.password;
-    console.log('Form ->', this.login.value);
-    if(email == "admin@analizar.tk" || pass == "123456789"){
-      this.estaLogueado = true;
-      this.router.navigate(['/dashboard']);
-    }else{
-      this.estaLogueado = false;
-      this.router.navigate(['/']);
-    }    
+  onSubmit(): void{    
+    if (this.authService.login(this.loginDash.value.email, this.loginDash.value.password)) {
+      console.log(this.loginDash.value.email, this.loginDash.value.password);
+      this.router.navigate(['/dashboard-client']);
+    } else {
+      console.log(this.loginDash.value.email, this.loginDash.value.password);
+      this.router.navigate(['/login']);
+    }   
   }
   //Validaciones para los campos
   initForm(): FormGroup {

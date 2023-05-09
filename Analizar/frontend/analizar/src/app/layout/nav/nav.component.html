@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a *ngIf="!isLoggedIn()" class="navbar-brand" href="#">
         <img src="../assets/img/analizarSinBg.png" alt="Logo" width="64" height="64" class="d-inline-block align-text-top mx-2">
       </a>
+      <button *ngIf="isLoggedIn()" class="bg-transparent border-0" type="submit" id="menuLateral" (click)="openSidebar()">
+        <i id="changeIcon" class="d-inline-block align-text-top mx-2 bi bi-list display-6 text-green"></i>
+      </button>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -16,28 +19,41 @@
           <li class="nav-item">
             <a class="nav-link" href="#">INICIO</a>
           </li>  
-          <li class="nav-item">
+          <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link" href="#servicios">SERVICIOS</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link" href="#faq">FAQ</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link" href="#contacto">CONTACTO</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="">PRODUCTOS</a>
+          <li *ngIf="!isLoggedIn()" class="nav-item">
+            <a class="nav-link" routerLink="/productos">PRODUCTOS</a>
+          </li>  
+          <li *ngIf="!isLoggedIn()" class="nav-item">
+            <a class="nav-link" routerLink="/planes">PLANES</a>
           </li>  
           <li class="nav-item">
-            <a class="nav-link" routerLink="">SUSCRIPCIONES</a>
+            <a class="nav-link" routerLink="/carrito">CARRITO<i class="bi bi-cart-fill fs-4"></i></a>
           </li>  
-          <li class="nav-item">
-            <a class="nav-link" routerLink="">CARRITO<i class="bi bi-cart-fill fs-4"></i></a>
-          </li>  
-          <li class="nav-item">
+          <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link btn btn-green px-4 rounded-pill" routerLink="/login">INGRESAR</a>
+          </li>
+          <li *ngIf="isLoggedIn()" class="nav-item">
+            <a class="nav-link btn btn-green px-4 rounded-pill" (click)="logout()">CERRAR SESION</a>
           </li>
         </ul>
       </div>
     </div>
+  </nav>
+  <nav id="submenu" class="m-0 sidebar">
+    <ul class="list-unstyled bg-green m-auto align-items-center">
+      <li class="list-sidebar"><a class="list-sidebar-item" href="/dashboard-client">Dashboard</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/historial">Historial</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/alertas">Alertas</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/productos">Productos</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/planes">Planes</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/mi-cuenta">Cuenta</a></li>
+    </ul>
   </nav>
