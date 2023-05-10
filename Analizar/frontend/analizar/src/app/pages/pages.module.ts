@@ -26,7 +26,7 @@ import { HomeComponent } from './home/home.component';
     HistorialComponent,
     RegistroComponent,
     MiCuentaComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
     ProductosComponent,
     PlanesComponent,
     CarritoComponent,
@@ -47,7 +47,7 @@ import { HomeComponent } from './home/home.component';
     DashboardClienteComponent,
     HistorialComponent,
     MiCuentaComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
     ProductosComponent,
     PlanesComponent,
     CarritoComponent,
