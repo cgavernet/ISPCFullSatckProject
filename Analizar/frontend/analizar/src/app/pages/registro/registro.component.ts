@@ -19,7 +19,7 @@ export class RegistroComponent implements OnInit {
   }
 
   constructor(private fb:FormBuilder, private router: Router){}
- 
+  
   ngOnInit(): void{
     this.registroForm = this.initForm();
   }
