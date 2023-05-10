@@ -1,0 +1,112 @@
+/*          Fuente              */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); 
+/*          Variables           */
+:root {
+    --green-900: #1F5834;
+    --green-700: #4D8E4C;
+    --green-500: #509C57;
+    --green-400: #84A894;
+    --light-gray: #E2EBE8;
+    --black: #000000;
+    --black-900: #171715;
+    --white: #FFFFFF;
+    --white-500: #E3ECE8;
+}
+/*          Generales           */
+
+main {
+    width: 100%;
+    /* min-height: 80vh; */
+    min-height: 75.2vh;
+    padding: 3.37rem 0 6rem 0;
+    padding-top: 17vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr {
+    background-color: var(--green-500);
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--green-500);
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+.icons i {
+    cursor: pointer;
+}
+
+main {
+    flex-direction: column;
+}
+
+.botones button {
+    background-color: var(--green-500);
+    color: #f3f3f3;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/*              Media query                     */
+@media screen and (max-width: 1024px){
+    html {
+        font-size: 95%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (orientation:landscape) {
+    main {
+        padding-bottom: 21vh;
+    }
+}
+
+@media screen and (max-width: 720px){
+    main {
+        padding-bottom: 8rem;    
+    }
+}
+
+@media screen and (max-width: 420px){
+    main {
+        padding-top: 10vh;
+    }
+}
