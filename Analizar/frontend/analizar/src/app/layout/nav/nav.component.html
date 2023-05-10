@@ -32,10 +32,10 @@
             <a class="nav-link" routerLink="/productos">PRODUCTOS</a>
           </li>  
           <li *ngIf="!isLoggedIn()" class="nav-item">
-            <a class="nav-link" routerLink="">SUSCRIPCIONES</a>
+            <a class="nav-link" routerLink="/planes">PLANES</a>
           </li>  
           <li class="nav-item">
-            <a class="nav-link" routerLink="">CARRITO<i class="bi bi-cart-fill fs-4"></i></a>
+            <a class="nav-link" routerLink="/carrito">CARRITO<i class="bi bi-cart-fill fs-4"></i></a>
           </li>  
           <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link btn btn-green px-4 rounded-pill" routerLink="/login">INGRESAR</a>
@@ -49,11 +49,11 @@
   </nav>
   <nav id="submenu" class="m-0 sidebar">
     <ul class="list-unstyled bg-green m-auto align-items-center">
-      <li class="list-sidebar"><a class="list-sidebar-item" href="/dashboard-client">INICIO</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" href="/dashboard-client">Dashboard</a></li>
       <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/historial">Historial</a></li>
       <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/alertas">Alertas</a></li>
       <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/productos">Productos</a></li>
-      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/suscripciones">Suscripciones</a></li>
+      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/planes">Planes</a></li>
       <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/mi-cuenta">Cuenta</a></li>
     </ul>
   </nav>

@@ -1,0 +1,41 @@
+<main>
+    <section class="contenedor__carrito">
+        <header class="contenedor__carrito--encabezado">
+            <h2 class="contenedor__carrito--titulo">Carrito</h2>
+        </header>
+        <section class="contenedor__carrito--contenedor">
+            <header class="contenedor__carrito--encabezadoContenedor">
+                <h3 class="contenedor__carrito--cantidadProductos"> <span>{{total[1]}}</span> productos</h3>
+            </header>
+            <section class="contenedor__carrito--listadoProductos">
+
+                <article class="contenedor__carrito--item" *ngFor="let item of datos">
+                    <div class="contenedor__carrito--item-imagen">
+                        <img [src]="item.url" alt="img representativa del producto" class="contenedor__carrito--item-imagen">
+                    </div>
+                    <div class="contenedor__carrito--item-texto">
+                        <h4 class="contenedor__carrito--item-tipo">{{item.tipoProducto}}</h4>
+                        <p class="contenedor__carrito--item-nombre">{{item.nombre}}</p>
+                    </div>
+                    <div class="contenedor__carrito--item-cantidad">
+                        <i class="fa-solid fa-circle-minus" style="color: #ea3434;" (click)="disminuirCantidad(item.id)"></i>
+                        <p>{{item.cantidad}}</p>
+                        <i class="fa-solid fa-circle-plus" style="color: #61c83c;" (click)="aumentarCantidad(item.id)"></i>                    
+                    </div>
+                    <div class="contenedor__carrito--item-precio">$<span>{{item.cantidad * item.precio}}</span></div>
+                    <div class="contenedor__carrito--item-eliminar">
+                        <i class="fa-solid fa-circle-xmark" style="color: #9e9a9d;" (click)="eliminarItem(item.id)"></i>
+                    </div>
+                </article>
+
+            </section>
+            <footer class="contenedor__carrito--footerContenedor">
+                <button class="contenedor__carrito--btnSeguirComprando"> <i class="fa-solid fa-angle-up fa-rotate-270"></i> seguir comprando</button>
+            </footer>
+        </section>
+        <footer class="contenedor__carrito--footer">
+            <h3 class="contenedor__carrito--importeFinal">importe total $<span>{{total[0]}}</span></h3>
+            <button class="contenedor__carrito--btnCompra">Pagar</button>
+        </footer>
+    </section>
+</main>

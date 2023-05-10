@@ -1,0 +1,105 @@
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  p {
+    text-align: center;
+  }
+
+  /* Establecer las reglas para la fila */
+  .row {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  /* Establecer las reglas para las columnas */
+  .col {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 0 10px;
+  }
+
+  /* Establecer las reglas para el plan */
+  .plan {
+    background-color: #fff;
+    border: 1px solid #509C57;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Establecer las reglas para el título del plan */
+  .plan h2 {
+    color: #1F5834;
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  /* Establecer las reglas para el precio del plan */
+  .plan h3 {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Establecer las reglas para las características del plan */
+  .plan ul {
+    color: #666;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  /* Establecer las reglas para el botón de contratar */
+  .plan .contratar {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #1F5834;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Personalizar los colores del botón de contratar al pasar el mouse */
+  .plan .contratar:hover {
+    background-color: #4D8E4C;
+  }
+
+  /* Establecer las reglas para el contenedor de opciones de suscripción */
+.subscription-type { 
+    display: flex;
+    justify-content: center;   
+    margin-right: 20px;
+    margin-left: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Establecer las reglas para los botones de opciones de suscripción */
+  .subscription-type input[type="radio"] {
+    display: inline;
+  }
+  
+  .subscription-type label {
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #333; 
+    border-radius: 6px;
+    cursor: pointer;
+  }
+   
+  .subscription-type label:hover {
+    background-color: #4D8E4C;
+    color: #fff;
+  }  
+  
