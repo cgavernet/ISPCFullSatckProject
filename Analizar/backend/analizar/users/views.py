@@ -1,6 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.core import serializers
+from django.http import JsonResponse
+from users.models import User
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Hello world!!")
+def getUser(request):
+    users = User.objects.all()#Traigo todos los usaurios registrados
+    data = serializers.serialize('json', users)#Convierto los datos en un json
+    return JsonResponse(data, safe=False)
