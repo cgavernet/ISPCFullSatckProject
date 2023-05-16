@@ -1,0 +1,96 @@
+<section class="container" #miElemento>
+    <div class="forms">
+        <div class="form login">
+            <span class="title">Login</span>
+
+        <form [formGroup]="loginDash" (ngSubmit)="onSubmit()">
+            <div class="field email-field">
+                <div class="input-field">
+                  <input type="email" placeholder="Ingresa tu email" class="email" formControlName="email" required>
+                </div>
+                <div *ngIf="loginDash.get('email')?.touched && loginDash.get('email')?.errors?.['required']" class="error email-error">
+                    <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un e-mail
+                </div>
+                <div *ngIf="loginDash.get('email')?.touched && loginDash.get('email')?.errors?.['pattern']" class="error email-error">
+                    <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un e-mail válido
+                </div>            
+              </div>
+
+              <div class="field confirm-password">
+                <div class="input-field">
+                  <input
+                    type="password"
+                    placeholder="Ingresa tu contraseña"
+                    class="cPassword"
+                    formControlName="password"/>
+                  <i class="bx bx-hide show-hide"></i>
+                </div>
+                <div *ngIf="loginDash.get('password')?.touched && loginDash.get('password')?.errors?.['required']" class="error cPassword-error">
+                    <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña
+                </div>
+                <div *ngIf="loginDash.get('password')?.touched && loginDash.get('password')?.errors?.['minlength']" class="error cPassword-error">
+                    <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un contraseña de más de 8 caracteres
+                </div>
+              </div>
+            
+            <div class="checkbox-text">
+                <div class="checkbox-content">
+                    <input type="checkbox" id="logCheck">
+                    <label for="logCheck" class="text">Recuérdame</label>
+                </div>
+
+                <a (click)="resetPass()" class="text signup-link">Olvidaste tu contraseña?</a>
+            </div>
+
+            <div class="input-field button">
+                <input type="submit" value="Ingresar"/>
+            </div>
+        </form>
+        
+            <div class="login-signup">
+                <span class="text">No estás registrado?
+                    <a href="/registro" class="text signup-link">Regístrate ahora</a>
+                </span> 
+                <a href="/" class="text signup-link">Volver al Inicio</a> 
+            </div> 
+
+        </div>
+
+       <!-- Formulario de "olvidó su contraseña"-->
+        <div class="form signup" id="formReset">
+            <span class="title">Reestablece tu contraseña</span>
+
+        <form [formGroup]="resetFormPass" (ngSubmit)="onResetPass()">
+            <div class="input-field">
+                <input type="email" placeholder="Ingresa tu email" formControlName="email">
+                <i class="uil uil-envelope icon"></i>
+            </div>
+            <div *ngIf="resetFormPass.get('email')?.touched && resetFormPass.get('email')?.errors?.['required']" class="error email-error">
+                <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un e-mail
+            </div>
+            <div *ngIf="resetFormPass.get('email')?.touched && resetFormPass.get('email')?.errors?.['pattern']" class="error email-error">
+                <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un e-mail válido
+            </div>  
+            
+            <div class="checkbox-text">
+                <div class="checkbox-content">
+                    <input type="checkbox" id="sigCheck">
+                    <label for="sigCheck" class="text">Recuerdo mi usuario</label>
+                </div>
+            </div>
+
+            <div class="input-field button">
+                <input type="button" value="Reestablecer contraseña">
+            </div>
+        </form>
+        
+            <div class="login-signup">
+                <span class="text">Estás registrado?
+                    <a (click)="formLogin()" class="text login-link">Login</a>
+                </span>
+            </div>
+        </div>
+
+    </div>
+</section>
+

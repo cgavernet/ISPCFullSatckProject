@@ -1,0 +1,183 @@
+/*--------------------------------------- Indice ------------------------------------------*/
+/*
+    -- Fuente
+    -- Variables
+    -- Generales
+    -- Header / Skip navigation
+    -- Nav / Menu
+    -- Utilities
+    -- Media queries
+/*
+/*          Fuente              */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); 
+/*          Variables           */
+:root {
+    --green-900: #1F5834;
+    --green-700: #4D8E4C;
+    --green-500: #509C57;
+    --green-400: #84A894;
+    --light-gray: #E2EBE8;
+    --black: #000000;
+    --black-900: #171715;
+    --white: #FFFFFF;
+    --white-500: #E3ECE8;
+    --red: #ff0009;
+    --gris-verdoso: #3E584B;
+}
+/*          Generales           */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+img, picture, video, canvas, svg {
+    max-width: 100%;
+}
+body {
+    background-color: var(--light-gray) !important;/*No es buena practica, pero bueno antes de colocar una mala practica en el html, prefiero hacerlo acá*/
+    font-family: 'Roboto', sans-serif !important;
+    min-height: 100vh;
+    position: relative;
+}
+
+main {
+    width: 100%;
+    /* min-height: 80vh; */
+    min-height: 75.2vh;
+    padding: 3.37rem 0 6rem 0;
+    padding-top: 17vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*              Header                  */
+.skip-color {
+    color: var(--green-700);
+    font-weight: bold;
+}
+/*              Navbar              */
+nav.nav-absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 400;
+    background-color: var(--light-gray);
+}
+.nav-item > .nav-link {
+    color: var(--green-700);
+}
+/*              Sidebar              */
+.sidebar {
+    background-color: var(--green-700);
+    transition: all 1.5s;
+    position: fixed;
+    min-height: 80vh;
+    height: 100vh;
+    width: 15em;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    left: -15em;
+    transition: left .5s ease;
+}
+.sidebar-activo {
+    left: 0;
+}
+.list-sidebar{
+    flex-grow: 1;
+    text-align: center;
+}
+.list-sidebar-item {
+    color: var(--white);
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 0;
+}
+.list-sidebar-item:hover{
+    background-color: var(--white);
+    color: var(--green-700);
+    width: 15em;
+}
+/*              Utilities             */
+.bg-black {   
+    background-color: var(--black);
+    
+}
+.btn-green {
+    background-color: var(--green-700) !important;
+    color: var(--white) !important;
+    border: 2px solid  transparent !important;
+}
+.btn-green:hover {
+    background-color: transparent !important;
+    color: var(--green-700) !important;
+    border: 2px solid var(--green-700) !important;
+}
+.border-1-green {
+    border-bottom: 3px solid var(--green-700);
+}
+.text-green {
+    color: var(--green-700);
+}
+
+/*              Footer             */
+
+
+/*              Media query                     */
+@media screen and (max-width: 1024px){
+
+    html {
+        font-size: 95%;
+    }
+    
+
+}
+
+@media screen and (max-width: 1024px) and (orientation:landscape) {
+    main {
+        padding-bottom: 21vh;
+    }
+}
+
+@media screen and (max-width: 720px){
+
+    html {
+        font-size: 90%;
+    }
+    main {
+        padding-bottom: 8rem;    
+    }
+    .sidebar{
+        min-height: 85vh;
+    }
+
+}
+
+@media screen and (max-width: 420px){
+
+    main {
+        padding-top: 10vh;
+    }
+
+    .sidebar{
+        height: 100%;
+        width: 100%;
+        font-size: 1.4rem;
+        left: 0;
+        clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+        transition: clip-path .5s ease;
+    }
+    .sidebar-activo {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%)
+    }
+    .list-sidebar-item:hover {
+        width: 100vw;
+    }
+    
+    footer {
+        text-align: center;
+        font-size: .95rem;
+    }
+}

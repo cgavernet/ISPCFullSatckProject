@@ -1,0 +1,52 @@
+<main>
+  <section class="tabla-datos">
+      <header class="encabezado-tabla-datos">
+          <nav class="menu-tabla-datos">
+              <button class="link-tabla-datos" (click)="cambiarVentana('btn-anual')" id="btn-anual">anual</button>
+              <button class="link-tabla-datos link-tabla-datos-activo" (click)="cambiarVentana('btn-mensual')" id="btn-mensual">mensual</button>
+              <button class="link-tabla-datos" (click)="cambiarVentana('btn-semanal')" id="btn-semanal">semanal</button>
+              <button class="link-tabla-datos" (click)="cambiarVentana('btn-diario')" id="btn-diario">diario</button>
+          </nav>
+          <h2 class="encabezado-tabla-datos">consumo general</h2>
+      </header>
+      <div class="contenedor-general-tabla-datos">
+          <div class="contenedor-interno-tabla-datos">
+              <h2 class="consumo-datos"><span id="consumo">250</span> w/h</h2>
+              <div class="container-flex-row">
+                <h3 class="precio-datos">$<span id="precio">1200</span></h3>
+                <button class="btn-edit" title="Editar costo del w/h" id="btn-open-edit-precio" (click)="abrirEditorPrecio()"><i class="bi bi-pencil"></i></button>
+              </div>
+              <button class="btn btn-green" id="open-tabla" (click)="abrirMasInfo()">Más Info</button>
+          </div>
+          <form class="formulario-edit-precio" id="form-edit-precio">
+            <p class="title-modo-edit">nuevo costo</p>
+            <div class="inputContainer">
+              <input type="number" class="input" placeholder="Ingresa el nuevo precio" id="input-precio">
+              <label for="" class="label"> Precio </label>
+            </div>
+            <div class="btnContainer">
+              <input type="button" class= "submitBtn saveBtn" id="btn-save-edit-precio" value="Guardar" (click)="guardarValorPrecioNuevo()">
+              <input type="button" class= "submitBtn cancelBtn" id="btn-close-edit-precio" value="Cancelar" (click)="cerrarEditorPrecio()">
+            </div>
+          </form>
+      </div>
+  </section>
+  <section class="tabla-para-datos" id="tabla">
+    <header class="encabezado-tabla">
+      <h2 class="title-tabla">tabla <span id="tipo-tabla">{{nombre_tabla}}</span></h2>
+      <button class="btn close-table" id="close-tabla" (click)="cerrarMasInfo()">X</button>
+    </header>
+    <table class="datos" id="tabla-datos">
+      <tr>
+        <th>{{titulo_tabla}}</th>
+        <th>Consumo</th>
+        <th>Costo</th>
+      </tr>
+      <tr *ngFor="let registro of datosARecorrer; index as i">
+        <td>{{registro.id}}</td>
+        <td>{{registro.consumo}}w/h</td>
+        <td>${{registro.precio}}</td>
+      </tr>
+    </table>
+  </section>
+</main>
