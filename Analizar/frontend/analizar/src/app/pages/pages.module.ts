@@ -10,6 +10,7 @@ import { DashboardClienteComponent } from './dashboard-cliente/dashboard-cliente
 import { HistorialComponent } from './historial/historial.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ProductosComponent } from './productos/productos.component';
 import { PlanesComponent } from './planes/planes.component';
@@ -25,8 +26,9 @@ import { HomeComponent } from './home/home.component';
     HistorialComponent,
     RegistroComponent,
     MiCuentaComponent,
+    DashboardAdminComponent,
     ProductosComponent,
-    PlanesComponent
+    PlanesComponent,
     CarritoComponent,
     HomeComponent
   ],
@@ -45,7 +47,10 @@ import { HomeComponent } from './home/home.component';
     DashboardClienteComponent,
     HistorialComponent,
     MiCuentaComponent,
+    DashboardAdminComponent,
     ProductosComponent,
+    PlanesComponent,
+    CarritoComponent,
     HomeComponent
   ]
 })

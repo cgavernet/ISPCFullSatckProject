@@ -1,0 +1,85 @@
+{
+  "alertas": [
+    {
+      "id": 1,
+      "medidor": 1,
+      "valor": 10.5,
+      "fechaAlta": "2023-05-08T15:28:00.000Z"
+    },
+    {
+      "id": 2,
+      "medidor": 2,
+      "valor": 8.2,
+      "fechaAlta": "2023-05-09T10:15:00.000Z"
+    },
+    {
+      "id": 3,
+      "medidor": 1,
+      "valor": 12,
+      "fechaAlta": "2023-0-07T15:28:00.000Z"
+    },
+    {
+      "id": 4,
+      "medidor": 1,
+      "valor": 15.5,
+      "fechaAlta": "2023-0-07T15:28:00.000Z"
+      
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "email": "juan.perez@example.com",
+      "celular": "1234567890",
+      "password": "password123",
+      "habilitado": 1,
+      "fechaAlta": "2023-05-08T08:00:00.000Z",
+      "admin": true
+    },
+    {
+      "id": 2,
+      "nombre": "María",
+      "apellido": "Gómez",
+      "email": "maria.gomez@example.com",
+      "celular": "0987654321",
+      "password": "password456",
+      "habilitado": 1,
+      "fechaAlta": "2023-05-09T12:30:00.000Z",
+      "admin": false
+    }
+  ],
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Producto 1",
+      "descripcion": "Descripción del producto 1",
+      "precio": 10.99,
+      "cantidad_disponible": 50
+    },
+    {
+      "id": 2,
+      "nombre": "Producto 2",
+      "descripcion": "Descripción del producto 2",
+      "precio": 20.99,
+      "cantidad_disponible": 20
+    }
+  ],
+  "medidores": [
+    {
+      "id": 1,
+      "nombre": "Medidor 1",
+      "detalle": "Detalle del medidor 1",
+      "identificador": "ABC123",
+      "usuario": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Medidor 2",
+      "detalle": "Detalle del medidor 2",
+      "identificador": "DEF456",
+      "usuario": 2
+    }
+  ]
+}
