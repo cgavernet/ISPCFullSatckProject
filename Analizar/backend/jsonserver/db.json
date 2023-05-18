@@ -81,5 +81,187 @@
       "identificador": "DEF456",
       "usuario": 2
     }
-  ]
+  ],
+  "consumos": [
+      {
+        "id_consumos": 1,
+        "id_medidor": 1,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 50.5
+      },
+      {
+        "id_consumos": 2,
+        "id_medidor": 1,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 48.2
+      },
+      {
+        "id_consumos": 3,
+        "id_medidor": 1,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 52.7
+      },
+      {
+        "id_consumos": 4,
+        "id_medidor": 2,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 45.1
+      },
+      {
+        "id_consumos": 5,
+        "id_medidor": 2,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 47.8
+      },
+      {
+        "id_consumos": 6,
+        "id_medidor": 2,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 42.3
+      },
+      {
+        "id_consumos": 7,
+        "id_medidor": 3,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 55.9
+      },
+      {
+        "id_consumos": 8,
+        "id_medidor": 3,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 57.2
+      },
+      {
+        "id_consumos": 9,
+        "id_medidor": 3,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 59.6
+      },
+      {
+        "id_consumos": 10,
+        "id_medidor": 4,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 40.8
+      },
+      {
+        "id_consumos": 11,
+        "id_medidor": 4,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 42.5
+      },
+      {
+        "id_consumos": 12,
+        "id_medidor": 4,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 38.9
+      },
+      {
+        "id_consumos": 13,
+        "id_medidor": 5,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 60.2
+      },
+      {
+        "id_consumos": 14,
+        "id_medidor": 5,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 62.8
+      },
+      {
+        "id_consumos": 15,
+        "id_medidor": 5,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 65.4
+      },
+      {
+        "id_consumos": 16,
+        "id_medidor": 6,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 35.1
+      },
+      {
+        "id_consumos": 17,
+        "id_medidor": 6,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 37.6
+      },
+      {
+        "id_consumos": 18,
+        "id_medidor": 6,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 39.2
+      },
+      {
+        "id_consumos": 19,
+        "id_medidor": 7,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 70.9
+      },
+      {
+        "id_consumos": 20,
+        "id_medidor": 7,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 72.5
+      },
+      {
+        "id_consumos": 21,
+        "id_medidor": 7,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 74.3
+      },
+      {
+        "id_consumos": 22,
+        "id_medidor": 8,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 55.7
+      },
+      {
+        "id_consumos": 23,
+        "id_medidor": 8,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 57.1
+      },
+      {
+        "id_consumos": 24,
+        "id_medidor": 8,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 59.8
+      },
+      {
+        "id_consumos": 25,
+        "id_medidor": 9,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 80.2
+      },
+      {
+        "id_consumos": 26,
+        "id_medidor": 9,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 82.7
+      },
+      {
+        "id_consumos": 27,
+        "id_medidor": 9,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 85.3
+      },
+      {
+        "id_consumos": 28,
+        "id_medidor": 10,
+        "fecha_medicion": "2023-05-01T08:00:00.000Z",
+        "consumo": 75.6
+      },
+      {
+        "id_consumos": 29,
+        "id_medidor": 10,
+        "fecha_medicion": "2023-05-02T08:00:00.000Z",
+        "consumo": 77.3
+      },
+      {
+        "id_consumos": 30,
+        "id_medidor": 10,
+        "fecha_medicion": "2023-05-03T08:00:00.000Z",
+        "consumo": 79.1
+      }
+    ]
 }
