@@ -12,7 +12,6 @@
 .container .forms{
     display: flex;
     align-items: center;
-    height: 470px;
     width: 210%;
     transition: height 0.2s ease;
 }
@@ -208,4 +207,10 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+}
+.ng-valid:not(form).ng-touched {
+    border-left: 5px solid var(--green-700);
+}
+.ng-invalid:not(form).ng-touched {
+    border-left: 5px solid var(--red);
 }

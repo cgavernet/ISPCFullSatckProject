@@ -26,9 +26,9 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent, canActivate:[AuthGuard]},
   { path: 'historial', component: HistorialComponent, canActivate:[AuthGuard]},
   { path: 'dashboard-client', component: DashboardClienteComponent, canActivate:[AuthGuard]},
+  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate:[AuthGuard]},
   { path: 'mi-cuenta', component: MiCuentaComponent, canActivate:[AuthGuard]},
   { path: '**', component: Pagina404Component},
-  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

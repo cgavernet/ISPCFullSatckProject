@@ -4,6 +4,7 @@
             <span class="title">Login</span>
 
         <form [formGroup]="loginDash" (ngSubmit)="onSubmit()">
+            <p class="text-danger">{{loginError}}</p>
             <div class="field email-field">
                 <div class="input-field">
                   <input type="email" placeholder="Ingresa tu email" class="email" formControlName="email" required>
