@@ -7,46 +7,43 @@
       <div *ngFor="let alerta of alertas;let i= index;" class="alerta" id="div-alerta1">
         <h2 class="titulo-alerta">Alerta #{{i+1}}</h2>
         <h4>{{alerta.medidor}}</h4>
-        <p class="texto-alerta" id="texto-alerta-alerta1">Si el consmo supera los <b>{{ alerta.valor }}</b> w/h envio una alerta como precaucion</p>
+        <p class="texto-alerta" id="texto-alerta-alerta1">Si el consmo supera los <b>{{alerta.valor}}</b> w/h envio una alerta como precaucion</p>
         <div class="contenedor-botones-alerta">
-            <!-- <button class="btn-alerta btn-alerta-editar" (click)="openEditModal(i)">editar</button> -->
-            <button class="btn-alerta btn-alerta-eliminar" (click)="removeAlert(i)">eliminar</button>
+            <button class="btn-alerta btn-alerta-editar" (click)="openEditModal(alerta)">editar</button>
+            <button class="btn-alerta btn-alerta-eliminar" (click)="removeAlert(alerta.id)">eliminar</button>
         </div>
     </div>
     </section>
-    <form class="formulario-nueva-alerta" id="addAlert">
+    <form [formGroup]="alertasForm" class="formulario-nueva-alerta" id="addAlert">
       <p class="title-formulario-alerta">nueva alerta</p>
       <p class="text-danger">{{loginError}}</p>
       <div class="inputContainer">
-        <input type="number" class="input" placeholder="Ingresa la cantidad de w/h" [(ngModel)]="valor" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <input type="number" class="input" placeholder="Ingresa la cantidad de w/h" formControlName="valor" id="input-cantidadwh-new" name="input-cantidadwh-new">
         <label for="" class="label"> Cantidad w/h </label>
       </div>  
       <div class="inputContainer">
-        <input type="number" name="medidor"class="input" [(ngModel)]="medidor" id="medidor">
+        <input type="number" name="medidor"class="input" formControlName="medidor" id="medidor">
       </div>
       <div class="inputContainer">
-        <input type="date" name="typeAlert"class="input" [(ngModel)]="fechaAlta" id="typeAlert">
+        <input type="date" name="typeAlert"class="input" formControlName="fechaAlta" id="typeAlert">
       </div>
       <div class="btnContainer">
         <button type="submit" class= "submitBtn saveBtn" (click)="saveAlert()" id="btn-save-nueva-alerta">Guardar</button>
         <button type="button" class= "submitBtn cancelBtn" (click)="closeModal()" id="btn-close-nueva-alerta">Cancelar</button>
       </div>
     </form>
-    <form class="formulario-nueva-alerta" id="editAlert">
+    <form [formGroup]="alertasForm" class="formulario-nueva-alerta" id="editAlert">
       <p class="title-formulario-alerta">Editar alerta</p>
       <div class="inputContainer">
         <input type="hidden" name="idAlerta" id="input-idAlerta-edit">
-        <input type="number" class="input" placeholder="Ingresa la cantidad de w/h" id="input-cantidadwh-edit">
+        <input type="number" formControlName="valor" class="input" placeholder="Ingresa la cantidad de w/h" id="input-cantidadwh-edit">
         <label for="" class="label"> Cantidad w/h </label>
       </div>
       <div class="inputContainer">
-        <select name="tipo-alerta" class="tipo-alerta" id="tipo-alerta-edit">
-          <option selected disabled>Elije el tipo de alerta</option>
-          <option value="anual">Anual</option>
-          <option value="mensual">Mensual</option>
-          <option value="semanal">Semanal</option>
-          <option value="diario">Diario</option>
-        </select>
+        <input type="number" name="medidor"class="input" formControlName="medidor" id="medidor">
+      </div>
+      <div class="inputContainer">
+        <input type="date" name="typeAlert"class="input" formControlName="fechaAlta" id="typeAlert">
       </div>
       <div class="btnContainer">
         <button type="button" class= "submitBtn saveBtn" (click)="updateAlert()" id="btn-save-edit-alerta">Guardar</button>

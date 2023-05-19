@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertasService } from 'src/app/service/alertas.service';
@@ -15,29 +15,32 @@ export class AlertasComponent implements OnInit {
 constructor(private router: Router, private alertaService: AlertasService, private fb: FormBuilder) {}
  alerts: Alert[] = [];
  valor!: number;
- medidor!: string;
- fechaAlta!: Date;
+ medidor!: number;
+ fechaAlta!: string;
  alertas: any[] = [];
  alertasForm!: FormGroup;
  loginError: string = '';
  
  ngOnInit(): void{
   this.alertasForm = this.initForm()
+  this.getAlerts()
+  
+ }
+ getAlerts(){
   this.alertaService.getAlertas().subscribe((data: any) => {
     this.alertas = data   
   })
-  
  }
    //Validaciones para los campos
-   
-
  saveAlert(){
-  const valor = this.valor; 
-  const typeAlert = this.medidor;
+  const valor = this.alertasForm.value.valor; 
+  const typeAlert = this.alertasForm.value.medidor;
+  const fechaAlta = this.alertasForm.get('fechaAlta')?.value; 
   if(this.alertasForm.valid){
-  this.alertaService.addAlertas(valor, typeAlert).subscribe((alert: any) => {
+  this.alertaService.addAlertas(valor, typeAlert, fechaAlta).subscribe((alert: any) => {
     console.log('Alerta agregada con éxito:', alert);
     this.closeModal();
+    this.getAlerts()
   }, (error: any) => {
     console.error('Hubo un error al agregar la alerta', error);
   })
@@ -62,9 +65,20 @@ constructor(private router: Router, private alertaService: AlertasService, priva
   }*/
 
  }
- updateAlert(){}
+ updateAlert(){
+  //const id = this.
+  //this.alertaService.updateAlertas(id)
+ }
+
  removeAlert(id:number){
-  this.alerts = this.alerts.filter((v, i) => i !== id);
+  this.alertaService.removeAlertas(id).subscribe((alert) => {
+    console.log('Alerta eliminada con éxito:', alert);
+    this.closeModal();
+    this.getAlerts()
+  }, (error: any) => {
+    console.error('Hubo un error al eliminar la alerta', error);
+  })
+
  }
 
   //Abrir modal
@@ -104,6 +118,7 @@ constructor(private router: Router, private alertaService: AlertasService, priva
     return this.fb.group({
       valor: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       medidor: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      fechaAlta: [''],
     })
   }
 

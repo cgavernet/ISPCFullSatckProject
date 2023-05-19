@@ -13,8 +13,15 @@ export class AlertasService {
   getAlertas(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
-  addAlertas(setAlert: number, typeAlert: string): Observable<any> {
-    const alert = { setAlert, typeAlert}
+  addAlertas(valor: number, typeAlert: number, fechaAlta: string): Observable<any> {
+    const alert = { valor, typeAlert, fechaAlta}
     return this.http.post(this.apiUrl, alert)
+  }
+  removeAlertas(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+  updateAlertas(id: number, valor: number, typeAlert: number, fechaAlta: string): Observable<any>{
+    const alert = { valor, typeAlert, fechaAlta}
+    return this.http.put(`${this.apiUrl}/${id}`, alert);
   }
 }
