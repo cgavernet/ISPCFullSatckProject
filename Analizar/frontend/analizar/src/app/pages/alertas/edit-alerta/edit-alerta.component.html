@@ -1,0 +1,21 @@
+<section class="contenedor-principal-alertas my-4 mx-auto" id="contenedor-principal-alertas">
+    <form  [formGroup]="editForm" class="formulario-nueva-alerta" id="editAlert">
+        <p class="text-danger">{{loginError}}</p>
+        <p class="title-formulario-alerta">Editar alerta</p>
+        <div class="inputContainer">
+          <input type="hidden" name="idAlerta" id="input-idAlerta-edit">
+          <input type="number" formControlName="valor" class="input" placeholder="Ingresa la cantidad de w/h" id="input-cantidadwh-edit">
+          <label for="" class="label"> Cantidad w/h </label>
+        </div>
+        <div class="inputContainer">
+          <input type="number" name="medidor"class="input" formControlName="medidor" id="medidor">
+        </div>
+        <div class="inputContainer">
+          <input type="date" name="typeAlert"class="input" formControlName="fechaAlta" id="typeAlert">
+        </div>
+        <div class="btnContainer">
+          <button type="button" class= "submitBtn saveBtn" (click)="updateAlert()" id="btn-save-edit-alerta">Guardar</button>
+          <button type="button" class= "submitBtn cancelBtn" routerLink="/alertas" id="btn-close-edit-alerta">Cancelar</button>
+        </div>
+      </form>
+</section>
