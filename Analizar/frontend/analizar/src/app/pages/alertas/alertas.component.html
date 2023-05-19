@@ -9,7 +9,7 @@
         <h4>{{alerta.medidor}}</h4>
         <p class="texto-alerta" id="texto-alerta-alerta1">Si el consmo supera los <b>{{alerta.valor}}</b> w/h envio una alerta como precaucion</p>
         <div class="contenedor-botones-alerta">
-            <button class="btn-alerta btn-alerta-editar" (click)="openEditModal(alerta)">editar</button>
+            <button class="btn-alerta btn-alerta-editar" [routerLink]="['/alertas/', alerta.id]">editar</button>
             <button class="btn-alerta btn-alerta-eliminar" (click)="removeAlert(alerta.id)">eliminar</button>
         </div>
     </div>
@@ -30,24 +30,6 @@
       <div class="btnContainer">
         <button type="submit" class= "submitBtn saveBtn" (click)="saveAlert()" id="btn-save-nueva-alerta">Guardar</button>
         <button type="button" class= "submitBtn cancelBtn" (click)="closeModal()" id="btn-close-nueva-alerta">Cancelar</button>
-      </div>
-    </form>
-    <form [formGroup]="alertasForm" class="formulario-nueva-alerta" id="editAlert">
-      <p class="title-formulario-alerta">Editar alerta</p>
-      <div class="inputContainer">
-        <input type="hidden" name="idAlerta" id="input-idAlerta-edit">
-        <input type="number" formControlName="valor" class="input" placeholder="Ingresa la cantidad de w/h" id="input-cantidadwh-edit">
-        <label for="" class="label"> Cantidad w/h </label>
-      </div>
-      <div class="inputContainer">
-        <input type="number" name="medidor"class="input" formControlName="medidor" id="medidor">
-      </div>
-      <div class="inputContainer">
-        <input type="date" name="typeAlert"class="input" formControlName="fechaAlta" id="typeAlert">
-      </div>
-      <div class="btnContainer">
-        <button type="button" class= "submitBtn saveBtn" (click)="updateAlert()" id="btn-save-edit-alerta">Guardar</button>
-        <button type="button" class= "submitBtn cancelBtn" (click)="closeModal()" id="btn-close-edit-alerta">Cancelar</button>
       </div>
     </form>
   </section>

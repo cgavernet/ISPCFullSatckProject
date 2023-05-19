@@ -34,10 +34,10 @@ constructor(private router: Router, private alertaService: AlertasService, priva
    //Validaciones para los campos
  saveAlert(){
   const valor = this.alertasForm.value.valor; 
-  const typeAlert = this.alertasForm.value.medidor;
+  const medidor = this.alertasForm.value.medidor;
   const fechaAlta = this.alertasForm.get('fechaAlta')?.value; 
   if(this.alertasForm.valid){
-  this.alertaService.addAlertas(valor, typeAlert, fechaAlta).subscribe((alert: any) => {
+  this.alertaService.addAlertas(valor, medidor, fechaAlta).subscribe((alert: any) => {
     console.log('Alerta agregada con éxito:', alert);
     this.closeModal();
     this.getAlerts()
@@ -93,7 +93,7 @@ constructor(private router: Router, private alertaService: AlertasService, priva
     }
   }
   //Abrir modal editar
-  openEditModal(id:number): void{
+  openEditModal(alerta: any): void{
     const editModal = document.getElementById('editAlert');
     let contenedorAlertas = document.getElementById('contenedor-alertas');
     if(editModal != null) {
