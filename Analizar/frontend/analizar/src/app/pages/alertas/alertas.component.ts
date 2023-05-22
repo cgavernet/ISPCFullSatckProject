@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { Alert } from './Alert';
 
 
@@ -9,14 +10,45 @@ import { Alert } from './Alert';
   templateUrl: './alertas.component.html',
   styleUrls: ['./alertas.component.css']
 })
-export class AlertasComponent {
+export class AlertasComponent implements OnInit {
 
-constructor(private router: Router) {}
+constructor(private router: Router, private alertaService: AlertasService, private fb: FormBuilder) {}
  alerts: Alert[] = [];
- setAlert!: number;
- typeAlert!: string;
-
+ valor!: number;
+ medidor!: number;
+ fechaAlta!: string;
+ alertas: any[] = [];
+ alertasForm!: FormGroup;
+ loginError: string = '';
+ 
+ ngOnInit(): void{
+  this.alertasForm = this.initForm()
+  this.getAlerts()
+  
+ }
+ getAlerts(){
+  this.alertaService.getAlertas().subscribe((data: any) => {
+    this.alertas = data   
+  })
+ }
+   //Validaciones para los campos
  saveAlert(){
+  const valor = this.alertasForm.value.valor; 
+  const medidor = this.alertasForm.value.medidor;
+  const fechaAlta = this.alertasForm.get('fechaAlta')?.value; 
+  if(this.alertasForm.valid){
+  this.alertaService.addAlertas(valor, medidor, fechaAlta).subscribe((alert: any) => {
+    console.log('Alerta agregada con éxito:', alert);
+    this.closeModal();
+    this.getAlerts()
+  }, (error: any) => {
+    console.error('Hubo un error al agregar la alerta', error);
+  })
+  }else{
+    this.alertasForm.markAllAsTouched();
+    this.loginError = 'Complete los campos';
+  }
+  /*
   if(this.setAlert && this.typeAlert){
     let alert = new Alert();
     console.log(alert.setAlert);
@@ -30,12 +62,23 @@ constructor(private router: Router) {}
     this.closeModal();
   }else{
     alert("Ingrese una alerta");
-  }
+  }*/
 
  }
- updateAlert(){}
+ updateAlert(){
+  //const id = this.
+  //this.alertaService.updateAlertas(id)
+ }
+
  removeAlert(id:number){
-  this.alerts = this.alerts.filter((v, i) => i !== id);
+  this.alertaService.removeAlertas(id).subscribe((alert) => {
+    console.log('Alerta eliminada con éxito:', alert);
+    this.closeModal();
+    this.getAlerts()
+  }, (error: any) => {
+    console.error('Hubo un error al eliminar la alerta', error);
+  })
+
  }
 
   //Abrir modal
@@ -50,7 +93,7 @@ constructor(private router: Router) {}
     }
   }
   //Abrir modal editar
-  openEditModal(id:number): void{
+  openEditModal(alerta: any): void{
     const editModal = document.getElementById('editAlert');
     let contenedorAlertas = document.getElementById('contenedor-alertas');
     if(editModal != null) {
@@ -70,6 +113,13 @@ constructor(private router: Router) {}
     if(contenedorAlertas != null) {
       contenedorAlertas.style.display ='grid';
     }
+  }
+  initForm(): FormGroup {
+    return this.fb.group({
+      valor: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      medidor: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      fechaAlta: [''],
+    })
   }
 
 }

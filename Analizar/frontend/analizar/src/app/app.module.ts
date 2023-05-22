@@ -7,6 +7,7 @@ import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductosService } from './productos.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     NgChartsModule
   ],
-  providers: [],
+  providers: [ProductosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
