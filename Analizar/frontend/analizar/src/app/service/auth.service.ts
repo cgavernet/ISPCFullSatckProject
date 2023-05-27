@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  apiUrl = 'http://localhost:3000/usuarios';
+  apiUrl = 'http://localhost:3000';
 
   //Iniciar Sesión
   login(email: string, password: string): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(`${this.apiUrl}/usuarios`);
   }
   //Cerrar sesión 
   logout(): void {
