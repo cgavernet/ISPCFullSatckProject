@@ -133,7 +133,7 @@ export class DashboardClienteComponent {
   cargarDatos(){
     this.dataConsumo.getConsumos().subscribe(data => {
 
-      console.log(data)
+      // console.log(data)
       //Guardo la data traida del servidor
       this.datosConsumo = data
 
@@ -316,6 +316,9 @@ export class DashboardClienteComponent {
                 case "domingo":{
                   if(dia >= this.fecha_actual[0] - 6){
                     let numeroDiaSemana = dato["fechaMedicion"].getDay()
+                    if (numeroDiaSemana === 0){
+                      numeroDiaSemana = 7
+                    }
                     datos.semanal[numeroDiaSemana - 1].consumo += dato.consumo
                   }
                     

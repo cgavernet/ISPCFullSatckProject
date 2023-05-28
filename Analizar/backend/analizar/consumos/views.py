@@ -2,6 +2,7 @@ from django.core import serializers
 from django.http import JsonResponse
 from .models import Consumos
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def getConsumos(request):
@@ -9,6 +10,7 @@ def getConsumos(request):
     data = consumos
     return JsonResponse(data, safe=False)
 
+@csrf_exempt
 def postConsumos(request):
     jd = json.loads(request.body)
     Consumos.objects.create(medidor=jd["id_medidor"],fechaMedicion=jd["fecha_medicion"],consumo=jd["consumo"])
