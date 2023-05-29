@@ -7,7 +7,8 @@ class Medidores(models.Model):
     nombre = models.CharField(max_length=45)
     detalle = models.CharField(max_length=45)
     identificador = models.CharField(max_length=45)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.PositiveIntegerField()
 
     def __str__(self):
         return self.identificador

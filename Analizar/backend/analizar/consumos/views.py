@@ -1,6 +1,7 @@
 from django.core import serializers
 from django.http import JsonResponse
-from .models import Consumos
+
+from .models import Consumos, Medidores
 import json
 from django.views.decorators.csrf import csrf_exempt
 
@@ -13,6 +14,7 @@ def getConsumos(request):
 @csrf_exempt
 def postConsumos(request):
     jd = json.loads(request.body)
-    Consumos.objects.create(medidor=jd["id_medidor"],fechaMedicion=jd["fecha_medicion"],consumo=jd["consumo"])
+    medidor = Medidores.objects.get(idMedidor=jd['id_medidor'])
+    Consumos.objects.create(medidor=medidor,fechaMedicion=jd["fecha_medicion"],consumo=jd["consumo"])
     datos = {'message': "success"}
     return JsonResponse(datos)
