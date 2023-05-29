@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,10 +131,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:4200',  # Reemplaza con la URL de tu frontend de Angular
+    'http://localhost:4200', 'http://localhost:8000'  # Reemplaza con la URL de tu frontend de Angular
 ]
 
 CORS_ALLOW_METHODS = [
@@ -151,5 +153,6 @@ CORS_ALLOW_HEADERS = [
     'Authorization',
     'Content-Type',
 ]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:4200', 'http://localhost:8000']
 APPEND_SLASH = False
 

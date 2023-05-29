@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.forms.models import model_to_dict
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def getAlertas(request):
@@ -20,3 +21,15 @@ class addAlerta(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Elimino alerta
+@csrf_exempt
+def deleteAlerta(request, id):
+    try:
+        alerta = Alertas.objects.get(idAlerta=id)
+        alerta.delete()
+        return JsonResponse({'message': 'Alerta eliminada correctamente'})
+    except Alertas.DoesNotExist:
+        return JsonResponse({'error': 'La alerta no existe'}, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

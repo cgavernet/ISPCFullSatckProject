@@ -70,7 +70,7 @@ constructor(private router: Router, private alertaService: AlertasService, priva
   //this.alertaService.updateAlertas(id)
  }
 
- removeAlert(id:number){
+ removeAlert(id:number){  
   this.alertaService.removeAlertas(id).subscribe((alert) => {
     console.log('Alerta eliminada con éxito:', alert);
     this.closeModal();

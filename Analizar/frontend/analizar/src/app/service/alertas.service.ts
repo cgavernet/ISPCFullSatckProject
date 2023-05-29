@@ -11,6 +11,7 @@ export class AlertasService {
   apiUrl = 'http://localhost:3000/alertas'
   apiUrlAdd = 'http://localhost:8000/alertas/addAlerta'
   apiUrlGet = 'http://localhost:8000/alertas/'
+  apiUrlDel = 'http://localhost:8000/alertas/deleteAlerta'
 
   getAlertas(): Observable<any> {
     return this.http.get(this.apiUrlGet);
@@ -20,7 +21,7 @@ export class AlertasService {
     return this.http.post(this.apiUrlAdd, alert)
   }
   removeAlertas(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(`${this.apiUrlDel}/${id}`);
   }
   getAlertaById(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
