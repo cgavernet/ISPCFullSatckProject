@@ -9,13 +9,15 @@ export class AlertasService {
 
   constructor(private http: HttpClient) { }
   apiUrl = 'http://localhost:3000/alertas'
+  apiUrlAdd = 'http://localhost:8000/alertas/addAlerta'
+  apiUrlGet = 'http://localhost:8000/alertas/'
 
   getAlertas(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.apiUrlGet);
   }
   addAlertas(valor: number, medidor: number, fechaAlta: string): Observable<any> {
     const alert = { valor, medidor, fechaAlta}
-    return this.http.post(this.apiUrl, alert)
+    return this.http.post(this.apiUrlAdd, alert)
   }
   removeAlertas(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
