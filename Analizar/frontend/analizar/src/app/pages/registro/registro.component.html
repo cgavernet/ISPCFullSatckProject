@@ -76,7 +76,9 @@
                     </div>
     
                     <p class="warning-registro">Complete correctamente los campos marcados <abbr title = "required">*</abbr>.</p>
-    
+                    
+                    <div *ngIf="loginError" class="text-danger">{{ loginError }}</div>
+
                     <input type="submit" class="submitBtn" value="Registrarse">
     
                     <div class="login-signup">

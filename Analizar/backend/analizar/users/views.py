@@ -19,7 +19,7 @@ class addUser(APIView):
         email = request.data.get('email')
         
         if User.objects.filter(email=email).exists():
-            return Response({'error': 'El email ya esta registrado en el sistema'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': 'El email ya esta registrado en el sistema', 'email_exists': True}, status=status.HTTP_400_BAD_REQUEST)
         serializer = UserSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()

@@ -49,6 +49,11 @@ export class RegistroComponent implements OnInit {
         console.log('User creado con exito: ', user);
         this.router.navigate(['/dashboard-client']);
       }, (error: any) => {
+        if (error.error && error.error.email_exists) {
+          this.loginError = 'El email ya existe. Por favor, elija otro email.';
+        } else {
+          this.loginError = 'Error al crear el usuario.';
+        }
         console.error('Hubo un error al agregar el registro', error);
       })
     }else{
