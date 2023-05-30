@@ -4,22 +4,29 @@ from .serializers import UserSerializers
 from users.models import User
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view 
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView 
+from django.forms.models import model_to_dict
 
 # Create your views here.
 def getUser(request):
     users = User.objects.all()#Traigo todos los usaurios registrados
-    data = serializers.serialize('json', users)#Convierto los datos en un json
+    data = [model_to_dict(user) for user in users]#Convierto los datos en un json
     return JsonResponse(data, safe=False)
 
-def addUser(request):
-    if request.method == 'POST':
-        serializer = UserSerializers(data=request.POST)
+class addUser(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        
+        if User.objects.filter(email=email).exists():
+            return Response({'error': 'El email ya esta registrado en el sistema'}, status=status.HTTP_400_BAD_REQUEST)
+        serializer = UserSerializers(data=request.data)
         if serializer.is_valid():
-            user = serializer.save()
-            return JsonResponse({'mensaje': 'Usuario agregado correctamente', 'id': user.id})
-        return JsonResponse(serializer.errors, status=400)
-    return JsonResponse({'mensaje': 'Metodo no permitido'}, status=405)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 def editUser(request, user_id):
     try:

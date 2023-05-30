@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegistroService } from 'src/app/service/registro.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,8 +19,9 @@ export class RegistroComponent implements OnInit {
     return this.router.navigate(['/inicio'])
   }
 
-  constructor(private fb:FormBuilder, private router: Router){}
-  
+  constructor(private fb:FormBuilder, private router: Router, private registerService: RegistroService){}
+  loginError: string = '';
+
   ngOnInit(): void{
     this.registroForm = this.initForm();
   }
@@ -35,17 +37,27 @@ export class RegistroComponent implements OnInit {
     })
   }
 
-  onSubmit(): void{
-    if(!this.registroForm.invalid){
-      if(this.passwordMatch()){
-        Swal.fire({
-          icon: 'success',
-          title: 'Éxito!',
-          text: 'Registro completo!'
-        })
-        .then(() => this.router.navigate(['/login']))
-      }
+  onSubmit(){
+    const nombre = this.registroForm.value.nombre;
+    const apellido = this.registroForm.value.apellido;
+    const email = this.registroForm.value.email;
+    const celular = this.registroForm.value.telefono;
+    const password  = this.registroForm.value.password;
+    //console.log(nombre, apellido, email, telefono, password);
+    if(this.registroForm.valid){
+      this.registerService.addUsers(nombre, apellido, email, celular, password).subscribe((user: any) => {
+        console.log('User creado con exito: ', user);
+        this.router.navigate(['/dashboard-client']);
+      }, (error: any) => {
+        console.error('Hubo un error al agregar el registro', error);
+      })
+    }else{
+      this.registroForm.markAllAsTouched();
+      this.loginError = 'Complete correctamente los campos'
+      console.log('Opps algo fallo');
+      
     }
+    
   }
 
   passwordMatch(): boolean{
