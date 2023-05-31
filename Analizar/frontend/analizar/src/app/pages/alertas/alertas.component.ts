@@ -86,7 +86,8 @@ constructor(private router: Router, private alertaService: AlertasService, priva
     const modal = document.getElementById('addAlert');
     let contenedorAlertas = document.getElementById('contenedor-alertas');
     if(modal != null) {
-      modal.style.display ='flex';      
+      modal.style.display ='flex'; 
+      this.alertasForm.reset();     
     }
     if(contenedorAlertas != null) {
       contenedorAlertas.style.display ='none';
