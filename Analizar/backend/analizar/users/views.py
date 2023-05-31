@@ -7,6 +7,9 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView 
 from django.forms.models import model_to_dict
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import check_password
 
 # Create your views here.
 def getUser(request):
@@ -26,6 +29,23 @@ class addUser(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class loginUser(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return Response({'error': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        if user.password == password:
+            # Las credenciales son válidas
+            # Aquí puedes realizar acciones adicionales si es necesario, como generar un token de acceso
+            return Response({'message': 'Inicio de sesión exitoso'}, status=status.HTTP_200_OK)
+        else:
+            # Credenciales inválidas
+            return Response({'error': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 def editUser(request, user_id):

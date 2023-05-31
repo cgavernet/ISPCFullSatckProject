@@ -26,22 +26,25 @@ export class LoginComponent implements OnInit {
   //Capturo los valores cuando le doy a ingresar
   onSubmit(): void{    
         if(this.loginDash.valid){
+          console.log(this.loginDash.value.email, this.loginDash.value.password);
+          
       this.authService.login(this.loginDash.value.email, this.loginDash.value.password).subscribe(  
-        (users: any[]) => {
-          const matchingUser = users.find(user => user.email == this.loginDash.value.email && user.password == this.loginDash.value.password);          
-          if (matchingUser) {
-            // Autenticación exitosa
+        response => {
+          //const matchingUser = users.find(user => user.email == this.loginDash.value.email && user.password == this.loginDash.value.password);          
+          //if (matchingUser) {
+            // Autenticación exitosa            
             localStorage.setItem('currentUser', JSON.stringify({ email: this.email }));
             this.router.navigate(['/dashboard-client']);
-          } else {
+          //} else {
             // Datos de autenticación incorrectos
-            this.loginError = 'Usuario o contraseña incorrectos';
-            this.router.navigate(['/login']);
-            this.loginDash.reset();
-          }
+            
+          //}
         },
         (error) => {
           // Manejar el error en caso de fallo en la petición
+          this.loginError = 'Usuario o contraseña incorrectos';
+            //this.router.navigate(['/login']);
+            //this.loginDash.reset();
           this.loginError = 'Lo siento hubo un fallo inesperado';
           console.error(error)
         });

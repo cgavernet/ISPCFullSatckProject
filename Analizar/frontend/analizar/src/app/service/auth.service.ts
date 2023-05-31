@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,11 +8,16 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  apiUrl = 'http://localhost:3000';
+  apiUrl = 'http://localhost:8000';
 
   //Iniciar Sesión
   login(email: string, password: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/usuarios`);
+    const body = {
+      email: email,
+      password: password
+    };
+
+    return this.http.post(`${this.apiUrl}/users/loginUser`, body);
   }
   //Cerrar sesión 
   logout(): void {
