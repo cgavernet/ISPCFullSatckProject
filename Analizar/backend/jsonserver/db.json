@@ -53,17 +53,27 @@
   "productos": [
     {
       "id": 1,
-      "nombre": "Producto 1",
-      "descripcion": "Descripción del producto 1",
-      "precio": 10.99,
-      "cantidad_disponible": 50
+      "nombre": "SFE D100",
+      "descripcion": "Medidor Inteligente Domiciliario",
+      "precio": 9499.99,
+      "cantidad_disponible": 17,
+      "ruta_img": "../assets/img/SFE-Dom-1_0.png"
     },
     {
       "id": 2,
-      "nombre": "Producto 2",
-      "descripcion": "Descripción del producto 2",
-      "precio": 20.99,
-      "cantidad_disponible": 20
+      "nombre": "SME C500",
+      "descripcion": "Medidor Inteligente Comercial",
+      "precio": 13399.99,
+      "cantidad_disponible": 10,
+      "ruta_img": "../assets/img/SME-Com-1_0.png"
+    },
+    {
+      "id": 3,
+      "nombre": "TFE I1000",
+      "descripcion": "Medidor Inteligente Industrial",
+      "precio": 17999.99,
+      "cantidad_disponible": 7,
+      "ruta_img": "../assets/img/TFE-Ind-1_0.png"
     }
   ],
   "medidores": [
