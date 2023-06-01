@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  private is_admin: boolean = false;
 
   constructor(private http: HttpClient) { }
   apiUrl = 'http://localhost:8000';
@@ -27,5 +28,12 @@ export class AuthService {
   isLoggedIn(): boolean {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     return currentUser && currentUser.email !== undefined;
+  }
+  setIsAdmin(is_admin: boolean) {
+    this.is_admin = is_admin;
+  }
+
+  getIsAdmin() {
+    return this.is_admin;
   }
 }
