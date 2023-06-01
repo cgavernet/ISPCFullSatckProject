@@ -27,7 +27,6 @@ class addAlerta(APIView):
 class editAlerta(APIView):
     def put(self, request, id):
         medidor = request.data.get('medidor')
-        print(medidor)
         try:
             alerta = Alertas.objects.get(idAlerta=id)
         except Alertas.DoesNotExist:
@@ -37,7 +36,10 @@ class editAlerta(APIView):
             serializer.save()
             return Response({'message': 'La alerta ha sido actualizada correctamente'}, status=status.HTTP_200_OK)
         else:
-            return Response({'error': 'Lo siento ocurrio un error al editar la alerta, revise los campos que esten completos'}, status=status.HTTP_400_BAD_REQUEST)
+            if Medidores.objects.filter(idMedidor=medidor).exists():
+                return Response({'error': 'El medidor no existe', 'alertaNoExiste': True}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({'error': 'Lo siento ocurrio un error al editar la alerta, revise los campos que esten completos', 'alertaNoExiste': False}, status=status.HTTP_400_BAD_REQUEST)
 
 #Traigo alerta por ID
 class getAlertaById(APIView):

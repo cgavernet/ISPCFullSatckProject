@@ -71,8 +71,11 @@ export class EditAlertaComponent implements OnInit {
       this.router.navigate(['/alertas']);
     },(error: any) => {
       //console.error('Hubo un error al agregar la alerta', error);
-      this.loginError = 'Lo siento ocurrio un error al editar la alerta, revise que los campos esten completos';
-     
+      if (error.error && error.error.alertaNoExiste == false) {
+        this.loginError = 'El medidor no existe lo siento';
+      } else {
+        this.loginError = 'Lo siento ocurrio un error al editar la alerta, revise que los campos esten completos';
+      }
     })
    }else{
     this.editForm.markAllAsTouched();
