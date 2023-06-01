@@ -150,6 +150,12 @@ form p.title::before {
 .signup-link {
     cursor: pointer;
 }
+.ng-valid:not(form).ng-touched {
+    border-left: 5px solid var(--green-700);
+}
+.ng-invalid:not(form).ng-touched {
+    border-left: 5px solid var(--red);
+}
   
 /*              Media query                     */
 @media screen and (max-width: 520px){

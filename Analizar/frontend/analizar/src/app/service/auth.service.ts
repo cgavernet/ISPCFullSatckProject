@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -6,13 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  private is_admin: boolean = false;
 
   constructor(private http: HttpClient) { }
-  apiUrl = 'http://localhost:3000';
+  apiUrl = 'http://localhost:8000';
 
   //Iniciar Sesión
   login(email: string, password: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/usuarios`);
+    const body = {
+      email: email,
+      password: password
+    };
+
+    return this.http.post(`${this.apiUrl}/users/loginUser`, body);
   }
   //Cerrar sesión 
   logout(): void {
@@ -22,5 +28,12 @@ export class AuthService {
   isLoggedIn(): boolean {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     return currentUser && currentUser.email !== undefined;
+  }
+  setIsAdmin(is_admin: boolean) {
+    this.is_admin = is_admin;
+  }
+
+  getIsAdmin() {
+    return this.is_admin;
   }
 }
