@@ -34,7 +34,7 @@
           <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link" routerLink="/planes">PLANES</a>
           </li>  
-          <li class="nav-item">
+          <li *ngIf="!isAdmin()"class="nav-item">
             <a class="nav-link" routerLink="/carrito">CARRITO<i class="bi bi-cart-fill fs-4"></i></a>
           </li>  
           <li *ngIf="!isLoggedIn()" class="nav-item">

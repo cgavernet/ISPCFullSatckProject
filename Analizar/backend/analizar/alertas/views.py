@@ -1,6 +1,7 @@
 from django.core import serializers
 from django.http import JsonResponse
 from .models import Alertas
+from medidores.models import Medidores
 from .serializers import AlertasSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -21,6 +22,34 @@ class addAlerta(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#Editar alerta
+class editAlerta(APIView):
+    def put(self, request, id):
+        medidor = request.data.get('medidor')
+        try:
+            alerta = Alertas.objects.get(idAlerta=id)
+        except Alertas.DoesNotExist:
+            return JsonResponse({'error': 'La alerta no existe'}, status=status.HTTP_404_NOT_FOUND)
+        serializer = AlertasSerializer(alerta, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'La alerta ha sido actualizada correctamente'}, status=status.HTTP_200_OK)
+        else:
+            if Medidores.objects.filter(idMedidor=medidor).exists():
+                return Response({'error': 'El medidor no existe', 'alertaNoExiste': True}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({'error': 'Lo siento ocurrio un error al editar la alerta, revise los campos que esten completos', 'alertaNoExiste': False}, status=status.HTTP_400_BAD_REQUEST)
+
+#Traigo alerta por ID
+class getAlertaById(APIView):
+    def get(self, request, id):
+        try:
+            alerta = Alertas.objects.get(idAlerta=id)
+        except Alertas.DoesNotExist:
+            return JsonResponse({'error': 'La alerta no existe'}, status=status.HTTP_404_NOT_FOUND)
+        serializer = AlertasSerializer(alerta)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 # Elimino alerta
 @csrf_exempt
