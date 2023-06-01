@@ -105,6 +105,9 @@ section {
     font-size: 16px;
     cursor: pointer;
   }
+  .border-green-1 {
+    border: 1px solid #509C57;
+  }
   
   button:hover {
     background-color: #4D8E4C;

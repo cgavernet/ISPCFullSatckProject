@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from 'src/app/productos.service';
+import { AuthService } from 'src/app/service/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +15,7 @@ export class ProductosComponent implements OnInit {
   opcionSeleccionado: string = '1';
   verSeleccion: number = 1;
 
-  constructor(private productosService: ProductosService) {
+  constructor(private productosService: ProductosService, private authService: AuthService) {
        
   }
 
@@ -27,6 +28,10 @@ export class ProductosComponent implements OnInit {
         console.error('Error al obtener los productos: ', error);
       }
     );
+  }
+  isAdmin(): boolean {
+    // console.log(this.authService.isLoggedIn);   
+    return this.authService.getIsAdmin();
   }
 
   capturar() {
