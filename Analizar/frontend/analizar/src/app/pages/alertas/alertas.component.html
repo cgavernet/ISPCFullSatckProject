@@ -9,7 +9,7 @@
         <h4>{{alerta.medidor}}</h4>
         <p class="texto-alerta" id="texto-alerta-alerta1">Si el consmo supera los <b>{{alerta.valor}}</b> w/h envio una alerta como precaucion</p>
         <div class="contenedor-botones-alerta">
-            <button class="btn-alerta btn-alerta-editar" [routerLink]="['/alertas/', alerta.id]">editar</button>
+            <button class="btn-alerta btn-alerta-editar" [routerLink]="['/alertas/', alerta.idAlerta]">editar</button>
             <button class="btn-alerta btn-alerta-eliminar" (click)="removeAlert(alerta.idAlerta)">eliminar</button>
         </div>
     </div>

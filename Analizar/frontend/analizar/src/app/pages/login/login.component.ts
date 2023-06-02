@@ -26,11 +26,12 @@ export class LoginComponent implements OnInit {
   //Capturo los valores cuando le doy a ingresar
   onSubmit(): void{    
         if(this.loginDash.valid){
-          console.log(this.loginDash.value.email, this.loginDash.value.password);
-          
+          //console.log(this.loginDash.value.email, this.loginDash.value.password);        
       this.authService.login(this.loginDash.value.email, this.loginDash.value.password).subscribe(  
         response => {          
-            // Autenticación exitosa            
+            // Autenticación exitosa   
+            //console.log(response.is_admin);         
+            this.authService.setIsAdmin(response.is_admin);                    
             localStorage.setItem('currentUser', JSON.stringify({ email: this.email }));
             this.router.navigate(['/dashboard-client']);
         },
