@@ -12,7 +12,7 @@
 
     <!-- /* Muestro los productos */    -->
     <div class="row">
-        <div class="col col-4" *ngFor="let producto of productos">
+        <div class="col col-4 my-2" *ngFor="let producto of productos">
             <div class="card h-100 border-green-1" style="width: 24em;">
                 <img class="card-img-top object-fit-cover h-100"  [src]="producto.ruta_img" alt="Descripción de la imagen del producto">
                 <div class="card-body">
@@ -23,6 +23,14 @@
                 <option *ngFor="let valor of counter(producto.cantidad_disponible);let i = index" [value]="i + 1">{{i + 1}}</option>
                 </select>
                 <button *ngIf="isAdmin() == false" class="producto-botón" (click)="agregarCarrito(producto,verSeleccion,'medidor')">Agregar al carrito</button>
+
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isAdmin() == true" class="col col-4 my-2">
+            <div class="card h-100 border-green-1" style="width: 24em;">
+                <img class="card-img-top object-fit-cover h-100"  src="../../../assets/img/add.svg" alt="Descripción de la imagen del producto">
+                <div class="card-body">
 
                 </div>
             </div>
