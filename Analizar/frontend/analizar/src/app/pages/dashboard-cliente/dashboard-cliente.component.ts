@@ -133,6 +133,7 @@ export class DashboardClienteComponent {
   cargarDatos(){
     this.dataConsumo.getConsumos().subscribe(data => {
 
+      // console.log(data)
       //Guardo la data traida del servidor
       this.datosConsumo = data
 
@@ -244,13 +245,13 @@ export class DashboardClienteComponent {
       for(let dato of this.datosConsumo){
 
         //Transformo las fechas en formato fecha y lo guardo
-        dato["fecha_medicion"] = new Date(dato["fecha_medicion"])
+        dato["fechaMedicion"] = new Date(dato["fechaMedicion"])
 
-        let hora = dato["fecha_medicion"].getHours()
-        let dia = dato["fecha_medicion"].getDate()
-        let mes = dato["fecha_medicion"].getMonth()
-        let anio = dato["fecha_medicion"].getFullYear()
-        let diaSemana = this.getDiaDeLaSemana(dato["fecha_medicion"].getDay())
+        let hora = dato["fechaMedicion"].getHours()
+        let dia = dato["fechaMedicion"].getDate()
+        let mes = dato["fechaMedicion"].getMonth()
+        let anio = dato["fechaMedicion"].getFullYear()
+        let diaSemana = this.getDiaDeLaSemana(dato["fechaMedicion"].getDay())
         
         if(anio === this.fecha_actual[2]){
           datos.anual[mes].consumo += dato.consumo
@@ -274,7 +275,7 @@ export class DashboardClienteComponent {
                 }
                 case "martes":{
                   if(dia >= this.fecha_actual[0] - 1){
-                    let numeroDiaSemana = dato["fecha_medicion"].getDay()
+                    let numeroDiaSemana = dato["fechaMedicion"].getDay()
                     datos.semanal[numeroDiaSemana - 1].consumo += dato.consumo
                   }
                     
@@ -282,7 +283,7 @@ export class DashboardClienteComponent {
                 }
                 case "miercoles":{
                   if(dia >= this.fecha_actual[0] - 2){
-                    let numeroDiaSemana = dato["fecha_medicion"].getDay()
+                    let numeroDiaSemana = dato["fechaMedicion"].getDay()
                     datos.semanal[numeroDiaSemana - 1].consumo += dato.consumo
                   }
                     
@@ -290,7 +291,7 @@ export class DashboardClienteComponent {
                 }
                 case "jueves":{
                   if(dia >= this.fecha_actual[0] - 3){
-                    let numeroDiaSemana = dato["fecha_medicion"].getDay()
+                    let numeroDiaSemana = dato["fechaMedicion"].getDay()
                     datos.semanal[numeroDiaSemana - 1].consumo += dato.consumo
                   }
                     
@@ -298,7 +299,7 @@ export class DashboardClienteComponent {
                 }
                 case "viernes":{
                   if(dia >= this.fecha_actual[0] - 4){
-                    let numeroDiaSemana = dato["fecha_medicion"].getDay()
+                    let numeroDiaSemana = dato["fechaMedicion"].getDay()
                     datos.semanal[numeroDiaSemana - 1].consumo += dato.consumo
                   }
                     
@@ -306,7 +307,7 @@ export class DashboardClienteComponent {
                 }
                 case "sabado":{
                   if(dia >= this.fecha_actual[0] - 5){
-                    let numeroDiaSemana = dato["fecha_medicion"].getDay()
+                    let numeroDiaSemana = dato["fechaMedicion"].getDay()
                     datos.semanal[numeroDiaSemana - 1].consumo += dato.consumo
                   }
                     
@@ -314,7 +315,10 @@ export class DashboardClienteComponent {
                 }
                 case "domingo":{
                   if(dia >= this.fecha_actual[0] - 6){
-                    let numeroDiaSemana = dato["fecha_medicion"].getDay()
+                    let numeroDiaSemana = dato["fechaMedicion"].getDay()
+                    if (numeroDiaSemana === 0){
+                      numeroDiaSemana = 7
+                    }
                     datos.semanal[numeroDiaSemana - 1].consumo += dato.consumo
                   }
                     
