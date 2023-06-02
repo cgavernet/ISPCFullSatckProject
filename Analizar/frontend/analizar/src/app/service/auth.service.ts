@@ -22,6 +22,7 @@ export class AuthService {
   }
   //Cerrar sesión 
   logout(): void {
+    this.is_admin = false;
     localStorage.removeItem('currentUser');
   }
   //Verificación de autenticación

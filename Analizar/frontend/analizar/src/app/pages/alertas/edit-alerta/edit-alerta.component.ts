@@ -46,7 +46,7 @@ export class EditAlertaComponent implements OnInit {
           medidor: data.medidor,
           fecha: data.fecha
         });
-        console.log(data.fecha);
+        //console.log(data.fecha);
         
       },
       (error) => {
@@ -70,7 +70,12 @@ export class EditAlertaComponent implements OnInit {
       console.log('Alerta editada con éxito:', alert);
       this.router.navigate(['/alertas']);
     },(error: any) => {
-      console.error('Hubo un error al agregar la alerta', error);
+      //console.error('Hubo un error al agregar la alerta', error);
+      if (error.error && error.error.alertaNoExiste == false) {
+        this.loginError = 'El medidor no existe lo siento';
+      } else {
+        this.loginError = 'Lo siento ocurrio un error al editar la alerta, revise que los campos esten completos';
+      }
     })
    }else{
     this.editForm.markAllAsTouched();
