@@ -8,37 +8,57 @@ import { retry } from 'rxjs';
 })
 export class CarritoComponent implements OnInit {
 
-  datos = [
-    {
-      "id": "dato_1",
-      "url": "",
-      "tipoProducto": "suscripcion",
-      "nombre": "suscripcion anual",
-      "cantidad": 1,
-      "precio": 12000
-    },
-    {
-      "id": "dato_2",
-      "url": "",
-      "tipoProducto": "medidor",
-      "nombre": "medidor JK-2",
-      "cantidad": 1,
-      "precio": 9200
-    },
-    {
-      "id": "dato_3",
-      "url": "",
-      "tipoProducto": "medidor",
-      "nombre": "medidor JK-4",
-      "cantidad": 2,
-      "precio": 7500
-    },
-  ]
+  datos: any[] = [];
+
   total = this.calcularValorTotal()
 
   constructor(){}
 
   ngOnInit(){
+    this.verCarrito()
+  }
+
+  verCarrito(){
+    let datos: any[] = [];
+    let flag = true;
+    if(localStorage.getItem('mi-carrito') != null){
+      let carrito = JSON.parse(localStorage.getItem('mi-carrito')!);
+
+      for(let item of carrito){
+        if(flag){
+          datos.push({
+            "id": String(item.producto.id),
+            "url": item.producto.ruta_img,
+            "tipoProducto": item.tipoProducto,
+            "nombre": item.producto.nombre,
+            "cantidad": item.cantidad,
+            "precio": item.producto.precio
+          })
+          flag = false
+        } else {
+          if(datos.find((el)=> Number(el.id) === item.producto.id) != undefined){
+            let datoAModificar = datos.find((el)=> Number(el.id) === item.producto.id);
+            datoAModificar!.cantidad += item.cantidad
+          }else{
+            datos.push({
+              "id": String(item.producto.id),
+              "url": item.producto.ruta_img,
+              "tipoProducto": item.tipoProducto,
+              "nombre": item.producto.nombre,
+              "cantidad": item.cantidad,
+              "precio": item.producto.precio
+            })
+          }
+        }
+        // console.log(datos)
+      }
+
+      this.datos = datos
+      this.total = this.calcularValorTotal()
+
+    }else{
+      console.log('Algo malio sal')
+    }
   }
 
   aumentarCantidad(id:string){
@@ -65,9 +85,11 @@ export class CarritoComponent implements OnInit {
     let total = 0
     let cantidad = 0
 
-    for(let el of this.datos){
-      total += el.cantidad * el.precio
-      cantidad += el.cantidad
+    if(this.datos.length > 0){
+      for(let el of this.datos){
+        total += el.cantidad * el.precio
+        cantidad += el.cantidad
+      }
     }
 
     return [total,cantidad]
