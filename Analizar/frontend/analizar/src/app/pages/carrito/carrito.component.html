@@ -22,7 +22,7 @@
                         <p>{{item.cantidad}}</p>
                         <i class="fa-solid fa-circle-plus" style="color: #61c83c;" (click)="aumentarCantidad(item.id)"></i>                    
                     </div>
-                    <div class="contenedor__carrito--item-precio">$<span>{{item.cantidad * item.precio}}</span></div>
+                    <div class="contenedor__carrito--item-precio">$<span>{{(item.cantidad * item.precio).toFixed(2)}}</span></div>
                     <div class="contenedor__carrito--item-eliminar">
                         <i class="fa-solid fa-circle-xmark" style="color: #9e9a9d;" (click)="eliminarItem(item.id)"></i>
                     </div>

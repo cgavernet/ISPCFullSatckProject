@@ -22,7 +22,7 @@ export class CarritoComponent implements OnInit {
     let datos: any[] = [];
     let flag = true;
     if(localStorage.getItem('mi-carrito') != null){
-      let carrito = JSON.parse(localStorage.getItem('mi-carrito')!);
+      let carrito = this.obtenerCarritoLocalStorage()
 
       for(let item of carrito){
         if(flag){
@@ -50,7 +50,6 @@ export class CarritoComponent implements OnInit {
             })
           }
         }
-        // console.log(datos)
       }
 
       this.datos = datos
@@ -65,6 +64,7 @@ export class CarritoComponent implements OnInit {
     for(let el of this.datos){
       if(el.id === id){
         el.cantidad += 1
+        this.modificarItemCarrito(Number(id),'aumentar',1)
       }
     }
     this.total = this.calcularValorTotal()
@@ -75,6 +75,7 @@ export class CarritoComponent implements OnInit {
       if(el.id === id){
         if(el.cantidad > 0){
           el.cantidad -= 1
+          this.modificarItemCarrito(Number(id),'disminuir',1)
         }
       }
     }
@@ -105,6 +106,40 @@ export class CarritoComponent implements OnInit {
     }
 
     this.datos.splice(indice,1)
+    this.modificarItemCarrito(Number(id),'eliminar',0)
     this.total = this.calcularValorTotal()
+  }
+
+  obtenerCarritoLocalStorage(){
+    return JSON.parse(localStorage.getItem('mi-carrito')!);
+  }
+
+  modificarItemCarrito(id:number, tipoModificacion:string, cantidad:number){
+    let carrito = this.obtenerCarritoLocalStorage()
+    
+    for(let item of carrito){
+      if(item.producto.id === id){
+        
+        if(tipoModificacion === 'aumentar'){
+          item.cantidad += cantidad
+        }
+        
+        if(tipoModificacion === 'disminuir'){
+          item.cantidad -= cantidad
+        }
+        
+        if(tipoModificacion === 'eliminar'){
+          let index = carrito.findIndex((el:any)=> el.producto.id === id)
+          carrito.splice(index,1)
+        }
+      }
+    }
+
+    this.guardarCarritoLocalStorage(carrito)
+
+  }
+
+  guardarCarritoLocalStorage(carrito:any){
+    localStorage.setItem('mi-carrito',JSON.stringify(carrito))
   }
 }
