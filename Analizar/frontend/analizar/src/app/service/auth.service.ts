@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private is_admin: boolean = false;
+  private readonly isAdminKey = 'isAdmin';
 
   constructor(private http: HttpClient) { }
   apiUrl = 'http://localhost:8000';
@@ -22,7 +22,7 @@ export class AuthService {
   }
   //Cerrar sesión 
   logout(): void {
-    this.is_admin = false;
+    localStorage.removeItem(this.isAdminKey)
     localStorage.removeItem('currentUser');
   }
   //Verificación de autenticación
@@ -30,11 +30,15 @@ export class AuthService {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     return currentUser && currentUser.email !== undefined;
   }
-  setIsAdmin(is_admin: boolean) {
-    this.is_admin = is_admin;
+  setIsAdmin(isAdmin: boolean) {
+    localStorage.setItem(this.isAdminKey, JSON.stringify(isAdmin));
   }
 
-  getIsAdmin() {
-    return this.is_admin;
+  getIsAdmin(): boolean {
+    const storedIsAdmin = localStorage.getItem(this.isAdminKey);
+    if (storedIsAdmin) {
+      return JSON.parse(storedIsAdmin);
+    }
+    return false;
   }
 }
