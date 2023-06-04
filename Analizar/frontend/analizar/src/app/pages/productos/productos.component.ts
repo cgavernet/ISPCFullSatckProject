@@ -42,7 +42,19 @@ export class ProductosComponent implements OnInit {
   agregarCarrito(producto:any, cantidad:number, tipoProducto:string){
     if(localStorage.getItem('mi-carrito') != null){
       let carritoActual = JSON.parse(localStorage.getItem('mi-carrito')!)
-      carritoActual!.push({producto,cantidad, tipoProducto})
+      let seAgregoElemento = false
+
+      for(let item of carritoActual){
+        if(item.producto.id === producto.id){
+          item.cantidad += cantidad
+          seAgregoElemento = true
+        }
+      }
+
+      if(!seAgregoElemento){
+        carritoActual!.push({producto,cantidad, tipoProducto})
+      }
+      
       localStorage.setItem('mi-carrito',JSON.stringify(carritoActual))
     }else{
       let carritoActual = JSON.stringify([{producto,cantidad, tipoProducto}])

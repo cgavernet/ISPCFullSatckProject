@@ -8,7 +8,7 @@ section {
   .row {
     display: grid;
     --bs-gutter-x: 0;
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(4, max-content);
     justify-content: center;
     gap: 0;
   }
@@ -23,18 +23,25 @@ section {
   .producto {
     background-color: #fff;
     border: 1px solid #509C57;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 10px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    width: 388px;
+    /* width: 388px; */
+    width: 320px;
+    height: 350px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
   }
 
   .producto-imagen {
-    max-width: 70%;
-    height: 200px;
+    max-width: 200px;
+    height: 150px;
     display: block;
     margin-left: auto;
     margin-right: auto; 
+    object-fit: contain;
   }
   
   /* Establecer las reglas para el botón */
@@ -116,6 +123,15 @@ section {
   /* Personalizar los colores del botón al pasar el mouse */
   .producto-botón:hover {
     background-color: #4D8E4C;
+  }
+
+  @media screen and (max-width: 1350px) {
+    section {
+      padding-bottom: 8rem;
+    }
+    .row {
+      grid-template-columns: repeat(3, max-content);
+    }
   }
 
   @media screen and (max-width: 1150px) {
