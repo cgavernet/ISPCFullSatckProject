@@ -1,8 +1,8 @@
 <section>
     <!-- /* Opción para ordenar los productos */     -->
     <div class="ordenar">
-        <label for="ordenar">Ordenar por:</label>
-        <select id="ordenar">
+        <label>Ordenar por:</label>       
+        <select>
           <option value="nombre">Nombre</option>
           <option value="precio-asc">Precio - Menor a mayor</option>
           <option value="precio-desc">Precio - Mayor a menor</option>
@@ -12,10 +12,35 @@
 
     <!-- /* Muestro los productos */    -->
     <div class="row">
+        <div class="col col-4" *ngFor="let producto of productos">
+            <div class="card border-green-1 producto">
+                <img class="producto-imagen"  [src]="producto.ruta_img" alt="Descripción de la imagen del producto">
+                <div class="">
+                    <h2>{{producto.nombre}}</h2>
+                    <h3>Precio: <span>$ {{producto.precio}}</span></h3>
+                    <p>{{producto.descripcion}}</p>
+                    <select *ngIf="isAdmin() == false" class="producto-selector" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+                        <option *ngFor="let valor of counter(producto.cantidad_disponible);let i = index" [value]="i + 1">{{i + 1}}</option>
+                    </select>
+                    <button *ngIf="isAdmin() == false" class="producto-botón" (click)="agregarCarrito(producto,verSeleccion,'medidor')">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isAdmin() == true" class="col col-4 my-2">
+            <div class="card h-100 border-green-1" style="width: 24em;">
+                <img class="card-img-top object-fit-cover h-100"  src="../../../assets/img/add.svg" alt="Descripción de la imagen del producto">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!--
+    <div class="row">
         <div class="col col-4">
             <div class="producto">
                 <img class="producto-imagen" src="../assets/img/SFE-Dom-1_0.png" alt="Descripción de la imagen del producto">
-                <h2>SFE Dom 1.0</h2>
+                <h2>SFE D100</h2>
                 <h3>Precio: <span>$ 9.499,99</span></h3>
                 <p>Medidor Inteligente Domiciliario</p>
                 <select class="producto-selector">
@@ -32,7 +57,7 @@
         <div class="col col-4">
             <div class="producto">
                 <img class="producto-imagen" src="../assets/img/SME-Com-1_0.png" alt="Descripción de la imagen del producto">
-                <h2>SME Com 1.0</h2>
+                <h2>SME C500</h2>
                 <h3>Precio: <span>$ 13.399,99</span></h3>
                 <p>Medidor Inteligente Comercial</p>
                 <select>
@@ -49,7 +74,7 @@
         <div class="col col-4">
             <div class="producto">
                 <img class="producto-imagen" src="../assets/img/TFE-Ind-1_0.png" alt="Descripción de la imagen del producto">
-                <h2>TFE Ind 1.0</h2>
+                <h2>TFE I1000</h2>
                 <h3>Precio: <span>$ 17.999,99</span></h3>
                 <p>Medidor Inteligente Industrial</p>
                 <select>
@@ -63,8 +88,24 @@
             </div>
         </div>
     </div>
+    
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.descripcion }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
     <ul>
         <li *ngFor="let producto of productos">{{ producto.nombre }}</li>
     </ul>
-  
+    -->  
 </section>

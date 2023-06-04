@@ -6,14 +6,16 @@ section {
   
   /* Establecer las reglas para la fila */
   .row {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    --bs-gutter-x: 0;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: center;
+    gap: 0;
   }
   
   /* Establecer las reglas para las columnas */
   .col {
     box-sizing: border-box;
-    flex: 1;
     padding: 0 10px; /* Establecer un padding para separar las columnas */
   }
   
@@ -21,17 +23,25 @@ section {
   .producto {
     background-color: #fff;
     border: 1px solid #509C57;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 10px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* width: 388px; */
+    width: 320px;
+    height: 350px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
   }
 
   .producto-imagen {
-    max-width: 70%;
-    height: auto;
+    max-width: 200px;
+    height: 150px;
     display: block;
     margin-left: auto;
     margin-right: auto; 
+    object-fit: contain;
   }
   
   /* Establecer las reglas para el botón */
@@ -102,6 +112,9 @@ section {
     font-size: 16px;
     cursor: pointer;
   }
+  .border-green-1 {
+    border: 1px solid #509C57;
+  }
   
   button:hover {
     background-color: #4D8E4C;
@@ -110,4 +123,28 @@ section {
   /* Personalizar los colores del botón al pasar el mouse */
   .producto-botón:hover {
     background-color: #4D8E4C;
+  }
+
+  @media screen and (max-width: 1350px) {
+    section {
+      padding-bottom: 8rem;
+    }
+    .row {
+      grid-template-columns: repeat(3, max-content);
+    }
+  }
+
+  @media screen and (max-width: 1150px) {
+    section {
+      padding-bottom: 8rem;
+    }
+    .row {
+      grid-template-columns: repeat(2, max-content);
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    .row {
+      grid-template-columns: repeat(1, max-content);
+    }
   }

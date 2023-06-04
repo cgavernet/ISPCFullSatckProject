@@ -5,6 +5,7 @@ from medidores.models import Medidores
 class Consumos(models.Model):
     idConsumos = models.AutoField(primary_key=True)
     medidor = models.ForeignKey(Medidores, on_delete=models.CASCADE)
+    # medidor = models.PositiveIntegerField()
     fechaMedicion = models.DateTimeField()
     consumo = models.FloatField()
 
