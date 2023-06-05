@@ -14,7 +14,7 @@ export class ProductosComponent implements OnInit {
   counter = Array;
   opcionSeleccionado: string = '1';
   verSeleccion: number = 1;
-
+  
   constructor(private productosService: ProductosService, private authService: AuthService) {
        
   }
