@@ -15,6 +15,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { ProductosComponent } from './productos/productos.component';
 import { PlanesComponent } from './planes/planes.component';
 import { HomeComponent } from './home/home.component';
+import { EditAlertaComponent } from './alertas/edit-alerta/edit-alerta.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,12 @@ import { HomeComponent } from './home/home.component';
     HistorialComponent,
     RegistroComponent,
     MiCuentaComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
     ProductosComponent,
     PlanesComponent,
     CarritoComponent,
-    HomeComponent
+    HomeComponent,
+    EditAlertaComponent
   ],
   imports: [
     CommonModule,
@@ -43,11 +45,12 @@ import { HomeComponent } from './home/home.component';
     //Aca deben exportar los componentes de pages creados, para ser utilizados por otros modulos
     Pagina404Component,
     AlertasComponent,
+    EditAlertaComponent,
     LoginComponent,
     DashboardClienteComponent,
     HistorialComponent,
     MiCuentaComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
     ProductosComponent,
     PlanesComponent,
     CarritoComponent,

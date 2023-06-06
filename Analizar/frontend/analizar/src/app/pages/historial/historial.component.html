@@ -27,9 +27,9 @@
               [type]="'line'">
             </canvas>
             <div class="btn-group" role="group" aria-label="Botones de Horarios">
-              <button type="button" class="btn btn-success" onclick="chLineChangeTitle(24);">24 Hs</button>
-              <button type="button" class="btn btn-success" onclick="chLineChangeTitle(12);">12 Hs</button>
-              <button type="button" class="btn btn-success" onclick="chLineChangeTitle(1);">1 Hs</button>
+              <button type="button" class="btn btn-success" (click) = "changeRange(24)">24 Hs</button>
+              <button type="button" class="btn btn-success" (click) = "changeRange(12)">12 Hs</button>
+              <button type="button" class="btn btn-success" (click) = "changeRange(1)">1 Hs</button>
             </div>
           </div>
         </div>

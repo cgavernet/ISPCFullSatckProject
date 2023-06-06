@@ -13,10 +13,12 @@ import { MiCuentaComponent } from './pages/mi-cuenta/mi-cuenta.component';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { HomeComponent } from './pages/home/home.component';
+import { EditAlertaComponent } from './pages/alertas/edit-alerta/edit-alerta.component';
 
 const routes: Routes = [
   //Definir las rutas de la app
   { path: 'alertas', component: AlertasComponent, canActivate:[AuthGuard]},
+  { path: 'alertas/:id', component: EditAlertaComponent, canActivate:[AuthGuard]},
   { path: 'home', component: HomeComponent},
   {path: '', redirectTo:'/home', pathMatch:'full'},
   { path: 'productos', component: ProductosComponent},
@@ -26,9 +28,9 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent, canActivate:[AuthGuard]},
   { path: 'historial', component: HistorialComponent, canActivate:[AuthGuard]},
   { path: 'dashboard-client', component: DashboardClienteComponent, canActivate:[AuthGuard]},
+  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate:[AuthGuard]},
   { path: 'mi-cuenta', component: MiCuentaComponent, canActivate:[AuthGuard]},
   { path: '**', component: Pagina404Component},
-  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

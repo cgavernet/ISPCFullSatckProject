@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   loginDash!: FormGroup;
   resetFormPass!: FormGroup;
   //isLoggedIn!: boolean;
+  loginError: string = '';
+
   constructor( private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   email: string = '';
@@ -23,13 +25,28 @@ export class LoginComponent implements OnInit {
   }
   //Capturo los valores cuando le doy a ingresar
   onSubmit(): void{    
-    if (this.authService.login(this.loginDash.value.email, this.loginDash.value.password)) {
-      console.log(this.loginDash.value.email, this.loginDash.value.password);
-      this.router.navigate(['/dashboard-client']);
-    } else {
-      console.log(this.loginDash.value.email, this.loginDash.value.password);
-      this.router.navigate(['/login']);
-    }   
+        if(this.loginDash.valid){
+          //console.log(this.loginDash.value.email, this.loginDash.value.password);        
+      this.authService.login(this.loginDash.value.email, this.loginDash.value.password).subscribe(  
+        response => {          
+            // Autenticación exitosa   
+            //console.log(response.is_admin);         
+            this.authService.setIsAdmin(response.is_admin);                    
+            localStorage.setItem('currentUser', JSON.stringify({ email: this.email }));
+            this.router.navigate(['/dashboard-client']);
+        },
+        (error) => {
+          // Manejar el error en caso de fallo en la petición
+          this.loginError = 'Usuario o contraseña incorrectos';
+            //this.router.navigate(['/login']);
+            //this.loginDash.reset();
+          this.loginError = 'Credenciales inválidas';
+          console.error(error)
+        });
+    }else{
+      this.loginDash.markAllAsTouched();
+      this.loginError = 'Complete los campos';
+    }    
   }
   //Validaciones para los campos
   initForm(): FormGroup {
