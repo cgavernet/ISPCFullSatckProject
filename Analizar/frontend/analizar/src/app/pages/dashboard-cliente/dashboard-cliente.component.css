@@ -91,7 +91,7 @@ div.contenedor-interno-tabla-datos {
 
 h2.consumo-datos {
     color: var(--green-500);
-    font-size: 2.6rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 
@@ -105,12 +105,14 @@ div.container-flex-row {
 }
 
 h3.precio-datos {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     margin-bottom: 2.5rem;
+    position: relative;
+    top: .3rem;
 }
 
 button.btn-edit {
-    font-size: 1.24rem;
+    font-size: 1.1rem;
     border-radius: 50% !important;
     border: 2px solid transparent;
     padding: 0 .24rem .24rem .24rem;

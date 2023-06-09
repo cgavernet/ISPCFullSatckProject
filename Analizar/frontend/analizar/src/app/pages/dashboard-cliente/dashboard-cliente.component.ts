@@ -344,7 +344,7 @@ export class DashboardClienteComponent {
 
       this.datosARecorrer = this.datos['mensual'];
 
-      document.getElementById('consumo')!.innerText = String(this.sumarConsumo());
+      document.getElementById('consumo')!.innerText = String((this.sumarConsumo() / 100).toFixed(2));
       document.getElementById('precio')!.innerText = (this.sumarConsumo() * this.precio).toFixed(2);
       this.calcularPrecio(this.precio)
       
@@ -382,7 +382,7 @@ export class DashboardClienteComponent {
         break
     }
 
-    document.getElementById('consumo')!.innerText = String(this.sumarConsumo());
+    document.getElementById('consumo')!.innerText = String((this.sumarConsumo() / 100).toFixed(2));
     document.getElementById('precio')!.innerText = (this.sumarConsumo() * this.precio).toFixed(2);
   }
 
