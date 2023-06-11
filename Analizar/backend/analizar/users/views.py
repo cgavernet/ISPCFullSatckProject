@@ -37,18 +37,19 @@ class loginUser(APIView):
 
         try:
             user = User.objects.get(email=email)
-            print(user.admin)
+            print(user.id)
         except User.DoesNotExist:
             return Response({'error': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
 
         if user.password == password:
             # Las credenciales son válidas
+            userId = user.id
             if user.admin == True:
                 is_admin = True
-                return Response({'message': 'Inicio de sesión exitoso', 'is_admin': is_admin}, status=status.HTTP_200_OK)
+                return Response({'message': 'Inicio de sesión exitoso', 'is_admin': is_admin, 'userId': userId}, status=status.HTTP_200_OK)
             else:
                 is_admin = False
-                return Response({'message': 'Inicio de sesión exitoso', 'is_admin': is_admin}, status=status.HTTP_200_OK)
+                return Response({'message': 'Inicio de sesión exitoso', 'is_admin': is_admin, 'userId': userId}, status=status.HTTP_200_OK)
         else:
             # Credenciales inválidas
             return Response({'error': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)

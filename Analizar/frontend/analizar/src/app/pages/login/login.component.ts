@@ -30,8 +30,9 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginDash.value.email, this.loginDash.value.password).subscribe(  
         response => {          
             // Autenticación exitosa   
-            //console.log(response.is_admin);         
-            this.authService.setIsAdmin(response.is_admin);                    
+            console.log(response);         
+            this.authService.setIsAdmin(response.is_admin);
+            localStorage.setItem('userId', response?.userId)                    
             localStorage.setItem('currentUser', JSON.stringify({ email: this.email }));
             this.router.navigate(['/dashboard-client']);
         },
