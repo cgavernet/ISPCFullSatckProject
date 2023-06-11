@@ -1,1 +1,38 @@
-<p>medidores works!</p>
+<section class="contenedor-principal-alertas my-4 mx-auto" id="contenedor-principal-alertas">
+    <section class="contenedor-alertas" id="contenedor-alertas">
+      <div class="alerta">
+        <button class="btn-nueva-alerta" id="btn-nueva-alerta" (click)="openModal()">+</button>
+        <h2 class="subtitulo-alerta">Nuevo medidor</h2>
+      </div>
+      <div *ngFor="let medidor of medidores;let i= index;" class="alerta" id="div-alerta1">
+        <h2 class="titulo-alerta">Medidor #{{i+1}}</h2>
+        <h4>{{medidor.nombre}}</h4>
+        <p class="texto-alerta" id="texto-alerta-alerta1">{{medidor.detalle}}</p>
+        <div class="contenedor-botones-alerta">
+            <!-- <button class="btn-alerta btn-alerta-editar" [routerLink]="['/alertas/', medidor.idMedidor]">editar</button> -->
+            <button class="btn-alerta btn-alerta-eliminar" (click)="removeAlert(medidor.idMedidor)">eliminar</button>
+        </div>
+    </div>
+    </section>
+    <form [formGroup]="medidoresForm" class="formulario-nueva-alerta" id="addAlert">
+      <p class="title-formulario-alerta">Nuevo medidor</p>
+      <p class="text-danger">{{loginError}}</p>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingrese un nombre para el medidor" formControlName="nombre" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Nombre </label>
+      </div>  
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingrese un detalle del medidor" formControlName="detalle" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Detalle </label>
+      </div>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingrese un Identificador para el medidor" formControlName="identificador" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Identificador </label>
+      </div>
+      <div class="btnContainer">
+        <button type="submit" class= "submitBtn saveBtn" (click)="saveMedidor()" id="btn-save-nueva-alerta">Guardar</button>
+        <button type="button" class= "submitBtn cancelBtn" (click)="closeModal()" id="btn-close-nueva-alerta">Cancelar</button>
+      </div>
+    </form>
+  </section>
+ 
