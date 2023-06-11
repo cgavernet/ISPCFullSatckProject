@@ -23,9 +23,8 @@ constructor(private router: Router, private medidorService: MedidoresService, pr
   
  }
  getMedidores(){
-  this.medidorService.getAlertas().subscribe((data: any) => {
+  this.medidorService.getMedidores().subscribe((data: any) => {
     this.medidores = data   
-    //console.log(data);
   })
  }
    //Validaciones para los campos
@@ -36,7 +35,7 @@ constructor(private router: Router, private medidorService: MedidoresService, pr
   let userId = Number(localStorage.getItem('userId')!);
   console.log(nombre, detalle, identificador, userId);
   if(this.medidoresForm.valid){
-  this.medidorService.addAlertas(nombre, detalle, identificador, userId).subscribe((medidor: any) => {
+  this.medidorService.addMedidor(nombre, detalle, identificador, userId).subscribe((medidor: any) => {
     console.log('Alerta agregada con éxito:', medidor);
     this.closeModal();
     this.getMedidores()
@@ -47,30 +46,9 @@ constructor(private router: Router, private medidorService: MedidoresService, pr
     this.medidoresForm.markAllAsTouched();
     this.loginError = 'Complete los campos';
   }
-  /*
-  if(this.setAlert && this.typeAlert){
-    let alert = new Alert();
-    console.log(alert.setAlert);
-    alert.setAlert = this.setAlert;
-    alert.typeAlert = this.typeAlert;
-    console.log(this.setAlert);
-    console.log(this.typeAlert);  
-    this.alerts.push(alert);
-    this.setAlert = 0;
-    this.typeAlert = '';
-    this.closeModal();
-  }else{
-    alert("Ingrese una alerta");
-  }*/
-
  }
- updateAlert(){
-  //const id = this.
-  //this.alertaService.updateAlertas(id)
- }
-
  removeAlert(id:number){  
-  this.medidorService.removeAlertas(id).subscribe((medidor) => {
+  this.medidorService.removeMedidor(id).subscribe((medidor) => {
     console.log('Alerta eliminada con éxito:', medidor);
     this.closeModal();
     this.getMedidores()
@@ -87,17 +65,6 @@ constructor(private router: Router, private medidorService: MedidoresService, pr
     if(modal != null) {
       modal.style.display ='flex'; 
       this.medidoresForm.reset();     
-    }
-    if(contenedorAlertas != null) {
-      contenedorAlertas.style.display ='none';
-    }
-  }
-  //Abrir modal editar
-  openEditModal(alerta: any): void{
-    const editModal = document.getElementById('editAlert');
-    let contenedorAlertas = document.getElementById('contenedor-alertas');
-    if(editModal != null) {
-      editModal.style.display ='flex';      
     }
     if(contenedorAlertas != null) {
       contenedorAlertas.style.display ='none';
