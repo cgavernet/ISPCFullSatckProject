@@ -14,9 +14,11 @@ import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EditAlertaComponent } from './pages/alertas/edit-alerta/edit-alerta.component';
+import { MedidoresComponent } from './pages/medidores/medidores.component';
 
 const routes: Routes = [
   //Definir las rutas de la app
+  { path: 'medidores', component: MedidoresComponent, canActivate:[AuthGuard]},
   { path: 'alertas', component: AlertasComponent, canActivate:[AuthGuard]},
   { path: 'alertas/:id', component: EditAlertaComponent, canActivate:[AuthGuard]},
   { path: 'home', component: HomeComponent},

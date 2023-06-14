@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertasService } from 'src/app/service/alertas.service';
+import { MedidoresService } from 'src/app/service/medidores.service';
 import { Alert } from './Alert';
 
 
@@ -12,23 +13,33 @@ import { Alert } from './Alert';
 })
 export class AlertasComponent implements OnInit {
 
-constructor(private router: Router, private alertaService: AlertasService, private fb: FormBuilder) {}
+constructor(private router: Router, private alertaService: AlertasService, private fb: FormBuilder, private medidorService: MedidoresService) {}
  alerts: Alert[] = [];
  valor!: number;
  medidor!: number;
  fechaAlta!: string;
  alertas: any[] = [];
+ medidores: any[] = [];
  alertasForm!: FormGroup;
  loginError: string = '';
  
  ngOnInit(): void{
   this.alertasForm = this.initForm()
   this.getAlerts()
+  this.getMedidoresByUser()
   
  }
  getAlerts(){
   this.alertaService.getAlertas().subscribe((data: any) => {
     this.alertas = data   
+  })
+ }
+ //Traer medidores para poder seleccionar para que medidor hacer la alerta
+ getMedidoresByUser(){
+  this.medidorService.getMedidores().subscribe((data: any) => {
+    this.medidores = data
+    console.log(data);
+    
   })
  }
    //Validaciones para los campos

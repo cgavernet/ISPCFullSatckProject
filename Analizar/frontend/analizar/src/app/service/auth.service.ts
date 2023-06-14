@@ -23,6 +23,7 @@ export class AuthService {
   //Cerrar sesión 
   logout(): void {
     localStorage.removeItem(this.isAdminKey)
+    localStorage.removeItem('userId');
     localStorage.removeItem('currentUser');
   }
   //Verificación de autenticación

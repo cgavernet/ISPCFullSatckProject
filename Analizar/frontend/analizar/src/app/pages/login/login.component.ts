@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   resetFormPass!: FormGroup;
   //isLoggedIn!: boolean;
   loginError: string = '';
+  show: boolean = false;
 
   constructor( private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
@@ -30,8 +31,9 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginDash.value.email, this.loginDash.value.password).subscribe(  
         response => {          
             // Autenticación exitosa   
-            //console.log(response.is_admin);         
-            this.authService.setIsAdmin(response.is_admin);                    
+            console.log(response);         
+            this.authService.setIsAdmin(response.is_admin);
+            localStorage.setItem('userId', response?.userId)                    
             localStorage.setItem('currentUser', JSON.stringify({ email: this.email }));
             this.router.navigate(['/dashboard-client']);
         },
@@ -76,4 +78,9 @@ export class LoginComponent implements OnInit {
     const email = this.resetFormPass.value.email;
     console.log('Form ->', this.resetFormPass.value);
   }
+  showPass(){
+    this.show = !this.show;
+  }   
+
+
 }
