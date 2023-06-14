@@ -19,12 +19,12 @@
 
               <div class="field confirm-password">
                 <div class="input-field">
-                  <input
-                    type="password"
+                  <input #password
+                  [type]="show ? 'text' : 'password'"
                     placeholder="Ingresa tu contraseña"
                     class="cPassword"
                     formControlName="password"/>
-                  <i class="bx bx-hide show-hide"></i>
+                  <i [ngClass]="(password.type == 'password')? 'bx-hide':'bx-show'" class="bx show-hide" (click)="showPass()"></i>
                 </div>
                 <div *ngIf="loginDash.get('password')?.touched && loginDash.get('password')?.errors?.['required']" class="error cPassword-error">
                     <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una contraseña
