@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th>EMAIL</th>
-                    <th>DISPOSITIVO</th>
+                    <th>DISPOSITIVOS</th>
                     <th>Nombre y apellido</th>
                     <th>ACCIONES</th>
                 </tr>
@@ -13,8 +13,10 @@
             <tbody>
                 <tr *ngFor="let user of users">
                     <td>{{user.email}}</td>
+                    <td *ngIf="user.medidores.length === 0">No hay medidores</td>
+                    <td *ngIf="user.medidores.length === 1">{{ user.medidores[0] }}</td>
+                    <td *ngIf="user.medidores.length > 1">{{ user.medidores.join(', ') }}</td>
                     <td>{{user.nombre}} {{user.apellido}}</td>
-                    <td>{{user.celular}}</td>
                     <td>
                         <div class="icons">
                             <!-- <i class="bi bi-pause-fill"></i>  -->
@@ -27,9 +29,9 @@
         </table>
     </div>
     
-    <div class="botones">
+    <!-- <div class="botones"> 
         <button>1</button>
         <button>2</button>
         <button>Siguiente</button>
-    </div>
+    </div>-->
 </main>

@@ -15,7 +15,7 @@ export class DashboardAdminComponent implements OnInit {
   }
   getUsers(){
     this.userService.getUsers().subscribe((data: any) =>{
-      this.users = data
+      this.users = data      
     })
   }
 }
