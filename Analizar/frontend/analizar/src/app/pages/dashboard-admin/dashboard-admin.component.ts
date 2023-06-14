@@ -18,4 +18,13 @@ export class DashboardAdminComponent implements OnInit {
       this.users = data      
     })
   }
+  removeUser(id:number) {
+    this.userService.removeUser(id).subscribe((user) => {
+      console.log('Usuario eliminado con exito!!', user);
+      this.getUsers();      
+    }, (error: any) => {
+      console.error('Hubo un error al eliminar el usuario', error);
+      
+    });
+  }
 }
