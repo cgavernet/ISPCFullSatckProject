@@ -22,7 +22,9 @@
         <label for="" class="label"> Cantidad w/h </label>
       </div>  
       <div class="inputContainer">
-        <input type="number" name="medidor"class="input" formControlName="medidor" id="medidor">
+        <select class="tipo-alerta" name="medidor" id="medidor" formControlName="medidor">
+          <option class="label" *ngFor="let medidor of medidores" [value]="medidor.idMedidor" >{{ medidor.nombre }} - {{ medidor.identificador }}</option>
+        </select>
       </div>
       <div class="inputContainer">
         <input type="date" name="typeAlert"class="input" formControlName="fechaAlta" id="typeAlert">
