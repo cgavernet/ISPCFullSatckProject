@@ -21,7 +21,7 @@ def getProductoPorId(request, id):
 def postProductos(request):
     jd = json.loads(request.body)
     # categoria = Categoria.objects.get(id=jd['id_categoria'])
-    Productos.objects.create(nombre=jd["nombre"],descripcion=jd["descripcion"],precio=jd["precio"],cantidadDisponible=jd["cantidadDisponible"])
+    Productos.objects.create(nombre=jd["nombre"],descripcion=jd["descripcion"],rutaImagen=jd["rutaImagen"],precio=jd["precio"],cantidadDisponible=jd["cantidadDisponible"])
     # Productos.objects.create(nombre=jd["nombre"],descripcion=jd["descripcion"],precio=jd["precio"],cantidadDisponible=jd["cantidadDisponible"],categorias=categoria)
     datos = {'message': "Creado con éxito"}
     return JsonResponse(datos)
@@ -32,6 +32,7 @@ def editarProducto(request, id):
     producto = Productos.objects.get(id=id)
     producto.nombre = jd["nombre"]
     producto.descripcion = jd["descripcion"]
+    producto.rutaImagen = jd["rutaImagen"]
     producto.precio = jd["precio"]
     producto.cantidadDisponible = jd["cantidadDisponible"]
     producto.save()
