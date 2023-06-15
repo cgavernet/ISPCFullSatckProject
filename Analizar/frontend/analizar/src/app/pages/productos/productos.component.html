@@ -12,6 +12,39 @@
 
     <!-- /* Muestro los productos */    -->
     <div class="row">
+        <div class="col col-4" *ngIf="isAdmin()">
+            <div class="card h-100 border-green-1" style="width: 20em;">
+                <div class="card-body-agregar">
+                    <!-- Botón Crear -->
+                    <button class="btn-agregar-producto" id="btn-agregar-producto" (click)="crearProducto()">+</button>
+                    <h2 class="subtitulo-producto">Agregar Producto</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-4" *ngFor="let producto of productos; let i = index">
+            <div class="card h-100 border-green-1" style="width: 20em;">
+                <img class="card-img-top object-fit-cover h-100" [src]="producto.ruta_img" alt="Descripción de la imagen del producto">
+                <div class="card-body-editar-eliminar">
+                    <h2>{{producto.nombre}}</h2>
+                    <h3>Precio: <span>$ {{producto.precio}}</span></h3>
+                    <p>{{producto.descripcion}}</p>
+                    <select *ngIf="!isAdmin()" class="producto-selector" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+                        <option *ngFor="let valor of counter(producto.cantidad_disponible); let j = index" [value]="j + 1">{{j + 1}}</option>
+                    </select>
+                    <button *ngIf="!isAdmin()" class="producto-botón" (click)="agregarCarrito(producto, verSeleccion, 'medidor')">Agregar al carrito</button>
+                    <!-- Botón Editar -->
+                    <button *ngIf="isAdmin()" (click)="editarProductoById(producto.id)">Editar</button>
+                    <!-- Botón Eliminar -->
+                    <button *ngIf="isAdmin()" (click)="eliminarProducto(producto.id)">Eliminar</button>
+                </div>
+            </div>
+        </div>        
+    </div>
+</section>
+
+<!--
+    <div class="row">
         <div class="col col-4" *ngFor="let producto of productos">
             <div class="card h-100 border-green-1" style="width: 20em;">
                 <img class="card-img-top object-fit-cover h-100"  [src]="producto.ruta_img" alt="Descripción de la imagen del producto">
@@ -23,15 +56,17 @@
                     <option *ngFor="let valor of counter(producto.cantidad_disponible);let i = index" [value]="i + 1">{{i + 1}}</option>
                     </select>
                     <button *ngIf="isAdmin() == false" class="producto-botón" (click)="agregarCarrito(producto,verSeleccion,'medidor')">Agregar al carrito</button>
+                    <!-- Botón Editar
+                    <button *ngIf="isAdmin()" (click)="editarProductoById(producto.id)">Editar</button>
+                    <!-- Botón Eliminar
+                    <button *ngIf="isAdmin()" (click)="eliminarProducto(producto.id)">Eliminar</button>
                 </div>
-            </div>
-            <!-- Botón Crear -->
-            <button *ngIf="isAdmin()" (click)="addProducto()">Crear</button>
-            <!-- Botón Editar -->
-            <button *ngIf="isAdmin()" (click)="updateProductoById(producto.id)">Editar</button>
-            <!-- Botón Eliminar -->
-            <button *ngIf="isAdmin()" (click)="removeProducto(producto.id)">Eliminar</button>
+            </div>            
+        </div>
+        <div *ngIf="isAdmin()" class="card-body">
+            <!-- Botón Crear
+            <button class="btn-agregar-producto" id="btn-agregar-producto" (click)="crearProducto()">+</button>
+                <h2 class="subtitulo-producto">Agregar Producto</h2>   
         </div>
     </div>
-  
-</section>
+-->  

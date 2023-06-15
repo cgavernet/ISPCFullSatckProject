@@ -29,6 +29,19 @@ export class ProductosComponent implements OnInit {
       }
     );
   }
+
+  crearProducto() {
+    // Lógica para crear un producto
+  }
+
+  editarProductoById(id: number) {
+    // Lógica para editar un producto por su ID
+  }
+
+  eliminarProducto(id: number) {
+    // Lógica para eliminar un producto por su ID
+  }
+  
   isAdmin(): boolean {
     // console.log(this.authService.isLoggedIn);   
     return this.authService.getIsAdmin();
