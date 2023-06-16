@@ -135,7 +135,160 @@ button {
 button:hover {
   background-color: #4D8E4C;
 }
+/* BTN */
+div.contenedor-botones-alerta,
+div.btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
+button.btn-alerta,
+button.submitBtn {
+    width: 42%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: .5rem 0;
+    border-radius: 1rem;
+    color: var(--white);
+    margin: 0 .2rem;
+    font-size: .85rem;
+}
+
+button.btn-alerta-editar,
+button.saveBtn {
+    background-color: var(--green-700);
+    border: 2px solid var(--green-700);
+}
+
+button.btn-alerta-eliminar,
+button.cancelBtn {
+    background-color: var(--red);
+    border: 2px solid var(--red);
+}
+
+button.btn-alerta-editar:hover,
+button.saveBtn:hover {
+    background-color: var(--white);
+    color: var(--green-700);
+}
+
+button.btn-alerta-eliminar:hover,
+button.cancelBtn:hover {
+    background-color: var(--white);
+    color: var(--red);
+}
+.error {
+  color: red;
+  position: relative;
+  top: -10px;
+}
+/* Formulario add producto */
+form.formulario-nueva-alerta {
+  background-color: var(--white);
+  width: 50vw;
+  height: 60vh;
+  /* display: none; */
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+p.title-formulario-alerta {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+div.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 75%;
+  margin-bottom: 1rem;
+}
+
+input.input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--light-gray);
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+}
+
+select.tipo-alerta {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--light-gray);
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+}
+
+select.tipo-alerta:focus {
+  border: 2px solid var(--green-700);
+}
+
+label.label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  background-color: var(--white);
+  color: #111;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+::placeholder {
+  color: transparent;
+}
+
+input.input:focus + label.label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-700);
+}
+
+input.input:not(:placeholder-shown)+ label.label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input.input:focus {
+  border: 2px solid var(--green-700);
+}
+
+div.btnContainer {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.ng-valid:not(form).ng-touched {
+  border-left: 5px solid var(--green-700);
+}
+.ng-invalid:not(form).ng-touched {
+  border-left: 5px solid var(--red);
+}
 /* Personalizar los colores del botón al pasar el mouse */
 
 .producto-botón:hover {

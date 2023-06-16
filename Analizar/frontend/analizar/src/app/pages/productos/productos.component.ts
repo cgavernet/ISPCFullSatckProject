@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/productos.service';
 import { AuthService } from 'src/app/service/auth.service';
 import Swal from 'sweetalert2';
@@ -13,12 +14,15 @@ export class ProductosComponent implements OnInit {
   counter = Array;
   opcionSeleccionado: string = '1';
   verSeleccion: number = 1;
+  insertProducto!: FormGroup;
+  loginError: string = '';
 
-  constructor(private productosService: ProductosService, private authService: AuthService) {
+  constructor(private productosService: ProductosService, private authService: AuthService, private fb: FormBuilder) {
        
   }
 
   ngOnInit(): void {
+    this.insertProducto = this.initForm()
     this.getProductos()
   }
 
@@ -41,6 +45,70 @@ export class ProductosComponent implements OnInit {
   capturar() {
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.verSeleccion = Number(this.opcionSeleccionado);
+  }
+  //Agregar producto
+  addProducto(){
+  const nombre = this.insertProducto.value.nombre; 
+  const descripcion = this.insertProducto.value.descripcion;
+  const rutaImagen = this.insertProducto.value.rutaImagen; 
+  const cantidadDisponible = this.insertProducto.value.cantidadDisponible;
+  const precio = this.insertProducto.value.precio;
+  if(this.insertProducto.valid){
+  this.productosService.addProducto(nombre, descripcion, rutaImagen, precio, cantidadDisponible).subscribe((product: any) => {
+    console.log('Producto agregado con éxito:', product);
+    this.closeAddProducto();
+    this.getProductos()
+  }, (error: any) => {
+    console.error('Hubo un error al agregar la alerta', error);
+  })
+  }else{
+    this.insertProducto.markAllAsTouched();
+    this.loginError = 'Complete los campos';
+  }
+  }
+  // Modal agregar producto
+  openAddProducto(): void {
+    const modalProducto = document.getElementById('addProducto');
+    let contenedorProductos = document.getElementById('productos');
+    if(modalProducto != null) {
+      console.log('click');      
+      modalProducto.classList.remove('d-none');
+      modalProducto.classList.add('d-flex'); 
+      this.insertProducto.reset();     
+    }
+    if(contenedorProductos != null) {
+      contenedorProductos.classList.add('visually-hidden');
+    }
+  }
+  closeAddProducto() {
+    const modalProducto = document.getElementById('addProducto');
+    let contenedorProductos = document.getElementById('productos');
+    if(modalProducto != null) {     
+      modalProducto.classList.remove('d-flex'); 
+      modalProducto.classList.add('d-none');   
+    }
+    if(contenedorProductos != null) {
+      contenedorProductos.classList.remove('visually-hidden');
+    }
+  }
+  initForm(): FormGroup {
+    return this.fb.group({
+      nombre: ['', [Validators.required, Validators.maxLength(40)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(200)]],
+      rutaImagen: ['', [Validators.required]],
+      cantidadDisponible: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      precio: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+    })
+  }
+
+
+  removeProducto(id: number){
+    this.productosService.removeProducto(id).subscribe((product: any) => {
+      console.log('Producto eliminado con exito:', product);
+      this.getProductos()
+    }, (error: any) => {
+      console.error('Hubo un error al eliminar el producto', error);      
+    })
   }
   
   agregarCarrito(producto:any, cantidad:number, tipoProducto:string){
