@@ -1,150 +1,169 @@
 /* Establecer el ancho máximo de la sección de productos */
+
 section {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Establecer las reglas para la fila */
+
+.row {
+  display: grid;
+  --bs-gutter-x: 0;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+  gap: 0;
+}
+
+/* Establecer las reglas para las columnas */
+
+.col {
+  box-sizing: border-box;
+  padding: 0 10px; /* Establecer un padding para separar las columnas */
+}
+
+/* Establecer las reglas para la imagen */
+
+.producto {
+  background-color: #fff;
+  border: 1px solid #509C57;
+  /* padding: 20px; */
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* width: 388px; */
+  width: 320px;
+  height: 350px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.producto-imagen {
+  max-width: 200px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  object-fit: contain;
+}
+
+/* Establecer las reglas para el botón */
+
+.producto-selector {
+  display: inline-block;    
+}
+
+.producto-botón {
+  display: inline-block;
+  width: 70%;
+  padding: 10px;
+  margin-left: 20px;
+  background-color: #1F5834;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.producto-botón:disabled {
+  background-color: #f30;
+  cursor: default;
+}
+
+.producto-botón:disabled:hover {
+  background-color: #f30;
+}
+
+/* Personalizar los colores y textos */
+
+h2 {
+  color: #1F5834;
+  font-size: 17px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+h3 {
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+p {
+  color: #666;
+  font-size: 11px;
+  text-align: center;
+}
+
+span {
+  color: #333;
+  text-align: center;
+}
+
+select {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+option {
+  color: #333;
+}
+
+.ordenar {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #1F5834;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.border-green-1 {
+  border: 1px solid #509C57;
+}
+
+button:hover {
+  background-color: #4D8E4C;
+}
+
+/* Personalizar los colores del botón al pasar el mouse */
+
+.producto-botón:hover {
+  background-color: #4D8E4C;
+}
+
+/* Media Query's */
+
+@media screen and (max-width: 1350px) {
+  section {
+    padding-bottom: 8rem;
   }
-  
-  /* Establecer las reglas para la fila */
   .row {
-    display: grid;
-    --bs-gutter-x: 0;
-    grid-template-columns: repeat(4, max-content);
-    justify-content: center;
-    gap: 0;
+    grid-template-columns: repeat(3, max-content);
   }
-  
-  /* Establecer las reglas para las columnas */
-  .col {
-    box-sizing: border-box;
-    padding: 0 10px; /* Establecer un padding para separar las columnas */
-  }
-  
-  /* Establecer las reglas para la imagen */
-  .producto {
-    background-color: #fff;
-    border: 1px solid #509C57;
-    /* padding: 20px; */
-    padding: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    /* width: 388px; */
-    width: 320px;
-    height: 350px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-  }
+}
 
-  .producto-imagen {
-    max-width: 200px;
-    height: 150px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
-    object-fit: contain;
+@media screen and (max-width: 1150px) {
+  section {
+    padding-bottom: 8rem;
   }
-  
-  /* Establecer las reglas para el botón */
-  .producto-selector {
-    display: inline-block;    
+  .row {
+    grid-template-columns: repeat(2, max-content);
   }
-  
-  .producto-botón {
-    display: inline-block;
-    width: 70%;
-    padding: 10px;
-    margin-left: 20px;
-    background-color: #1F5834;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Personalizar los colores y textos */
+}
 
-  h2 {
-    color: #1F5834;
-    font-size: 17px;
-    font-weight: bolder;
-    text-align: center;
+@media screen and (max-width: 850px) {
+  .row {
+    grid-template-columns: repeat(1, max-content);
   }
-  
-  h3 {
-    color: #333;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  p {
-    color: #666;
-    font-size: 11px;
-    text-align: center;
-  }
-  
-  span {
-    color: #333;
-    text-align: center;
-  }
-  
-  select {
-    background-color: #f2f2f2;
-    border: none;
-    padding: 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  option {
-    color: #333;
-  }
-
-  .ordenar {
-    margin-bottom: 20px;
-  }
-
-  button {
-    background-color: #1F5834;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
-    margin-left: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .border-green-1 {
-    border: 1px solid #509C57;
-  }
-  
-  button:hover {
-    background-color: #4D8E4C;
-  }
-  
-  /* Personalizar los colores del botón al pasar el mouse */
-  .producto-botón:hover {
-    background-color: #4D8E4C;
-  }
-
-  @media screen and (max-width: 1350px) {
-    section {
-      padding-bottom: 8rem;
-    }
-    .row {
-      grid-template-columns: repeat(3, max-content);
-    }
-  }
-
-  @media screen and (max-width: 1150px) {
-    section {
-      padding-bottom: 8rem;
-    }
-    .row {
-      grid-template-columns: repeat(2, max-content);
-    }
-  }
-
-  @media screen and (max-width: 850px) {
-    .row {
-      grid-template-columns: repeat(1, max-content);
-    }
-  }
+}
