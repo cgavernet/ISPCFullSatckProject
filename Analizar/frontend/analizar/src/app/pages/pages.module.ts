@@ -17,6 +17,7 @@ import { PlanesComponent } from './planes/planes.component';
 import { HomeComponent } from './home/home.component';
 import { EditAlertaComponent } from './alertas/edit-alerta/edit-alerta.component';
 import { MedidoresComponent } from './medidores/medidores.component';
+import { EditProductoComponent } from './productos/edit-producto/edit-producto.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MedidoresComponent } from './medidores/medidores.component';
     CarritoComponent,
     HomeComponent,
     EditAlertaComponent,
-    MedidoresComponent
+    MedidoresComponent,
+    EditProductoComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +59,8 @@ import { MedidoresComponent } from './medidores/medidores.component';
     PlanesComponent,
     CarritoComponent,
     HomeComponent,
-    MedidoresComponent
+    MedidoresComponent,
+    EditProductoComponent
   ]
 })
 export class PagesModule { }

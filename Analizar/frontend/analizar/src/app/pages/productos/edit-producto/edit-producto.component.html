@@ -1,0 +1,58 @@
+<section  class="contenedor-principal-alertas my-4 mx-auto">    
+    <form [formGroup]="editProducto" class="formulario-nueva-alerta" id="addProducto">
+        <p class="title-formulario-alerta">nueva producto</p>
+        <p class="text-danger">{{loginError}}</p>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa el nombre del producto" formControlName="nombre" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Nombre del producto </label>
+      </div>  
+      <div *ngIf="editProducto.get('nombre')?.touched && editProducto.get('nombre')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un nombre
+    </div>
+      <div *ngIf="editProducto.get('nombre')?.touched && editProducto.get('nombre')?.errors?.['maxlength']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un nombre de menos de 40 carácteres
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa una descripción del producto" formControlName="descripcion" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Descripción del producto </label>
+      </div>  
+      <div *ngIf="editProducto.get('descripcion')?.touched && editProducto.get('descripcion')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción del producto
+    </div>
+    <div *ngIf="editProducto.get('descripcion')?.touched && editProducto.get('descripcion')?.errors?.['maxlength']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción que no supere los 200 caracteres
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa la ruta de la imagen del producto" formControlName="rutaImagen" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Ruta imagen </label>
+      </div>  
+      <div *ngIf="editProducto.get('rutaImagen')?.touched && editProducto.get('rutaImagen')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una ruta para la imagen del producto
+    </div>
+    <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa el precio del producto" formControlName="precio" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Precio unitario </label>
+      </div> 
+      <div *ngIf="editProducto.get('precio')?.touched && editProducto.get('precio')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese el precio unitario
+    </div>
+    <div *ngIf="editProducto.get('precio')?.errors?.['pattern']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un valor numerico
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" pattern="[0-9]+" placeholder="Ingresa la cantidad disponible del producto" formControlName="cantidadDisponible" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Cantidad disponible </label>
+      </div> 
+      <div *ngIf="editProducto.get('cantidadDisponible')?.touched && editProducto.get('cantidadDisponible')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese la cantidad disponible
+    </div>
+    <div *ngIf="editProducto.get('cantidadDisponible')?.errors?.['pattern']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un valor numerico
+    </div>
+      <div class="btnContainer">
+        <button type="submit" class= "submitBtn saveBtn" (click)="updateProducto()" id="btn-save-nueva-alerta">Guardar</button>
+        <button type="button" class= "submitBtn cancelBtn" routerLink="/productos" id="btn-close-nueva-alerta">Cancelar</button>
+      </div>
+    </form>
+
+</section>

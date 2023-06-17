@@ -16,7 +16,7 @@ class Productos(models.Model):
     rutaImagen = models.TextField(default=" ")
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     cantidadDisponible = models.PositiveIntegerField()
-    # categorias = models.ManyToManyField(Categoria, through='ProductosPorCategoria')
+    categorias = models.ManyToManyField(Categoria, through='ProductosPorCategoria')
 
     def __str__(self):
         return self.nombre
