@@ -35,7 +35,11 @@ export class LoginComponent implements OnInit {
             this.authService.setIsAdmin(response.is_admin);
             localStorage.setItem('userId', response?.userId)                    
             localStorage.setItem('currentUser', JSON.stringify({ email: this.email }));
-            this.router.navigate(['/dashboard-client']);
+            if(response.is_admin == true) {
+              this.router.navigate(['/dashboard-admin']);
+            }else{
+              this.router.navigate(['/dashboard-client']);
+            }
         },
         (error) => {
           // Manejar el error en caso de fallo en la petición

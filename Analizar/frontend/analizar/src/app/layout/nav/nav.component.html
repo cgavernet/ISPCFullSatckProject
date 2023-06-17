@@ -49,13 +49,13 @@
   </nav>
   <nav id="submenu" class="m-0 sidebar">
     <ul class="list-unstyled bg-green m-auto align-items-center">
-      <li class="list-sidebar"><a class="list-sidebar-item" href="/dashboard-client">Dashboard</a></li>
+      <li *ngIf="!isAdmin()" class="list-sidebar"><a class="list-sidebar-item" href="/dashboard-client">Dashboard</a></li>
       <li *ngIf="isAdmin()" class="list-sidebar"><a class="list-sidebar-item" href="/dashboard-admin">Dashboard Admin</a></li>
       <!-- <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/historial">Historial</a></li> -->
-      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/alertas">Alertas</a></li>
+      <li *ngIf="!isAdmin()" class="list-sidebar"><a class="list-sidebar-item" routerLink="/alertas">Alertas</a></li>
       <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/productos">Productos</a></li>
       <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/planes">Planes</a></li>
-      <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/medidores">Medidores</a></li>
+      <li *ngIf="!isAdmin()" class="list-sidebar"><a class="list-sidebar-item" routerLink="/medidores">Medidores</a></li>
       <!-- <li class="list-sidebar"><a class="list-sidebar-item" routerLink="/mi-cuenta">Cuenta</a></li> -->
     </ul>
   </nav>
