@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertasService } from 'src/app/service/alertas.service';
 import { MedidoresService } from 'src/app/service/medidores.service';
+
 import { Alert } from './Alert';
 
 
@@ -38,7 +39,7 @@ constructor(private router: Router, private alertaService: AlertasService, priva
  getMedidoresByUser(){
   this.medidorService.getMedidores().subscribe((data: any) => {
     this.medidores = data
-    console.log(data);
+    //console.log(data);
     
   })
  }
@@ -49,7 +50,7 @@ constructor(private router: Router, private alertaService: AlertasService, priva
   const fechaAlta = this.alertasForm.get('fechaAlta')?.value; 
   if(this.alertasForm.valid){
   this.alertaService.addAlertas(valor, medidor, fechaAlta).subscribe((alert: any) => {
-    console.log('Alerta agregada con éxito:', alert);
+    //console.log('Alerta agregada con éxito:', alert);
     this.closeModal();
     this.getAlerts()
   }, (error: any) => {
@@ -83,7 +84,7 @@ constructor(private router: Router, private alertaService: AlertasService, priva
 
  removeAlert(id:number){  
   this.alertaService.removeAlertas(id).subscribe((alert) => {
-    console.log('Alerta eliminada con éxito:', alert);
+    //console.log('Alerta eliminada con éxito:', alert);
     this.closeModal();
     this.getAlerts()
   }, (error: any) => {

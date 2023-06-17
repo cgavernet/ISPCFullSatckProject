@@ -14,7 +14,7 @@
 
     <!-- /* Muestro los productos */ -->
 
-    <div class="row">
+    <div class="row" id="productos">
         <div class="col col-4" *ngFor="let producto of productos">
             <div class="card border-green-1 producto">
                 <img class="producto-imagen"  [src]="producto.rutaImagen" alt="Descripción de la imagen del producto">
@@ -26,16 +26,78 @@
                         <option *ngFor="let valor of counter(producto.cantidadDisponible);let i = index" [value]="i + 1">{{i + 1}}</option>
                     </select>
                     <button *ngIf="isAdmin() == false" [disabled]="producto.cantidadDisponible <= 0" class="producto-botón" (click)="agregarCarrito(producto,verSeleccion,'medidor')">{{producto.cantidadDisponible > 0 ? "Agregar al carrito" : "Sin stock"}}</button>
+                    <div class="d-flex justify-content-evenly" *ngIf="isAdmin() == true">
+                        <button [routerLink]="['/productos/', producto.id]" class="bi bi-pencil-fill saveBtn"></button>
+                        <button (click)="removeProducto(producto.id)" class="bi bi-trash-fill cancelBtn"></button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="isAdmin() == true" class="col col-4 my-2">
-            <div class="card h-100 border-green-1" style="width: 24em;">
-                <img class="card-img-top object-fit-cover h-100"  src="../../../assets/img/add.svg" alt="Descripción de la imagen del producto">
-                <div class="card-body">
-                </div>
+        <div *ngIf="isAdmin() == true" class="col col-4">
+            <div class="card border-green-1 producto" >
+                <img class="producto-imagen" (click)="openAddProducto()" src="../../../assets/img/add.svg" alt="Descripción de la imagen del producto">
             </div>
         </div>
     </div>      
+    <form [formGroup]="insertProducto" class="d-none formulario-nueva-alerta mx-auto" id="addProducto">
+        <p class="title-formulario-alerta">nueva producto</p>
+        <p class="text-danger">{{loginError}}</p>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa el nombre del producto" formControlName="nombre" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Nombre del producto </label>
+      </div>  
+      <div *ngIf="insertProducto.get('nombre')?.touched && insertProducto.get('nombre')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un nombre
+    </div>
+      <div *ngIf="insertProducto.get('nombre')?.touched && insertProducto.get('nombre')?.errors?.['maxlength']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un nombre de menos de 40 carácteres
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa una descripción del producto" formControlName="descripcion" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Descripción del producto </label>
+      </div>  
+      <div *ngIf="insertProducto.get('descripcion')?.touched && insertProducto.get('descripcion')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción del producto
+    </div>
+    <div *ngIf="insertProducto.get('descripcion')?.touched && insertProducto.get('descripcion')?.errors?.['maxlength']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción que no supere los 300 caracteres
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa la ruta de la imagen del producto" formControlName="rutaImagen" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Ruta imagen </label>
+      </div>  
+      <div *ngIf="insertProducto.get('rutaImagen')?.touched && insertProducto.get('rutaImagen')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una ruta para la imagen del producto
+    </div>
+    <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa el precio del producto" formControlName="precio" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Precio unitario </label>
+      </div> 
+      <div *ngIf="insertProducto.get('precio')?.touched && insertProducto.get('precio')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese el precio unitario
+    </div>
+    <div *ngIf="insertProducto.get('precio')?.errors?.['pattern']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un valor numerico
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" pattern="[0-9]+" placeholder="Ingresa la cantidad disponible del producto" formControlName="cantidadDisponible" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Cantidad disponible </label>
+      </div> 
+      <div *ngIf="insertProducto.get('cantidadDisponible')?.touched && insertProducto.get('cantidadDisponible')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese la cantidad disponible
+    </div>
+    <div *ngIf="insertProducto.get('cantidadDisponible')?.errors?.['pattern']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un valor numerico
+    </div>
+    <div class="inputContainer">
+        <select class="tipo-alerta" name="medidor" id="medidor" formControlName="categoria">
+          <option class="label" *ngFor="let categoria of categorias" [value]="categoria.id" >{{ categoria.nombre }}</option>
+        </select>
+      </div>
+      <div class="btnContainer">
+        <button type="submit" class= "submitBtn saveBtn" (click)="addProducto()" id="btn-save-nueva-alerta">Guardar</button>
+        <button type="button" class= "submitBtn cancelBtn" (click)="closeAddProducto()" id="btn-close-nueva-alerta">Cancelar</button>
+      </div>
+    </form>
 
 </section>
