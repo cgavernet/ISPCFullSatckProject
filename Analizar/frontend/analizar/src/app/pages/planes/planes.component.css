@@ -102,4 +102,41 @@ section {
     background-color: #4D8E4C;
     color: #fff;
   }  
-  
+  button {
+    background-color: #1F5834;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button.btn-alerta-editar,
+  button.saveBtn {
+      background-color: var(--green-700);
+      border: 2px solid var(--green-700);
+  }
+
+  button.btn-alerta-eliminar,
+  button.cancelBtn {
+      background-color: var(--red);
+      border: 2px solid var(--red);
+  }
+
+  button.btn-alerta-editar:hover,
+  button.saveBtn:hover {
+      background-color: var(--white);
+      color: var(--green-700);
+  }
+
+  button.btn-alerta-eliminar:hover,
+  button.cancelBtn:hover {
+      background-color: var(--white);
+      color: var(--red);
+  }
+  .error {
+    color: red;
+    position: relative;
+    top: -10px;
+  }

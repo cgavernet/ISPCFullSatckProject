@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>      
-    <form [formGroup]="insertProducto" class="d-none formulario-nueva-alerta" id="addProducto">
+    <form [formGroup]="insertProducto" class="d-none formulario-nueva-alerta mx-auto" id="addProducto">
         <p class="title-formulario-alerta">nueva producto</p>
         <p class="text-danger">{{loginError}}</p>
       <div class="inputContainer">
@@ -60,7 +60,7 @@
         <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción del producto
     </div>
     <div *ngIf="insertProducto.get('descripcion')?.touched && insertProducto.get('descripcion')?.errors?.['maxlength']" class="error">
-        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción que no supere los 200 caracteres
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción que no supere los 300 caracteres
     </div>
       <div class="inputContainer">
         <input type="text" class="input" placeholder="Ingresa la ruta de la imagen del producto" formControlName="rutaImagen" id="input-cantidadwh-new" name="input-cantidadwh-new">
@@ -89,6 +89,11 @@
     <div *ngIf="insertProducto.get('cantidadDisponible')?.errors?.['pattern']" class="error">
         <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un valor numerico
     </div>
+    <div class="inputContainer">
+        <select class="tipo-alerta" name="medidor" id="medidor" formControlName="categoria">
+          <option class="label" *ngFor="let categoria of categorias" [value]="categoria.id" >{{ categoria.nombre }}</option>
+        </select>
+      </div>
       <div class="btnContainer">
         <button type="submit" class= "submitBtn saveBtn" (click)="addProducto()" id="btn-save-nueva-alerta">Guardar</button>
         <button type="button" class= "submitBtn cancelBtn" (click)="closeAddProducto()" id="btn-close-nueva-alerta">Cancelar</button>

@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 
 export class ProductosComponent implements OnInit {
   productos: any[]=[];
+  categorias: any[] = [];
   counter = Array;
   opcionSeleccionado: string = '1';
   verSeleccion: number = 1;
@@ -24,6 +25,7 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this.insertProducto = this.initForm()
     this.getProductos()
+    this.getCategorias()
   }
 
   isAdmin(): boolean {
@@ -32,7 +34,7 @@ export class ProductosComponent implements OnInit {
   }
 
   getProductos(){
-    this.productosService.getProductos().subscribe(
+    this.productosService.getProductosAndMedidores().subscribe(
       (productos: any[]) => {
         this.productos = productos;
       },
@@ -42,6 +44,14 @@ export class ProductosComponent implements OnInit {
     );
   }
 
+  getCategorias(){
+    this.productosService.getCategorias().subscribe(
+      (categoria: any) => {
+        this.categorias = categoria;
+        //console.log(categoria);
+      }
+    )
+  }
   capturar() {
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.verSeleccion = Number(this.opcionSeleccionado);
@@ -53,8 +63,9 @@ export class ProductosComponent implements OnInit {
   const rutaImagen = this.insertProducto.value.rutaImagen; 
   const cantidadDisponible = this.insertProducto.value.cantidadDisponible;
   const precio = this.insertProducto.value.precio;
+  const categoria = this.insertProducto.value.categoria;
   if(this.insertProducto.valid){
-  this.productosService.addProducto(nombre, descripcion, rutaImagen, precio, cantidadDisponible).subscribe((product: any) => {
+  this.productosService.addProducto(nombre, descripcion, rutaImagen, precio, cantidadDisponible, categoria).subscribe((product: any) => {
     console.log('Producto agregado con éxito:', product);
     this.closeAddProducto();
     this.getProductos()
@@ -71,7 +82,7 @@ export class ProductosComponent implements OnInit {
     const modalProducto = document.getElementById('addProducto');
     let contenedorProductos = document.getElementById('productos');
     if(modalProducto != null) {
-      console.log('click');      
+      //console.log('click');      
       modalProducto.classList.remove('d-none');
       modalProducto.classList.add('d-flex'); 
       this.insertProducto.reset();     
@@ -94,10 +105,11 @@ export class ProductosComponent implements OnInit {
   initForm(): FormGroup {
     return this.fb.group({
       nombre: ['', [Validators.required, Validators.maxLength(40)]],
-      descripcion: ['', [Validators.required, Validators.maxLength(200)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(300)]],
       rutaImagen: ['', [Validators.required]],
       cantidadDisponible: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      precio: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+      precio: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      categoria: ['']
     })
   }
 
@@ -181,7 +193,7 @@ export class ProductosComponent implements OnInit {
         "cantidadDisponible": nuevaCantidadFinal
       }
       this.productosService.updateProductoById(producto.id, prod).subscribe((data:any) => {
-        console.log(data) 
+        //console.log(data) 
         this.verSeleccion = 0 
         this.getProductos()
         return data
