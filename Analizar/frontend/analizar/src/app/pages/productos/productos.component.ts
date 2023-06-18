@@ -34,7 +34,7 @@ export class ProductosComponent implements OnInit {
   }
 
   getProductos(){
-    this.productosService.getProductosAndMedidores().subscribe(
+    this.productosService.getProductos().subscribe(
       (productos: any[]) => {
         this.productos = productos;
       },

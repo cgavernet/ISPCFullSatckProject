@@ -23,14 +23,15 @@ export class CarritoComponent implements OnInit {
     let flag = true;
     if(localStorage.getItem('mi-carrito') != null){
       let carrito = this.obtenerCarritoLocalStorage()
+      console.log(carrito)
 
       for(let item of carrito){
         if(flag){
           datos.push({
             "id": String(item.producto.id),
-            "url": item.producto.ruta_img,
+            "url": item.producto.rutaImagen,
             "tipoProducto": item.tipoProducto,
-            "nombre": item.producto.nombre,
+            "nombre": item.producto.descripcion,
             "cantidad": item.cantidad,
             "precio": item.producto.precio
           })
@@ -42,9 +43,9 @@ export class CarritoComponent implements OnInit {
           }else{
             datos.push({
               "id": String(item.producto.id),
-              "url": item.producto.ruta_img,
+              "url": item.producto.rutaImagen,
               "tipoProducto": item.tipoProducto,
-              "nombre": item.producto.nombre,
+              "nombre": item.producto.descripcion,
               "cantidad": item.cantidad,
               "precio": item.producto.precio
             })
