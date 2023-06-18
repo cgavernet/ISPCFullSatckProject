@@ -28,22 +28,27 @@ export class NavComponent {
   isClosed: boolean = true;
   openSidebar() {
     const submenu = document.querySelector('#submenu');
-    const footer = document.querySelector('footer');
     const changeIcon = document.querySelector('#changeIcon');
     if (this.isClosed === true) {          
       changeIcon?.classList.remove('bi', 'bi-list');
       changeIcon?.classList.add('bi', 'bi-x-lg');
       submenu?.classList.add('sidebar-activo');
-      //console.log('Abro menu');
       this.isClosed = false;
       // Si esta abierto el menu, saco el icono de la cruz y cierro el menu
     } else {   
       changeIcon?.classList.remove('bi', 'bi-x-lg');
       changeIcon?.classList.add('bi', 'bi-list');
       submenu?.classList.remove('sidebar-activo');
-      //console.log('Cierro menu');
       this.isClosed = true;
     }
+  }
+  closeSidebar() {
+    const changeIcon = document.querySelector('#changeIcon');
+    const submenu = document.querySelector('#submenu');
+    changeIcon?.classList.remove('bi', 'bi-x-lg');
+    changeIcon?.classList.add('bi', 'bi-list');
+    submenu?.classList.remove('sidebar-activo');
+    this.isClosed = true;
   }
 
 }

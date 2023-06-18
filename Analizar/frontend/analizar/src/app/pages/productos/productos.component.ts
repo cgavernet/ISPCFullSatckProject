@@ -107,8 +107,8 @@ export class ProductosComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.maxLength(40)]],
       descripcion: ['', [Validators.required, Validators.maxLength(300)]],
       rutaImagen: ['', [Validators.required]],
-      cantidadDisponible: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      precio: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      cantidadDisponible: ['', [Validators.required, Validators.pattern(/^\d+(.\d{1,2})?$/)]],
+      precio: ['', [Validators.required, Validators.pattern(/^\d+(.\d{1,2})?$/)]],
       categoria: ['']
     })
   }
