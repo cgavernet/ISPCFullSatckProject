@@ -121,12 +121,15 @@ export class CarritoComponent implements OnInit {
     for(let i = 0; i < this.datos.length; i++){
       if(this.datos[i].id === id){
         indice = i
+        this.ProductosService.getProductoById(Number(id)).subscribe(data => {
+          data.cantidadDisponible += this.datos[i].cantidad
+          this.ProductosService.updateProductoById(Number(id),data).subscribe(data => data)
+          this.datos.splice(indice,1)
+          this.modificarItemCarrito(Number(id),'eliminar',0)
+          this.total = this.calcularValorTotal()
+        })
       }
     }
-
-    // this.datos.splice(indice,1)
-    // this.modificarItemCarrito(Number(id),'eliminar',0)
-    this.total = this.calcularValorTotal()
   }
 
   obtenerCarritoLocalStorage(){
