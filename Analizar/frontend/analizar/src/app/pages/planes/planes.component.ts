@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from 'src/app/productos.service';
 import { AuthService } from 'src/app/service/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-planes',
@@ -32,6 +33,36 @@ export class PlanesComponent implements OnInit {
       this.getServicios()
     }, (error: any) => {
       console.error('Hubo un error al eliminar el producto', error);      
+    })
+  }
+
+  agregarCarrito(producto:any, tipoProducto:string){
+
+    if(localStorage.getItem('mi-carrito') != null){
+      let carritoActual = JSON.parse(localStorage.getItem('mi-carrito')!)
+      let seAgregoElemento = false
+
+      for(let item of carritoActual){
+        if(item.producto.id === producto.id){
+          item.cantidad += 1
+          seAgregoElemento = true
+        }
+      }
+
+      if(!seAgregoElemento){
+        carritoActual!.push({producto,"cantidad":1, tipoProducto})
+      }
+      
+      localStorage.setItem('mi-carrito',JSON.stringify(carritoActual))
+    }else{
+      let carritoActual = JSON.stringify([{producto,"cantidad":1, tipoProducto}])
+      localStorage.setItem('mi-carrito',carritoActual)
+    }
+    
+    Swal.fire({
+      icon: 'success',
+      title: 'Éxito!',
+      text: 'Se agregó el producto al carrito!'
     })
   }
 }

@@ -25,7 +25,7 @@
           <ul>
             <li *ngFor="let caracteristica of servicio.caracteristicas">{{ caracteristica }}.</li>
           </ul>
-          <button *ngIf="isAdmin() == false" class="contratar">Contratar</button>
+          <button *ngIf="isAdmin() == false" class="contratar" (click)="agregarCarrito(servicio,'plan')">Contratar</button>
           <div class="d-flex justify-content-evenly" *ngIf="isAdmin() == true">
              <button [routerLink]="['/productos/', servicio.id]" class="bi bi-pencil-fill saveBtn"></button>
             <button (click)="removeProducto(servicio.id)" class="bi bi-trash-fill cancelBtn"></button>

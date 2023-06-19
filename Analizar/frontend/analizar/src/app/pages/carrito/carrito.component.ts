@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { retry } from 'rxjs';
+import { ProductosService } from 'src/app/productos.service';
 
 @Component({
   selector: 'app-carrito',
@@ -12,7 +13,7 @@ export class CarritoComponent implements OnInit {
 
   total = this.calcularValorTotal()
 
-  constructor(){}
+  constructor(private ProductosService: ProductosService){}
 
   ngOnInit(){
     this.verCarrito()
@@ -23,14 +24,15 @@ export class CarritoComponent implements OnInit {
     let flag = true;
     if(localStorage.getItem('mi-carrito') != null){
       let carrito = this.obtenerCarritoLocalStorage()
+      console.log(carrito)
 
       for(let item of carrito){
         if(flag){
           datos.push({
             "id": String(item.producto.id),
-            "url": item.producto.ruta_img,
+            "url": item.producto.rutaImagen,
             "tipoProducto": item.tipoProducto,
-            "nombre": item.producto.nombre,
+            "nombre": item.tipoProducto === "medidor" ? item.producto.descripcion : item.producto.nombre,
             "cantidad": item.cantidad,
             "precio": item.producto.precio
           })
@@ -42,9 +44,9 @@ export class CarritoComponent implements OnInit {
           }else{
             datos.push({
               "id": String(item.producto.id),
-              "url": item.producto.ruta_img,
+              "url": item.producto.rutaImagen,
               "tipoProducto": item.tipoProducto,
-              "nombre": item.producto.nombre,
+              "nombre": item.tipoProducto === "medidor" ? item.producto.descripcion : item.producto.nombre,
               "cantidad": item.cantidad,
               "precio": item.producto.precio
             })
@@ -60,26 +62,46 @@ export class CarritoComponent implements OnInit {
     }
   }
 
-  aumentarCantidad(id:string){
-    for(let el of this.datos){
-      if(el.id === id){
-        el.cantidad += 1
-        this.modificarItemCarrito(Number(id),'aumentar',1)
-      }
-    }
-    this.total = this.calcularValorTotal()
-  }
-
-  disminuirCantidad(id:string){
-    for(let el of this.datos){
-      if(el.id === id){
-        if(el.cantidad > 0){
-          el.cantidad -= 1
-          this.modificarItemCarrito(Number(id),'disminuir',1)
+  aumentarCantidad(id:string, tipoProducto:string){
+    if(tipoProducto === 'medidor'){
+      for(let el of this.datos){
+        if(el.id === id){
+          this.ProductosService.getProductoById(Number(id)).subscribe(data => {
+            console.log(data)
+            if(data.cantidadDisponible > 0){
+              data.cantidadDisponible -= 1
+              this.ProductosService.updateProductoById(Number(id),data).subscribe(data => data)
+              el.cantidad += 1
+              this.modificarItemCarrito(Number(id),'aumentar',1)
+            }else{
+              console.log("No quedan mas unidades")
+            }
+            this.total = this.calcularValorTotal()
+          })
+          
         }
       }
     }
-    this.total = this.calcularValorTotal()
+  }
+
+  disminuirCantidad(id:string, tipoProducto:string){
+    if(tipoProducto === 'medidor'){
+      for(let el of this.datos){
+        if(el.id === id){
+          if(el.cantidad > 0){
+            this.ProductosService.getProductoById(Number(id)).subscribe(data => {
+              console.log(data)
+              data.cantidadDisponible += 1
+              this.ProductosService.updateProductoById(Number(id),data).subscribe(data => data)
+              el.cantidad -= 1
+              this.modificarItemCarrito(Number(id),'disminuir',1)
+              this.total = this.calcularValorTotal()
+            })
+            
+          }
+        }
+      }
+    }
   }
 
   calcularValorTotal(){
@@ -96,18 +118,28 @@ export class CarritoComponent implements OnInit {
     return [total,cantidad]
   }
 
-  eliminarItem(id:string){
+  eliminarItem(id:string, tipoProducto:string){
     let indice = 0
 
     for(let i = 0; i < this.datos.length; i++){
       if(this.datos[i].id === id){
         indice = i
+        if(tipoProducto === 'medidor'){
+          this.ProductosService.getProductoById(Number(id)).subscribe(data => {
+            data.cantidadDisponible += this.datos[i].cantidad
+            this.ProductosService.updateProductoById(Number(id),data).subscribe(data => data)
+            this.datos.splice(indice,1)
+            this.modificarItemCarrito(Number(id),'eliminar',0)
+            this.total = this.calcularValorTotal()
+          })
+        }else{
+          this.datos.splice(indice,1)
+          this.modificarItemCarrito(Number(id),'eliminar',0)
+          this.total = this.calcularValorTotal()
+        }
+       
       }
     }
-
-    this.datos.splice(indice,1)
-    this.modificarItemCarrito(Number(id),'eliminar',0)
-    this.total = this.calcularValorTotal()
   }
 
   obtenerCarritoLocalStorage(){

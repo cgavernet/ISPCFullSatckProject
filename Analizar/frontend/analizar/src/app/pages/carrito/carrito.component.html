@@ -10,21 +10,22 @@
             <section class="contenedor__carrito--listadoProductos">
 
                 <article class="contenedor__carrito--item" *ngFor="let item of datos">
+                    <!-- <p>{{item}}</p> -->
                     <div class="contenedor__carrito--item-imagen">
-                        <img [src]="item.url" alt="img representativa del producto" class="contenedor__carrito--item-imagen">
+                        <img [src]="item.url" *ngIf="item.tipoProducto === 'medidor'" alt="img representativa del producto" class="contenedor__carrito--item-imagen">
                     </div>
                     <div class="contenedor__carrito--item-texto">
                         <h4 class="contenedor__carrito--item-tipo">{{item.tipoProducto}}</h4>
                         <p class="contenedor__carrito--item-nombre">{{item.nombre}}</p>
                     </div>
                     <div class="contenedor__carrito--item-cantidad">
-                        <i class="fa-solid fa-circle-minus" style="color: #ea3434;" (click)="disminuirCantidad(item.id)"></i>
+                        <i class="fa-solid fa-circle-minus" style="color: #ea3434;" (click)="disminuirCantidad(item.id,item.tipoProducto)"></i>
                         <p>{{item.cantidad}}</p>
-                        <i class="fa-solid fa-circle-plus" style="color: #61c83c;" (click)="aumentarCantidad(item.id)"></i>                    
+                        <i class="fa-solid fa-circle-plus" style="color: #61c83c;" (click)="aumentarCantidad(item.id,item.tipoProducto)"></i>                    
                     </div>
                     <div class="contenedor__carrito--item-precio">$<span>{{(item.cantidad * item.precio).toFixed(2)}}</span></div>
                     <div class="contenedor__carrito--item-eliminar">
-                        <i class="fa-solid fa-circle-xmark" style="color: #9e9a9d;" (click)="eliminarItem(item.id)"></i>
+                        <i class="fa-solid fa-circle-xmark" style="color: #9e9a9d;" (click)="eliminarItem(item.id,item.tipoProducto)"></i>
                     </div>
                 </article>
 
