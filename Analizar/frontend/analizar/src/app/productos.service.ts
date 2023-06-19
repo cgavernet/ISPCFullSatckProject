@@ -21,9 +21,9 @@ export class ProductosService {
   getProductosAndMedidores(): Observable<any> {
     return this.http.get(`${this.apiUrl}getProductosAndMedidores`);
   }
-  getProductos(): Observable<any> {
-    return this.http.get(this.apiUrl);
-  }
+  // getProductos(): Observable<any> {
+  //   return this.http.get(this.apiUrl);
+  // }
   /* C -> Create/Añadir un producto */
   addProducto(nombre:string, descripcion: string, rutaImagen: string, precio: number, cantidadDisponible: string, categoria: string):Observable<any> {
     const producto = {nombre, descripcion, rutaImagen, precio, cantidadDisponible, categoria}
