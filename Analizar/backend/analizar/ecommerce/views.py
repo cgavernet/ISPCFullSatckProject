@@ -25,7 +25,8 @@ class getProductosAndMedidores(View):
                     'nombre': producto.nombre,
                     'precio': producto.precio,
                     'rutaImagen': producto.rutaImagen,
-                    'descripcion': producto.descripcion
+                    'descripcion': producto.descripcion,
+                    'cantidadDisponible': producto.cantidadDisponible
                 }
                 data.append(datos_producto)
             #data = [model_to_dict(servicio) for servicio in servicios]

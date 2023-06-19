@@ -182,12 +182,13 @@ button.cancelBtn:hover {
   color: red;
   position: relative;
   top: -10px;
+  font-size: 12px;
 }
 /* Formulario add producto */
 form.formulario-nueva-alerta {
   background-color: var(--white);
   width: 50vw;
-  height: 60vh;
+  height: auto;
   /* display: none; */
   flex-flow: column nowrap;
   justify-content: center;
