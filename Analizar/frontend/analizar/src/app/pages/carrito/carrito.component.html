@@ -35,7 +35,20 @@
         </section>
         <footer class="contenedor__carrito--footer">
             <h3 class="contenedor__carrito--importeFinal">importe total $<span>{{total[0].toFixed(2)}}</span></h3>
-            <button class="contenedor__carrito--btnCompra">Pagar</button>
+            <button class="contenedor__carrito--btnCompra" id="wallet_container" (click)="generateCheckout(total[0])">Pagar</button>
         </footer>
     </section>
 </main>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    
+const mp = new MercadoPago('TEST-dfe6aa59-b47d-4df5-8a42-bd42731bcbe2');
+const bricksBuilder = mp.bricks();
+mp.bricks().create("wallet", "wallet_container", {
+   initialization: {
+       preferenceId: "wallet_container",
+       redirectMode: "modal"
+   },
+});
+
+</script>

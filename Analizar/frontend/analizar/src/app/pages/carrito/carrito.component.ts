@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { retry } from 'rxjs';
+import { ProductosService } from 'src/app/productos.service';
 
 @Component({
   selector: 'app-carrito',
@@ -9,10 +10,10 @@ import { retry } from 'rxjs';
 export class CarritoComponent implements OnInit {
 
   datos: any[] = [];
-
+  producto!: string;
   total = this.calcularValorTotal()
 
-  constructor(){}
+  constructor( private ProductosService: ProductosService){}
 
   ngOnInit(){
     this.verCarrito()
@@ -142,4 +143,25 @@ export class CarritoComponent implements OnInit {
   guardarCarritoLocalStorage(carrito:any){
     localStorage.setItem('mi-carrito',JSON.stringify(carrito))
   }
+  generateCheckout(productPrice: number): void {
+      let carrito = this.obtenerCarritoLocalStorage()
+      for(let item of carrito){
+        this.producto = item.tipoProducto
+      }
+      
+      this.ProductosService.generateCheckout(productPrice, this.producto)
+        .subscribe(
+          (response) => {
+            const paymentLink = response.payment_link;
+            console.log('Enlace de pago:', paymentLink);
+            // Aquí puedes proporcionar el enlace de pago al usuario o redirigirlo a la página de pago correspondiente
+            localStorage.removeItem('mi-carrito');
+            this.verCarrito();
+            window.open(paymentLink, '_blank');
+          },
+          (error) => {
+            console.error('Error al generar el enlace de pago:', error);
+          }
+        );
+    }
 }
