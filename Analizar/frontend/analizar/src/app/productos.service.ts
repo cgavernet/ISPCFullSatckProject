@@ -41,4 +41,9 @@ export class ProductosService {
   removeProducto(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}eliminar/producto/${id}`);
   }
+  /*Metodo de pago */
+  generateCheckout(productPrice: number, producto: string): Observable<{ payment_link: string }> {
+    const url = `${this.apiUrl}generateCheckout?precioTotal=${productPrice}&producto=${producto}`;
+    return this.http.get<{ payment_link: string }>(url);
+  }
 }

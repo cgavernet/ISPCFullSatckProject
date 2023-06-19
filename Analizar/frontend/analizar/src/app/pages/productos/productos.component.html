@@ -2,7 +2,7 @@
         
     <!-- /* Opción para ordenar los productos */     -->
 
-    <div class="ordenar">
+    <!-- <div class="ordenar"> 
         <label>Ordenar por:</label>       
         <select>
           <option value="nombre">Nombre</option>
@@ -10,7 +10,7 @@
           <option value="precio-desc">Precio - Mayor a menor</option>
         </select>
         <button id="ordenar-btn">Aplicar</button>
-    </div>
+    </div>-->
 
     <!-- /* Muestro los productos */ -->
 
@@ -40,7 +40,7 @@
         </div>
     </div>      
     <form [formGroup]="insertProducto" class="d-none formulario-nueva-alerta py-3 mx-auto" id="addProducto">
-        <p class="title-formulario-alerta">nueva producto</p>
+        <p class="title-formulario-alerta">nuevo producto</p>
         <p class="text-danger">{{loginError}}</p>
       <div class="inputContainer">
         <input type="text" class="input" placeholder="Ingresa el nombre del producto" formControlName="nombre" id="input-cantidadwh-new" name="input-cantidadwh-new">

@@ -337,5 +337,8 @@ section.contenedor-alertas {
     .row {
       grid-template-columns: repeat(1, max-content);
     }
+    form.formulario-nueva-alerta {
+      width: 100%;
+    }
   }
   
