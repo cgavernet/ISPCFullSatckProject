@@ -118,9 +118,9 @@ def generateCheckout(request):
             }
         ],
         "back_urls": {
-        "success": "http://localhost:4200/carrito",
-        "failure": "http://localhost:4200/carrito/failure",
-        "pending": "http://localhost:4200/carrito/pendings"
+        "success": "http://localhost:4200/carrito?result=success",
+        "failure": "http://localhost:4200/carrito?result=failure",
+        "pending": "http://localhost:4200/carrito?result=pending"
         },
         "auto_return": "approved"
     }
