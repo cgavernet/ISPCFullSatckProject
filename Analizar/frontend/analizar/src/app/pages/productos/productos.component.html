@@ -1,6 +1,8 @@
 <section>
+        
     <!-- /* Opción para ordenar los productos */     -->
-    <div class="ordenar">
+
+    <!-- <div class="ordenar"> 
         <label>Ordenar por:</label>       
         <select>
           <option value="nombre">Nombre</option>
@@ -8,104 +10,94 @@
           <option value="precio-desc">Precio - Mayor a menor</option>
         </select>
         <button id="ordenar-btn">Aplicar</button>
-      </div>
+    </div>-->
 
-    <!-- /* Muestro los productos */    -->
-    <div class="row">
-        <div class="col col-4" *ngFor="let producto of productos">
+    <!-- /* Muestro los productos */ -->
+
+    <div class="row" id="productos">
+        <div class="col col-md-3" *ngFor="let producto of productos">
             <div class="card border-green-1 producto">
-                <img class="producto-imagen"  [src]="producto.ruta_img" alt="Descripción de la imagen del producto">
+                <img class="producto-imagen"  [src]="producto.rutaImagen" alt="Descripción de la imagen del producto">
                 <div class="">
                     <h2>{{producto.nombre}}</h2>
                     <h3>Precio: <span>$ {{producto.precio}}</span></h3>
                     <p>{{producto.descripcion}}</p>
                     <select *ngIf="isAdmin() == false" class="producto-selector" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
-                        <option *ngFor="let valor of counter(producto.cantidad_disponible);let i = index" [value]="i + 1">{{i + 1}}</option>
+                        <option *ngFor="let valor of counter(producto.cantidadDisponible);let i = index" [value]="i + 1">{{i + 1}}</option>
                     </select>
-                    <button *ngIf="isAdmin() == false" class="producto-botón" (click)="agregarCarrito(producto,verSeleccion,'medidor')">Agregar al carrito</button>
+                    <button *ngIf="isAdmin() == false" [disabled]="producto.cantidadDisponible <= 0" class="producto-botón" (click)="agregarCarrito(producto,verSeleccion,'medidor')">{{producto.cantidadDisponible > 0 ? "Agregar al carrito" : "Sin stock"}}</button>
+                    <div class="d-flex justify-content-evenly" *ngIf="isAdmin() == true">
+                        <button [routerLink]="['/productos/', producto.id]" class="bi bi-pencil-fill saveBtn"></button>
+                        <button (click)="removeProducto(producto.id)" class="bi bi-trash-fill cancelBtn"></button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="isAdmin() == true" class="col col-4 my-2">
-            <div class="card h-100 border-green-1" style="width: 24em;">
-                <img class="card-img-top object-fit-cover h-100"  src="../../../assets/img/add.svg" alt="Descripción de la imagen del producto">
-                <div class="card-body">
+        <div *ngIf="isAdmin() == true" class="col col-4">
+            <div class="card border-green-1 producto" >
+                <img class="producto-imagen" (click)="openAddProducto()" src="../../../assets/img/add.svg" alt="Descripción de la imagen del producto">
+            </div>
+        </div>
+    </div>      
+    <form [formGroup]="insertProducto" class="d-none formulario-nueva-alerta py-3 mx-auto" id="addProducto">
+        <p class="title-formulario-alerta">nuevo producto</p>
+        <p class="text-danger">{{loginError}}</p>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa el nombre del producto" formControlName="nombre" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Nombre del producto </label>
+      </div>  
+      <div *ngIf="insertProducto.get('nombre')?.touched && insertProducto.get('nombre')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un nombre
+    </div>
+      <div *ngIf="insertProducto.get('nombre')?.touched && insertProducto.get('nombre')?.errors?.['maxlength']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un nombre de menos de 40 carácteres
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa una descripción del producto" formControlName="descripcion" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Descripción del producto </label>
+      </div>  
+      <div *ngIf="insertProducto.get('descripcion')?.touched && insertProducto.get('descripcion')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción del producto
+    </div>
+    <div *ngIf="insertProducto.get('descripcion')?.touched && insertProducto.get('descripcion')?.errors?.['maxlength']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un descripción que no supere los 300 caracteres
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa la ruta de la imagen del producto" formControlName="rutaImagen" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Ruta imagen </label>
+      </div>  
+      <div *ngIf="insertProducto.get('rutaImagen')?.touched && insertProducto.get('rutaImagen')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese una ruta para la imagen del producto
+    </div>
+    <div class="inputContainer">
+        <input type="text" class="input" placeholder="Ingresa el precio del producto" formControlName="precio" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Precio unitario </label>
+      </div> 
+      <div *ngIf="insertProducto.get('precio')?.touched && insertProducto.get('precio')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese el precio unitario
+    </div>
+    <div *ngIf="insertProducto.get('precio')?.errors?.['pattern']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un valor numerico
+    </div>
+      <div class="inputContainer">
+        <input type="text" class="input" pattern="[0-9]+" placeholder="Ingresa la cantidad disponible del producto" formControlName="cantidadDisponible" id="input-cantidadwh-new" name="input-cantidadwh-new">
+        <label for="" class="label"> Cantidad disponible </label>
+      </div> 
+      <div *ngIf="insertProducto.get('cantidadDisponible')?.touched && insertProducto.get('cantidadDisponible')?.errors?.['required']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese la cantidad disponible
+    </div>
+    <div *ngIf="insertProducto.get('cantidadDisponible')?.errors?.['pattern']" class="error">
+        <i class="bi bi-exclamation-circle mx-2"></i>Por favor ingrese un valor numerico
+    </div>
+    <div class="inputContainer">
+        <select class="tipo-alerta" name="medidor" id="medidor" formControlName="categoria">
+          <option class="label" *ngFor="let categoria of categorias" [value]="categoria.id" >{{ categoria.nombre }}</option>
+        </select>
+      </div>
+      <div class="btnContainer">
+        <button type="submit" class= "submitBtn saveBtn" (click)="addProducto()" id="btn-save-nueva-alerta">Guardar</button>
+        <button type="button" class= "submitBtn cancelBtn" (click)="closeAddProducto()" id="btn-close-nueva-alerta">Cancelar</button>
+      </div>
+    </form>
 
-                </div>
-            </div>
-        </div>
-    </div>
-<!--
-    <div class="row">
-        <div class="col col-4">
-            <div class="producto">
-                <img class="producto-imagen" src="../assets/img/SFE-Dom-1_0.png" alt="Descripción de la imagen del producto">
-                <h2>SFE D100</h2>
-                <h3>Precio: <span>$ 9.499,99</span></h3>
-                <p>Medidor Inteligente Domiciliario</p>
-                <select class="producto-selector">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                </select>
-                <button class="producto-botón">Agregar al carrito</button>
-            </div>
-        </div>
-        
-        <div class="col col-4">
-            <div class="producto">
-                <img class="producto-imagen" src="../assets/img/SME-Com-1_0.png" alt="Descripción de la imagen del producto">
-                <h2>SME C500</h2>
-                <h3>Precio: <span>$ 13.399,99</span></h3>
-                <p>Medidor Inteligente Comercial</p>
-                <select>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                </select>
-                <button class="producto-botón">Agregar al carrito</button>
-            </div>
-        </div>
-        
-        <div class="col col-4">
-            <div class="producto">
-                <img class="producto-imagen" src="../assets/img/TFE-Ind-1_0.png" alt="Descripción de la imagen del producto">
-                <h2>TFE I1000</h2>
-                <h3>Precio: <span>$ 17.999,99</span></h3>
-                <p>Medidor Inteligente Industrial</p>
-                <select>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                </select>
-                <button class="producto-botón">Agregar al carrito</button>
-            </div>
-        </div>
-    </div>
-    
-    <table>
-        <thead>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let producto of productos">
-                <td>{{ producto.id }}</td>
-                <td>{{ producto.nombre }}</td>
-                <td>{{ producto.descripcion }}</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <ul>
-        <li *ngFor="let producto of productos">{{ producto.nombre }}</li>
-    </ul>
-    -->  
 </section>

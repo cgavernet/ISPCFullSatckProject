@@ -6,7 +6,9 @@
       </div>
       <div *ngFor="let alerta of alertas;let i= index;" class="alerta" id="div-alerta1">
         <h2 class="titulo-alerta">Alerta #{{i+1}}</h2>
-        <h4>{{alerta.medidor}}</h4>
+        <div *ngFor="let medidor of medidores">
+          <h5 *ngIf="alerta.medidor === medidor.idMedidor">{{medidor.identificador}}</h5>
+        </div>
         <p class="texto-alerta" id="texto-alerta-alerta1">Si el consmo supera los <b>{{alerta.valor}}</b> w/h envio una alerta como precaucion</p>
         <div class="contenedor-botones-alerta">
             <button class="btn-alerta btn-alerta-editar" [routerLink]="['/alertas/', alerta.idAlerta]">editar</button>
@@ -22,7 +24,10 @@
         <label for="" class="label"> Cantidad w/h </label>
       </div>  
       <div class="inputContainer">
-        <input type="number" name="medidor"class="input" formControlName="medidor" id="medidor">
+        <select class="tipo-alerta" name="medidor" id="medidor" formControlName="medidor">
+          <option class="label" *ngIf="medidores.length === 0" disabled>Primero agregue un medidor</option>
+          <option class="label" *ngFor="let medidor of medidores" [value]="medidor.idMedidor" >{{ medidor.nombre }} - {{ medidor.identificador }}</option>
+        </select>
       </div>
       <div class="inputContainer">
         <input type="date" name="typeAlert"class="input" formControlName="fechaAlta" id="typeAlert">

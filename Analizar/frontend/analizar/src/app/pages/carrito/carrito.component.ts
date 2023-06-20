@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { retry } from 'rxjs';
+import { ProductosService } from 'src/app/productos.service';
 
 @Component({
   selector: 'app-carrito',
@@ -9,28 +11,47 @@ import { retry } from 'rxjs';
 export class CarritoComponent implements OnInit {
 
   datos: any[] = [];
-
+  producto!: string;
+  result!: string;
+  mensajeCheckout: string = '';
   total = this.calcularValorTotal()
 
-  constructor(){}
+  constructor( private ProductosService: ProductosService, private route: ActivatedRoute){}
 
   ngOnInit(){
     this.verCarrito()
+    this.statusCheckout()
   }
-
+  statusCheckout(){
+    this.route.queryParams.subscribe(params => {
+      this.result = params['result'];
+      // Lógica para mostrar mensaje en base al resultado
+      if (this.result === 'success') {
+        //console.log('Los productos fueron abonados con éxito');
+        this.mensajeCheckout = 'Los productos fueron abonados con exito';
+      } else if (this.result === 'failure') {
+        //console.log('Ocurrió un problema durante la transacción');
+        this.mensajeCheckout = 'Hubo un error al abonar los productos';
+      } else if (this.result === 'pending') {
+        //console.log('La transacción está pendiente');
+        this.mensajeCheckout = 'El pago esta pendiente por el momento';
+      }
+      })
+  }
   verCarrito(){
     let datos: any[] = [];
     let flag = true;
     if(localStorage.getItem('mi-carrito') != null){
       let carrito = this.obtenerCarritoLocalStorage()
+      console.log(carrito)
 
       for(let item of carrito){
         if(flag){
           datos.push({
             "id": String(item.producto.id),
-            "url": item.producto.ruta_img,
+            "url": item.producto.rutaImagen,
             "tipoProducto": item.tipoProducto,
-            "nombre": item.producto.nombre,
+            "nombre": item.tipoProducto === "medidor" ? item.producto.descripcion : item.producto.nombre,
             "cantidad": item.cantidad,
             "precio": item.producto.precio
           })
@@ -42,9 +63,9 @@ export class CarritoComponent implements OnInit {
           }else{
             datos.push({
               "id": String(item.producto.id),
-              "url": item.producto.ruta_img,
+              "url": item.producto.rutaImagen,
               "tipoProducto": item.tipoProducto,
-              "nombre": item.producto.nombre,
+              "nombre": item.tipoProducto === "medidor" ? item.producto.descripcion : item.producto.nombre,
               "cantidad": item.cantidad,
               "precio": item.producto.precio
             })
@@ -60,28 +81,51 @@ export class CarritoComponent implements OnInit {
     }
   }
 
-  aumentarCantidad(id:string){
-    for(let el of this.datos){
-      if(el.id === id){
-        el.cantidad += 1
-        this.modificarItemCarrito(Number(id),'aumentar',1)
-      }
-    }
-    this.total = this.calcularValorTotal()
-  }
-
-  disminuirCantidad(id:string){
-    for(let el of this.datos){
-      if(el.id === id){
-        if(el.cantidad > 0){
-          el.cantidad -= 1
-          this.modificarItemCarrito(Number(id),'disminuir',1)
+  aumentarCantidad(id:string, tipoProducto:string){
+    if(tipoProducto === 'medidor'){
+      for(let el of this.datos){
+        if(el.id === id){
+          this.ProductosService.getProductoById(Number(id)).subscribe(data => {
+            console.log(data)
+            if(data.cantidadDisponible > 0){
+              data.cantidadDisponible -= 1
+              this.ProductosService.updateProductoById(Number(id),data).subscribe(data => data)
+              el.cantidad += 1
+              this.modificarItemCarrito(Number(id),'aumentar',1)
+            }else{
+              console.log("No quedan mas unidades")
+            }
+            this.total = this.calcularValorTotal()
+          })
+          
         }
       }
     }
-    this.total = this.calcularValorTotal()
   }
 
+  disminuirCantidad(id:string, tipoProducto:string){
+    if(tipoProducto === 'medidor'){
+      for(let el of this.datos){
+        if(el.id === id){
+          if(el.cantidad > 0){
+            this.ProductosService.getProductoById(Number(id)).subscribe(data => {
+              console.log(data)
+              data.cantidadDisponible += 1
+              this.ProductosService.updateProductoById(Number(id),data).subscribe(data => data)
+              el.cantidad -= 1
+              this.modificarItemCarrito(Number(id),'disminuir',1)
+              this.total = this.calcularValorTotal()
+            })
+            
+          }
+        }
+      }
+    }
+  }
+  closeAlert(){
+    const  alert = document.querySelector('#alerta');
+    alert?.classList.add('d-none')
+  }
   calcularValorTotal(){
     let total = 0
     let cantidad = 0
@@ -96,18 +140,28 @@ export class CarritoComponent implements OnInit {
     return [total,cantidad]
   }
 
-  eliminarItem(id:string){
+  eliminarItem(id:string, tipoProducto:string){
     let indice = 0
 
     for(let i = 0; i < this.datos.length; i++){
       if(this.datos[i].id === id){
         indice = i
+        if(tipoProducto === 'medidor'){
+          this.ProductosService.getProductoById(Number(id)).subscribe(data => {
+            data.cantidadDisponible += this.datos[i].cantidad
+            this.ProductosService.updateProductoById(Number(id),data).subscribe(data => data)
+            this.datos.splice(indice,1)
+            this.modificarItemCarrito(Number(id),'eliminar',0)
+            this.total = this.calcularValorTotal()
+          })
+        }else{
+          this.datos.splice(indice,1)
+          this.modificarItemCarrito(Number(id),'eliminar',0)
+          this.total = this.calcularValorTotal()
+        }
+       
       }
     }
-
-    this.datos.splice(indice,1)
-    this.modificarItemCarrito(Number(id),'eliminar',0)
-    this.total = this.calcularValorTotal()
   }
 
   obtenerCarritoLocalStorage(){
@@ -142,4 +196,25 @@ export class CarritoComponent implements OnInit {
   guardarCarritoLocalStorage(carrito:any){
     localStorage.setItem('mi-carrito',JSON.stringify(carrito))
   }
+  generateCheckout(productPrice: number): void {
+      let carrito = this.obtenerCarritoLocalStorage()
+      for(let item of carrito){
+        this.producto = item.tipoProducto
+      }
+      
+      this.ProductosService.generateCheckout(productPrice, this.producto)
+        .subscribe(
+          (response) => {
+            const paymentLink = response.payment_link;
+            console.log('Enlace de pago:', paymentLink);
+            // Aquí puedes proporcionar el enlace de pago al usuario o redirigirlo a la página de pago correspondiente
+            localStorage.removeItem('mi-carrito');
+            this.verCarrito();
+            window.open(paymentLink, '_blank');
+          },
+          (error) => {
+            console.error('Error al generar el enlace de pago:', error);
+          }
+        );
+    }
 }

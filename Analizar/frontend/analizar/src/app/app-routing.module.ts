@@ -14,14 +14,18 @@ import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EditAlertaComponent } from './pages/alertas/edit-alerta/edit-alerta.component';
+import { MedidoresComponent } from './pages/medidores/medidores.component';
+import { EditProductoComponent } from './pages/productos/edit-producto/edit-producto.component';
 
 const routes: Routes = [
   //Definir las rutas de la app
+  { path: 'medidores', component: MedidoresComponent, canActivate:[AuthGuard]},
   { path: 'alertas', component: AlertasComponent, canActivate:[AuthGuard]},
   { path: 'alertas/:id', component: EditAlertaComponent, canActivate:[AuthGuard]},
   { path: 'home', component: HomeComponent},
   {path: '', redirectTo:'/home', pathMatch:'full'},
   { path: 'productos', component: ProductosComponent},
+  { path: 'productos/:id', component: EditProductoComponent, canActivate:[AuthGuard]},
   { path: 'planes', component: PlanesComponent},
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
