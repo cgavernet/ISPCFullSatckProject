@@ -17,7 +17,7 @@ def getProductos(request):
 class getProductosAndMedidores(View):
     def get(self, request):
         try:
-            categoria = Categoria.objects.get(nombre='Medidor')
+            categoria = Categoria.objects.get(nombre='Productos')
             productos = ProductosPorCategoria.objects.filter(categoria=categoria)
             data = []
             for producto_categoria in productos:
