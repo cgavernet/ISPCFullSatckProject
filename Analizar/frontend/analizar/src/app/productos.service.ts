@@ -21,11 +21,9 @@ export class ProductosService {
   getProductosAndMedidores(): Observable<any> {
     return this.http.get(`${this.apiUrl}getProductosAndMedidores`);
   }
-  /*
-  getProductos(): Observable<any> {
-    return this.http.get(this.apiUrl);
-  }
-  */
+  // getProductos(): Observable<any> {
+  //   return this.http.get(this.apiUrl);
+  // }
   /* C -> Create/Añadir un producto */
   addProducto(nombre:string, descripcion: string, rutaImagen: string, precio: number, cantidadDisponible: string, categoria: string):Observable<any> {
     const producto = {nombre, descripcion, rutaImagen, precio, cantidadDisponible, categoria}
@@ -42,5 +40,10 @@ export class ProductosService {
   /* D -> Delete/Eliminar un producto a partir de su ID */
   removeProducto(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}eliminar/producto/${id}`);
+  }
+  /*Metodo de pago */
+  generateCheckout(productPrice: number, producto: string): Observable<{ payment_link: string }> {
+    const url = `${this.apiUrl}generateCheckout?precioTotal=${productPrice}&producto=${producto}`;
+    return this.http.get<{ payment_link: string }>(url);
   }
 }

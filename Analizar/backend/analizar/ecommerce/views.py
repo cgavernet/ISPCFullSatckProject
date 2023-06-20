@@ -6,6 +6,8 @@ import json
 from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
+# SDK de Mercado Pago
+import mercadopago
 # Create your views here.
 def getProductos(request):
     productos = list(Productos.objects.values())
@@ -98,3 +100,31 @@ def eliminarProducto(request, id):
     producto.delete()
     datos = {'message': "Eliminado con éxito"}
     return JsonResponse(datos)
+#Generar link de pago MP
+def generateCheckout(request):
+    #Agrego creedenciales
+    sdk = mercadopago.SDK("TEST-4447899886864975-061911-37adead09312c98b6fe42795e43ecc67-1402534236")
+    producto = request.GET.get('producto')
+    precioTotal =  float(request.GET.get('precioTotal'))
+    #cantidadComprada = request.GET.get('cantidadComprada')
+    # Crea un ítem en la preferencia
+    preference_data = {
+        "items": [
+            {
+                "title": producto,
+                "quantity": 1,
+                "currency_id": "ARS",
+                "unit_price": precioTotal,
+            }
+        ],
+        "back_urls": {
+        "success": "http://localhost:4200/carrito?result=success",
+        "failure": "http://localhost:4200/carrito?result=failure",
+        "pending": "http://localhost:4200/carrito?result=pending"
+        },
+        "auto_return": "approved"
+    }
+
+    preference_response = sdk.preference().create(preference_data)
+    payment_link = preference_response["response"]['init_point']
+    return JsonResponse({"payment_link": payment_link})

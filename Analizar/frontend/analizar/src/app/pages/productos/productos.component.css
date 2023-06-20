@@ -259,8 +259,8 @@ label.label {
 }
 
 input.input:focus + label.label {
-  top: -7px;
-  left: 3px;
+  top: -11px;
+  left: 8px;
   z-index: 10;
   font-size: 14px;
   font-weight: 600;
@@ -319,5 +319,8 @@ div.btnContainer {
 @media screen and (max-width: 850px) {
   .row {
     grid-template-columns: repeat(1, max-content);
+  }
+  form.formulario-nueva-alerta {
+    width: 100%;
   }
 }

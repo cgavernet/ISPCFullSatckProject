@@ -9,5 +9,6 @@ urlpatterns = [
     path('add', postProductos, name='postProductos'),
     path('getCategorias', getCategoria.as_view(), name='getCategorias'),
     path('getServicios', getServicios.as_view(), name='getServicios'),
-    path('getProductosAndMedidores', getProductosAndMedidores.as_view(), name='getProductosAndMedidores')
+    path('getProductosAndMedidores', getProductosAndMedidores.as_view(), name='getProductosAndMedidores'),
+    path('generateCheckout', generateCheckout, name='generateCheckout')
 ]

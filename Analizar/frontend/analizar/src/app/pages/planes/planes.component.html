@@ -1,7 +1,7 @@
 <section>
     <h1>Elige el plan que se adapte a tus necesidades</h1>
     <p>Hola, gracias por llegar hasta aquí. Recuerda que por defecto está seleccionada la opción de suscripción <strong>"Mensual"</strong>. Pero si optas por la suscripción <strong>"Anual"</strong> puedes acceder a importantes beneficios en tus plaes y/o productos. Consulta las características de cada uno de ellos.</p>
-    <div class="row">
+    <!-- <div class="row"> 
         <div class="col">
           <div class="subscription-type">
             <input type="radio" id="mensual" name="subscription" checked>
@@ -15,7 +15,7 @@
             <label for="anual">Anual</label>
           </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="row">
       <div class="col" *ngFor="let servicio of servicios">
@@ -25,7 +25,7 @@
           <ul>
             <li *ngFor="let caracteristica of servicio.caracteristicas">{{ caracteristica }}.</li>
           </ul>
-          <button *ngIf="isAdmin() == false" class="contratar">Contratar</button>
+          <button *ngIf="isAdmin() == false" class="contratar" (click)="agregarCarrito(servicio,'plan')">Contratar</button>
           <div class="d-flex justify-content-evenly" *ngIf="isAdmin() == true">
              <button [routerLink]="['/productos/', servicio.id]" class="bi bi-pencil-fill saveBtn"></button>
             <button (click)="removeProducto(servicio.id)" class="bi bi-trash-fill cancelBtn"></button>
