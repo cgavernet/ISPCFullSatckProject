@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AlertasService } from 'src/app/service/alertas.service';
 import { MedidoresService } from 'src/app/service/medidores.service';
 
+
 @Component({
   selector: 'app-edit-alerta',
   templateUrl: './edit-alerta.component.html',
