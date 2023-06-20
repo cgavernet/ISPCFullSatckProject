@@ -15,7 +15,8 @@ export class AlertasService {
   apiUrlEdit = 'http://localhost:8000/alertas/editAlerta'
 
   getAlertas(): Observable<any> {
-    return this.http.get(this.apiUrlGet);
+    let userId = localStorage.getItem('userId');
+    return this.http.get(`${this.apiUrlGet}getAlertaByMedidor/${userId}`);
   }
   addAlertas(valor: number, medidor: number, fechaAlta: string): Observable<any> {
     const alert = { valor, medidor, fechaAlta}

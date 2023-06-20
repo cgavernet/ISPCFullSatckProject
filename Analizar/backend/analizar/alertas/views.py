@@ -6,6 +6,7 @@ from .serializers import AlertasSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.views import View
 from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_exempt
 
@@ -14,6 +15,19 @@ def getAlertas(request):
     alertas = Alertas.objects.all()
     data = [model_to_dict(alerta) for alerta in alertas] #Le indico que solo me devuelva el valor de los campos de alertas, el resto que lo descarte
     return JsonResponse(data, safe=False)
+
+class getAlertasByUser(APIView):
+    def get(self, request, user_id):
+        try:
+            medidores = Medidores.objects.filter(user_id=user_id)
+            #print(medidores)
+            alertas = Alertas.objects.filter(medidor__in=medidores)
+            #El operador __in en Django se utiliza para realizar consultas que verifiquen si un valor está contenido en una lista o un conjunto de valores.
+            #print(alertas)
+            data = [model_to_dict(alerta) for alerta in alertas]
+            return JsonResponse(data, safe=False)
+        except Alertas.DoesNotExist:
+            return JsonResponse({'error': 'Alertas no encontradas'}, status=404)
 
 class addAlerta(APIView):
     def post(self, request):

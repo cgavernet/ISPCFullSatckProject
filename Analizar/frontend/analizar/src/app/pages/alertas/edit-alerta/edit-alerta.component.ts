@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AlertasService } from 'src/app/service/alertas.service';
+import { MedidoresService } from 'src/app/service/medidores.service';
+
 
 @Component({
   selector: 'app-edit-alerta',
@@ -9,9 +11,10 @@ import { AlertasService } from 'src/app/service/alertas.service';
   styleUrls: ['./edit-alerta.component.css']
 })
 export class EditAlertaComponent implements OnInit {
-  constructor(private rutaEdit: ActivatedRoute, private fb: FormBuilder, private alertaService: AlertasService, private router: Router) {}
+  constructor(private rutaEdit: ActivatedRoute, private fb: FormBuilder, private alertaService: AlertasService, private medidorService: MedidoresService,private router: Router) {}
   alertaId!: number;
   alerta: any;
+  medidores: any[] = [];
   editForm!: FormGroup;
   registroSeleccionado: any;
   loginError: string = '';
@@ -23,6 +26,7 @@ export class EditAlertaComponent implements OnInit {
         console.log(this.alertaId, params['id']);                
       })
       this.getAlerta();
+      this.getMedidoresByUser()
       console.log(this.getAlerta());
       
   }  
@@ -34,6 +38,14 @@ export class EditAlertaComponent implements OnInit {
       fechaAlta: [''],
     })
   }
+  //Traer medidores para poder seleccionar para que medidor hacer la alerta
+ getMedidoresByUser(){
+  this.medidorService.getMedidores().subscribe((data: any) => {
+    this.medidores = data
+    console.log(data);
+    
+  })
+ }
   getAlerta() {
     const idParam = this.rutaEdit.snapshot.paramMap.get('id');
     this.alertaId = idParam ? +idParam : 0;

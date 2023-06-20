@@ -15,6 +15,9 @@ export class RegistroService {
     return this.http.post(`${this.apiUrl}/addUser`, user);
   }
   getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/`);
+    return this.http.get(`${this.apiUrl}/getUsersAndMedidores`);
+  }
+  removeUser(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/deleteUser/${id}`);
   }
 }

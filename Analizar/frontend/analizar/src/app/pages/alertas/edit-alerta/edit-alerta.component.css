@@ -175,8 +175,8 @@ label.label {
 }
 
 input.input:focus + label.label {
-    top: -7px;
-    left: 3px;
+    top: -11px;
+    left: 8px;
     z-index: 10;
     font-size: 14px;
     font-weight: 600;
@@ -184,8 +184,8 @@ input.input:focus + label.label {
 }
 
 input.input:not(:placeholder-shown)+ label.label {
-    top: -7px;
-    left: 3px;
+    top: -11px;
+    left: 8px;
     z-index: 10;
     font-size: 14px;
     font-weight: 600;

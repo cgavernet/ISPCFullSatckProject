@@ -4,27 +4,44 @@
             <h2 class="contenedor__carrito--titulo">Carrito</h2>
         </header>
         <section class="contenedor__carrito--contenedor">
+            <div *ngIf="result === 'success'" class="contenedor__carrito--encabezadoContenedor alert alert-success d-flex align-items-center justify-content-evenly" role="alert">
+                <i class="bi bi-check-circle text-black"></i>
+                <div class="text-black">{{mensajeCheckout}}</div>
+                <button type="button" class="btn-close text-black" id="alerta" (click)="closeAlert()" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div *ngIf="result === 'failure'" class="contenedor__carrito--encabezadoContenedor alert alert-danger d-flex align-items-center justify-content-evenly" role="alert">
+                <i class="bi bi-exclamation-circle text-black"></i>
+                <div class="text-black">{{mensajeCheckout}}</div>
+                <button type="button" class="btn-close text-black" id="alerta" (click)="closeAlert()" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div *ngIf="result === 'pending'" class="contenedor__carrito--encabezadoContenedor alert alert-warning d-flex align-items-center justify-content-evenly" role="alert">
+                <i class="bi bi-exclamation-circle text-black"></i>
+                <div class="text-black">{{mensajeCheckout}}</div>
+                <button type="button" class="btn-close text-black" id="alerta" (click)="closeAlert()" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+              
             <header class="contenedor__carrito--encabezadoContenedor">
                 <h3 class="contenedor__carrito--cantidadProductos"> <span>{{total[1]}}</span> productos</h3>
             </header>
             <section class="contenedor__carrito--listadoProductos">
 
                 <article class="contenedor__carrito--item" *ngFor="let item of datos">
+                    <!-- <p>{{item}}</p> -->
                     <div class="contenedor__carrito--item-imagen">
-                        <img [src]="item.url" alt="img representativa del producto" class="contenedor__carrito--item-imagen">
+                        <img [src]="item.url" *ngIf="item.tipoProducto === 'medidor'" alt="img representativa del producto" class="contenedor__carrito--item-imagen">
                     </div>
                     <div class="contenedor__carrito--item-texto">
                         <h4 class="contenedor__carrito--item-tipo">{{item.tipoProducto}}</h4>
                         <p class="contenedor__carrito--item-nombre">{{item.nombre}}</p>
                     </div>
                     <div class="contenedor__carrito--item-cantidad">
-                        <i class="fa-solid fa-circle-minus" style="color: #ea3434;" (click)="disminuirCantidad(item.id)"></i>
+                        <i class="fa-solid fa-circle-minus" style="color: #ea3434;" (click)="disminuirCantidad(item.id,item.tipoProducto)"></i>
                         <p>{{item.cantidad}}</p>
-                        <i class="fa-solid fa-circle-plus" style="color: #61c83c;" (click)="aumentarCantidad(item.id)"></i>                    
+                        <i class="fa-solid fa-circle-plus" style="color: #61c83c;" (click)="aumentarCantidad(item.id,item.tipoProducto)"></i>                    
                     </div>
                     <div class="contenedor__carrito--item-precio">$<span>{{(item.cantidad * item.precio).toFixed(2)}}</span></div>
                     <div class="contenedor__carrito--item-eliminar">
-                        <i class="fa-solid fa-circle-xmark" style="color: #9e9a9d;" (click)="eliminarItem(item.id)"></i>
+                        <i class="fa-solid fa-circle-xmark" style="color: #9e9a9d;" (click)="eliminarItem(item.id,item.tipoProducto)"></i>
                     </div>
                 </article>
 
@@ -35,7 +52,20 @@
         </section>
         <footer class="contenedor__carrito--footer">
             <h3 class="contenedor__carrito--importeFinal">importe total $<span>{{total[0].toFixed(2)}}</span></h3>
-            <button class="contenedor__carrito--btnCompra">Pagar</button>
+            <button class="contenedor__carrito--btnCompra" id="wallet_container" (click)="generateCheckout(total[0])">Pagar</button>
         </footer>
     </section>
 </main>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    
+const mp = new MercadoPago('TEST-dfe6aa59-b47d-4df5-8a42-bd42731bcbe2');
+const bricksBuilder = mp.bricks();
+mp.bricks().create("wallet", "wallet_container", {
+   initialization: {
+       preferenceId: "wallet_container",
+       redirectMode: "modal"
+   },
+});
+
+</script>

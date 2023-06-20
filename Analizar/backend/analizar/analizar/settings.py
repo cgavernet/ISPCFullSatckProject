@@ -84,12 +84,28 @@ WSGI_APPLICATION = 'analizar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+#Conexion a base de datos mysql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'analizar',
+        'USER': 'analizar',
+        'PASSWORD': 'Miik64K7gjM1',
+        'HOST': '190.228.29.62',#190.228.29.62 o 192.168.0.63
+        'PORT': '3306',
+    }
+}
+
+#Conexion a base de datos sqlite
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
+#Miik64K7gjM1
 
 #Authentication backends
 AUTHENTICATION_BACKENDS = (
