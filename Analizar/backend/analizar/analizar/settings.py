@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'analizar.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 #Conexion a base de datos mysql
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
