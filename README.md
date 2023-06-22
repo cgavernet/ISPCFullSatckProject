@@ -13,7 +13,7 @@ Visite nuestra Wiki para acceder a la información detallada y actualizada.
 https://github.com/cgavernet/ISPCFullSatckProject/wiki
 
 
-
-https://github.com/cgavernet/ISPCFullSatckProject/assets/56803807/35446fd7-d201-4893-a44d-5a26310a315b
+Demo en video de la SPA de AnalizAr con su E-commerce:
+https://drive.google.com/file/d/1s8HSExWaSt7sT3cV9P-hHaa0Mbjasb11/view?usp=drive_link
 
 
