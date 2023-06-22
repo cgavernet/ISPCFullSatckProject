@@ -11,3 +11,9 @@ durante el día, mediante los datos obtenidos del medidor de energía instalado 
 Visite nuestra Wiki para acceder a la información detallada y actualizada.
 
 https://github.com/cgavernet/ISPCFullSatckProject/wiki
+
+
+
+https://github.com/cgavernet/ISPCFullSatckProject/assets/56803807/35446fd7-d201-4893-a44d-5a26310a315b
+
+
